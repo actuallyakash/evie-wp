@@ -7,9 +7,11 @@
  * @package evie
  */
 
-if ( ! defined( '_S_VERSION' ) ) {
+if ( ! defined( 'WP_EVIE_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	define( 'WP_EVIE_VERSION', '1.0.0' );
+	define( 'WP_EVIE_DIR_PATH', plugin_dir_path( __FILE__ ) );
+	define( 'WP_EVIE_PLG_URL', plugin_dir_url( __FILE__ ) );
 }
 
 if ( ! function_exists( 'evie_setup' ) ) :
@@ -143,10 +145,11 @@ add_action( 'widgets_init', 'evie_widgets_init' );
  * Enqueue scripts and styles.
  */
 function evie_scripts() {
-	wp_enqueue_style( 'evie-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_enqueue_style( 'evie-bs-grid', get_template_directory_uri() . '/assets/css/bs-grid.css', [], WP_EVIE_VERSION );
+	wp_enqueue_style( 'evie-style', get_stylesheet_uri(), [], WP_EVIE_VERSION );
 	wp_style_add_data( 'evie-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'evie-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'evie-navigation', get_template_directory_uri() . '/assets/js/navigation.js', [], WP_EVIE_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
