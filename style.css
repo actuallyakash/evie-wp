@@ -2047,6 +2047,24 @@ aside.comment-box-wrap form {
   text-align: center;
 }
 
+.comment #respond {
+  text-align: center;
+}
+
+#reply-title .cancel-reply a {
+  text-transform: uppercase;
+  font-size: 11px;
+  background: #eee;
+  color: #888;
+  padding: 4px 8px 4px;
+  font-weight: 400;
+  margin-left: 20px;
+  letter-spacing: 1.5px;
+  transition: .3s;
+  border-radius: 50px;
+  vertical-align: text-top;
+}
+
 /* Comments List */
 .comments {
   margin-top: 40px;

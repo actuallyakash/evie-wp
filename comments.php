@@ -20,58 +20,93 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
-
-	<?php
-	// You can start editing here -- including this comment!
-	if ( have_comments() ) :
-		?>
-		<h2 class="comments-title">
-			<?php
-			$evie_comment_count = get_comments_number();
-			if ( '1' === $evie_comment_count ) {
-				printf(
-					/* translators: 1: title. */
-					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'evie' ),
-					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
-				);
-			} else {
-				printf( 
-					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $evie_comment_count, 'comments title', 'evie' ) ),
-					number_format_i18n( $evie_comment_count ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
-				);
-			}
-			?>
-		</h2><!-- .comments-title -->
-
-		<?php the_comments_navigation(); ?>
-
-		<ol class="comment-list">
-			<?php
-			wp_list_comments(
-				array(
-					'style'      => 'ol',
-					'short_ping' => true,
-				)
-			);
-			?>
-		</ol><!-- .comment-list -->
+<aside class="comment-box-wrap">
+	<div id="comments" class="comments-area comment-box-content">
 
 		<?php
-		the_comments_navigation();
-
-		// If comments are closed and there are comments, let's leave a little note, shall we?
-		if ( ! comments_open() ) :
+		// You can start editing here -- including this comment!
+		if ( have_comments() ) :
 			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'evie' ); ?></p>
+
+			<h3 class="center">Comments</h3>
+
+			<div class="comments">
+				<ul>
+					<?php
+					wp_list_comments(
+						array(
+							'walker'      => new Evie_Walker_Comment(),
+							'avatar_size' => 60,
+							'style'       => 'ul',
+						)
+					);
+					?>
+				</ul><!-- .comment-list -->
+			</div>
+
 			<?php
-		endif;
 
-	endif; // Check for have_comments().
+			the_comments_navigation();
 
-	comment_form();
-	?>
+		endif; // Check for have_comments().
+		
+		// Comment Form
+		if ( comments_open() || pings_open() ) {
 
-</div><!-- #comments -->
+			$comments_args = array(
+				'fields' => array(
+					'author' => '<div class="col-md-4">
+									<p class="comment-form-author"><label for="author">Name <span class="required">*</span></label>
+										<input placeholder="Name" id="author" name="author" aria-required="true" type="text" size="30" maxlength="245" required="required">
+									</p>
+								</div>',
+					'email' => '<div class="col-md-4">
+									<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label>
+										<input placeholder="you@example.com" id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required">
+									</p>
+								</div>',
+					'url' => '<div class="col-md-4">
+								<p class="comment-form-url">
+									<label for="url">Website</label> <input placeholder="example.com" id="url" name="url" type="url" value="" size="30" maxlength="200">
+								</p>
+							</div>',
+				),
+				'comment_field' => '<div class="col-md-12">
+									<p class="comment-form-comment"><label for="comment">Comment</label>
+										<textarea placeholder="Leave Your Comment" id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea>
+									</p>
+								</div>',
+				'submit_button' => '<div class="form-submit">
+										<input name="submit" type="submit" id="submit" class="button button__accent" value="Post Comment">
+									</div>',
+				'comment_notes_before' => '<small class="comment-notes">Your email address will not be published. Required fields are marked *</small>',
+				'label_submit' => __( 'Post Comment' ),
+				'cancel_reply_before' => '<small class="cancel-reply">',
+				'cancel_reply_after' => '</small>',
+				'cancel_reply_link' => __( 'Cancel' ),
+			);
+			
+			echo '<div class="center">';
+			comment_form( $comments_args );
+			echo '</div>';
+
+		} elseif ( is_single() ) {
+
+				if ( $comments ) {
+					echo '<hr class="styled-separator is-style-wide" aria-hidden="true" />';
+				}
+
+			?>
+
+			<div class="comment-respond center" id="respond">
+
+				<p class="comments-closed"><?php _e( 'Comments are closed.', 'twentytwenty' ); ?></p>
+
+			</div><!-- #respond -->
+
+			<?php
+		}
+		?>
+
+	</div><!-- #comments -->
+</aside>
