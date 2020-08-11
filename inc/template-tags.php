@@ -48,6 +48,33 @@ if ( ! function_exists( 'evie_first_category' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'evie_get_breadcrumbs' ) ) :
+	/**
+	 * Gets breadcrumbs for the page
+	 */
+	function evie_get_breadcrumbs() {
+		
+		echo '<a href="' . home_url() . '" rel="nofollow">Home</a>';
+		if ( is_category() || is_single() ) {
+			echo " > ";
+			the_category(' &bull; ');
+				if ( is_single() ) {
+					echo " > ";
+					the_title();
+				}
+		} elseif ( is_page() ) {
+			echo ">";
+			echo the_title();
+		} elseif ( is_search() ) {
+			echo ">Search Results for... ";
+			echo '"<em>';
+			echo the_search_query();
+			echo '</em>"';
+		}
+	
+	}
+endif;
+
 if ( ! function_exists( 'evie_posted_by' ) ) :
 	/**
 	 * Prints HTML with meta information for the current author.

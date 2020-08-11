@@ -30,13 +30,7 @@
 		
 
 		<div class="post__content">
-			<?php
-			if ( is_singular() ) :
-				the_title( '<h3 class="post__heading">', '</h3>' );
-			else :
-				the_title( '<h3 class="post__heading"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
-			endif;
-			?>
+			<?php the_title( '<h3 class="post__heading"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' ); ?>
 
 			<p class="excerpt">
 			<?php echo substr( get_the_excerpt(), 0, 260 ); ?>

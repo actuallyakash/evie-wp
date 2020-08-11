@@ -1993,6 +1993,10 @@ select::-ms-expand {
   align-items: center;
 }
 
+.article-navigation .nav-right {
+  margin-left: auto;
+}
+
 .article-navigation .nav-right .nav-label {
   margin-left: auto;
 }
