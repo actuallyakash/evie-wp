@@ -167,7 +167,19 @@ if ( ! function_exists( 'evie_post_thumbnail' ) ) :
 			?>
 
 			<div class="post-thumbnail">
-				<?php the_post_thumbnail(); ?>
+				<?php
+					the_post_thumbnail(
+						'post-thumbnail',
+						array(
+							'alt' => the_title_attribute(
+								array(
+									'echo' => false,
+								)
+							),
+							'class' => 'featured-image'
+						)
+					);
+				?>
 			</div><!-- .post-thumbnail -->
 
 		<?php else : ?>
@@ -182,6 +194,7 @@ if ( ! function_exists( 'evie_post_thumbnail' ) ) :
 									'echo' => false,
 								)
 							),
+							'class' => 'featured-image'
 						)
 					);
 				?>

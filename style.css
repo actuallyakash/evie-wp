@@ -411,7 +411,7 @@ svg {
 }
 
 .article-container {
-  max-width: 780px;
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1681,6 +1681,15 @@ select::-ms-expand {
 .app__menu {
   width: 100%;
   position: relative;
+  margin-top: 10px;
+}
+
+.sidebar-left {
+  padding-right: 50px;
+}
+
+.sidebar-right {
+  padding-left: 50px;
 }
 
 @media (min-width: 992px) {
@@ -1693,6 +1702,7 @@ select::-ms-expand {
 
 .app__main {
   flex-grow: 1;
+  text-align: justify;
 }
 
 .app__main__title {
@@ -1933,6 +1943,10 @@ select::-ms-expand {
 .article__header .article__header__title {
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+.featured-image {
+  width: 100%;
 }
 
 /* Author Card */

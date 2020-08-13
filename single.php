@@ -37,10 +37,14 @@ get_header();
 					<?php evie_post_thumbnail(); ?>
 				</div>
 			</div>
+			
 			<div class="article-container">
 
 				<!-- Article Section -->
 				<div class="app__inner">
+					<!-- Sidebar -->
+					<?php get_sidebar(); ?>
+
 					<div class="app__main">
 						<?php the_content(); ?>
 					</div>
@@ -132,5 +136,4 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();
