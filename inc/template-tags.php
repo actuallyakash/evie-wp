@@ -237,3 +237,20 @@ if ( ! function_exists( 'evie_is_comment_by_post_author' ) ) :
 		
 	}
 endif;
+
+if ( ! function_exists( 'evie_site_footer' ) ) {
+	/**
+	 * Display footer
+	 */
+	function evie_site_footer() {
+		$footerText = sprintf( '&copy; %1$s %2$s &bull; %4$s <a href="%3$s" itemprop="url">%5$s</a>',
+			date( 'Y' ),
+			get_bloginfo( 'name' ),
+			esc_url( 'http://akashgupta.xyz' ),
+			_x( 'Powered by', 'Evie', 'evie' ),
+			__( 'Evie', 'evie' )
+        );
+        
+        echo $footerText; // phpcs:ignore.
+	}
+}
