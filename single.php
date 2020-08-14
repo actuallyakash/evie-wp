@@ -15,28 +15,10 @@ get_header();
 		<?php
 		while ( have_posts() ) :
 			the_post();
+			
+			get_template_part( 'template-parts/content', 'header' );
+			
 			?>
-
-			<div class="container center article__header">
-				<small class="article__breadcrumbs">
-					<?php evie_get_breadcrumbs(); ?>
-				</small>
-
-				<?php the_title( '<h1 class="article__header__title">', '</h1>' ); ?>
-
-				<div class="user__info">
-					<div class="user__img__container">
-						<img src="<?php echo get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 450 )); ?>" alt="<?php get_the_title(); ?>">
-					</div>
-					<?php if ( 'post' === get_post_type() ) :
-						evie_posted_by();
-					endif; ?>
-				</div>
-				
-				<div class="page__header__image">
-					<?php evie_post_thumbnail(); ?>
-				</div>
-			</div>
 			
 			<div class="article-container">
 

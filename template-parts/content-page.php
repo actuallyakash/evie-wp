@@ -10,45 +10,78 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
 
-	<?php evie_post_thumbnail(); ?>
+	<?php if ( ! has_post_thumbnail() ) { ?>
 
-	<div class="entry-content">
-		<?php
-		the_content();
+		<div class="page__header">
+			<div class="hero__overlay hero__overlay--gradient"></div>
+			<div class="hero__mask"></div>
+			<div class="page__header__inner">
+				<div class="container">
+					<div class="page__header__content">
+						<div class="page__header__content__inner" id='navConverter'>
+							<?php the_title( '<h1 class="page__header__title">', '</h1>' ); ?>
+							<p class="page__header__text"><?php evie_get_breadcrumbs(); ?></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'evie' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
-	</div><!-- .entry-content -->
+	<?php } else {
 
-	<?php if ( get_edit_post_link() ) : ?>
-		<footer class="entry-footer">
-			<?php
-			edit_post_link(
-				sprintf(
-					wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Edit <span class="screen-reader-text">%s</span>', 'evie' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					wp_kses_post( get_the_title() )
-				),
-				'<span class="edit-link">',
-				'</span>'
-			);
-			?>
-		</footer><!-- .entry-footer -->
-	<?php endif; ?>
+		get_template_part( 'template-parts/content', 'header' );
+
+	}
+	?>
+
+	<div class="page">
+		<div class="article-container">
+			<div class="page__inner">
+				
+				<!-- Sidebar -->
+				<?php get_sidebar(); ?>
+
+				<div class="page__main">
+					
+					<?php 
+						the_content();
+
+						wp_link_pages(
+							array(
+								'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'evie' ),
+								'after'  => '</div>',
+							)
+						);
+					
+					if ( get_edit_post_link() ) : ?>
+						<footer class="entry-footer">
+							<?php
+							edit_post_link(
+								sprintf(
+									wp_kses(
+										/* translators: %s: Name of current post. Only visible to screen readers */
+										__( 'Edit <span class="screen-reader-text stress">%s</span>', 'evie' ),
+										array(
+											'span' => array(
+												'class' => array(),
+											),
+										)
+									),
+									wp_kses_post( get_the_title() )
+								),
+								'<code class="edit-link stress">',
+								'</code>'
+							);
+							?>
+						</footer><!-- .entry-footer -->
+					<?php endif; ?>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+	
 </article><!-- #post-<?php the_ID(); ?> -->

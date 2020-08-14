@@ -63,10 +63,10 @@ if ( ! function_exists( 'evie_get_breadcrumbs' ) ) :
 					the_title();
 				}
 		} elseif ( is_page() ) {
-			echo ">";
+			echo " > ";
 			echo the_title();
 		} elseif ( is_search() ) {
-			echo ">Search Results for... ";
+			echo " > Search Results for... ";
 			echo '"<em>';
 			echo the_search_query();
 			echo '</em>"';
@@ -215,7 +215,6 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 		do_action( 'wp_body_open' );
 	}
 endif;
-
 
 if ( ! function_exists( 'evie_is_comment_by_post_author' ) ) :
 	/**

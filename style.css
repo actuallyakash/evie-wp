@@ -1588,7 +1588,6 @@ select::-ms-expand {
 .page__header__text {
   opacity: 0.85;
   line-height: 1.7;
-  text-align: left;
 }
 
 .page {
