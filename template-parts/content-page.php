@@ -11,29 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php if ( ! has_post_thumbnail() ) { ?>
-
-		<div class="page__header">
-			<div class="hero__overlay hero__overlay--gradient"></div>
-			<div class="hero__mask"></div>
-			<div class="page__header__inner">
-				<div class="container">
-					<div class="page__header__content">
-						<div class="page__header__content__inner" id='navConverter'>
-							<?php the_title( '<h1 class="page__header__title">', '</h1>' ); ?>
-							<p class="page__header__text"><?php evie_get_breadcrumbs(); ?></p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	<?php } else {
-
-		get_template_part( 'template-parts/content', 'header' );
-
-	}
-	?>
+	<?php get_template_part( 'template-parts/content', 'header' ); ?>
 
 	<div class="page">
 		<div class="article-container">

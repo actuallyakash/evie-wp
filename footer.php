@@ -14,7 +14,7 @@
 	<footer class="footer footer--dark center">
 		<span class="footer__textLogo">
 			<?php evie_site_footer(); ?>
-		</span>		
+		</span>
 	</footer>
 
 </div><!-- #page -->

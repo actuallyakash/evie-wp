@@ -1410,7 +1410,6 @@ select::-ms-expand {
   }
 }
 
-
 .footer__link {
   color: #6C63FF;
   border-bottom: 1px dotted #6C63FF;
@@ -2106,4 +2105,8 @@ aside.comment-box-wrap form {
   font-size: 12px;
   font-weight: 600;
   transition: .2s;
+}
+
+.hidden {
+  display: none;
 }
