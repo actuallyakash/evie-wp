@@ -928,10 +928,15 @@ select::-ms-expand {
 }
 
 .navbar__logo {
-  font-size: 1.325rem;
+  font-size: 1.625rem;
   transition: 0;
   color: #fff;
   text-decoration: none;
+}
+
+.site__description {
+  margin-left: 8px;
+  opacity: 0.85;
 }
 
 .navbar__menu {
