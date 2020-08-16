@@ -23,6 +23,7 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
+	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'evie' ); ?></a>
 
 	<header class="navbar">
 		<nav class="nav__mobile"></nav>
@@ -39,13 +40,14 @@
 				<?php endif; ?>
 				</a>
 
+				<?php
+				wp_nav_menu( array(
+					'menu_class'        => "navbar__menu", // (string) CSS class to use for the ul element which forms the menu. Default 'menu'.
+					'menu_id'           => "primary-menu", // (string) The ID that is applied to the ul element which forms the menu. Default is the menu slug, incremented.
+					'theme_location'    => "menu-1", // (string) Theme location to be used. Must be registered with register_nav_menu() in order to be selectable by the user.
+				) );
+				?>
 
-				<nav class="navbar__menu">
-					<ul>
-						<li><a href="#">Option</a></li>
-						<li><a href="#">Option 2</a></li>
-					</ul>
-				</nav>
 				<div class="navbar__menu-mob"><a href="" id='toggle'><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" class=""></path></svg></a></div>
 			</div>
 		</div>
