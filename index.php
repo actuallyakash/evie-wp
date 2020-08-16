@@ -26,7 +26,11 @@ get_header();
 				</header>
 				<?php
 			endif;
+		?>
 
+			<div class="evie-posts app">
+		
+		<?php
 			/* Start the Loop */
 			while ( have_posts() ) :
 				the_post();
@@ -39,8 +43,13 @@ get_header();
 				get_template_part( 'template-parts/content', get_post_type() );
 
 			endwhile;
+			?>
 
-			the_posts_navigation();
+			</div>
+
+		<?php
+
+			evie_pagination();
 
 		else :
 
@@ -52,5 +61,4 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

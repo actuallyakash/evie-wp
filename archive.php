@@ -16,7 +16,7 @@ get_header();
 		
 			<?php get_template_part( 'template-parts/content', 'header' ); ?>
 
-			<div class="evie-posts landing__section">
+			<div class="evie-posts app">
 
 			<?php
 			/* Start the Loop */
@@ -36,7 +36,7 @@ get_header();
 			</div>
 
 			<?php
-			the_posts_navigation();
+			evie_pagination();
 
 		else :
 

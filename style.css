@@ -906,6 +906,7 @@ select::-ms-expand {
 
 .navbar {
   position: fixed;
+  top: 0;
   z-index: 100;
   width: 100%;
   background-color: #6C63FF;
@@ -1624,7 +1625,7 @@ select::-ms-expand {
 }
 
 .app {
-  padding: calc(81.33333px) 0;
+  padding: calc(81.33333px) 0 40px 0;
 }
 
 @media (min-width: 992px) {
@@ -2114,4 +2115,61 @@ aside.comment-box-wrap form {
 
 .hidden {
   display: none;
+}
+
+.evie-posts {
+  overflow: auto;
+}
+
+/* Pagination */
+.navigation .screen-reader-text {
+  display: none;
+}
+
+/* pagination
+==================== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.pagination .nav-links {
+	display: flex;
+}
+
+.pagination .page-numbers:not(:last-child) {
+	margin-right: 5px;
+}
+
+.pagination-next-prev {
+	margin: 20px 0;
+}
+
+.pagination a,
+.pagination span,
+.pagination-next-prev a {
+	color: #fff;
+	padding: 4px 12px;
+	background-color: #6c63ff;
+}
+
+.pagination a:hover,
+.pagination-next-prev a:hover {
+	background-color: #6c63ff;
+	opacity: 0.8;
+}
+
+.pagination .page-numbers {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid lightgrey;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+}
+
+.pagination .page-numbers:hover,
+.pagination .page-numbers:focus,
+.pagination .page-numbers.current {
+	color: #fff;
+	background-color: #6c63ff;
 }

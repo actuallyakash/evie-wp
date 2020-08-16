@@ -254,3 +254,23 @@ if ( ! function_exists( 'evie_site_footer' ) ) {
         echo $footerText; // phpcs:ignore.
 	}
 }
+
+if ( ! function_exists( 'evie_pagination' ) ) :
+    /**
+     * Display pagination for archives.
+     */
+    function evie_pagination() { ?>
+		<div class="pagination">
+
+		<?php
+			the_posts_pagination( array(
+				'mid_size'  => 1,
+				'prev_text' => '< ' . esc_html__( 'Previous', 'mtminimag' ),
+				'next_text' => esc_html__( 'Next', 'mtminimag' ).' >',
+			) );
+		?>
+		</div>
+
+        <?php wp_reset_postdata();
+    }
+endif;

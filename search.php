@@ -37,7 +37,7 @@ get_header();
 
 			endwhile;
 
-			the_posts_navigation();
+			evie_pagination();
 
 		else :
 
