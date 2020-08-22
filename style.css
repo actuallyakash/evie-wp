@@ -410,10 +410,8 @@ svg {
   max-width: 640px;
 }
 
-.article-container {
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
+.article {
+  padding: 24pt;
 }
 
 .text-container--center {
@@ -1017,7 +1015,7 @@ select::-ms-expand {
 }
 
 /*! responsive-nav.js 1.0.39 by @viljamis */
-.nav__mobile ul {
+.nav__mobile {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -1641,8 +1639,10 @@ select::-ms-expand {
   margin-top: 10px;
 }
 
-.sidebar-left {
-  padding-right: 50px;
+@media (min-width: 992px) {
+  .sidebar-left {
+    padding-right: 50px;
+  }
 }
 
 .sidebar-right {
@@ -1885,11 +1885,6 @@ select::-ms-expand {
   font-size: 14px;
 }
 
-.archive {
-  display: flex;
-  justify-content: center;
-}
-
 /* Single */
 .article__header .user__info {
   display: flex;
@@ -2118,7 +2113,9 @@ aside.comment-box-wrap form {
 }
 
 .evie-posts {
-  overflow: auto;
+  width: auto;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* Pagination */
@@ -2172,4 +2169,47 @@ aside.comment-box-wrap form {
 .pagination .page-numbers.current {
 	color: #fff;
 	background-color: #6c63ff;
+}
+
+/* Accessibility */
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+  /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  clip-path: none;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  height: auto;
+  right: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  /* Above WP toolbar. */
+}
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+  outline: 0;
 }

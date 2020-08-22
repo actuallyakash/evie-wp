@@ -269,6 +269,7 @@ if ( ! function_exists( 'evie_pagination' ) ) :
 				'next_text' => esc_html__( 'Next', 'mtminimag' ).' >',
 			) );
 		?>
+		
 		</div>
 
         <?php wp_reset_postdata();

@@ -20,7 +20,7 @@ get_header();
 			
 			?>
 			
-			<div class="article-container">
+			<div class="container">
 
 				<!-- Article Section -->
 				<div class="app__inner">
