@@ -51,3 +51,8 @@
 	</div>
 
 </article>
+
+<?php
+// Clearfix Fix
+echo ( ( $wp_query->current_post + 1 ) % 3 == 0 ) ? '<div class="clearfix"></div>' : '';
+?>
