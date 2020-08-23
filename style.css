@@ -410,10 +410,6 @@ svg {
   max-width: 640px;
 }
 
-.article {
-  padding: 24pt;
-}
-
 .text-container--center {
   margin-left: auto;
   margin-right: auto;
@@ -1516,6 +1512,7 @@ select::-ms-expand {
   color: #ffffff;
   box-shadow: 0 4px 11px rgba(124, 146, 169, 0.5);
   width: 100%;
+  margin-bottom: 30pt;
 }
 
 .page__header__inner {
@@ -1623,7 +1620,7 @@ select::-ms-expand {
 }
 
 .app {
-  padding: calc(81.33333px) 0 40px 0;
+  padding: calc(80px) 0 40px 0;
 }
 
 @media (min-width: 992px) {
@@ -1886,6 +1883,11 @@ select::-ms-expand {
 }
 
 /* Single */
+.article__header {
+  margin-top: 80px;
+  margin-bottom: 30pt;
+}
+
 .article__header .user__info {
   display: flex;
   justify-content: center;

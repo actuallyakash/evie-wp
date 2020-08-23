@@ -16,34 +16,35 @@ get_header();
 		
 			<?php get_template_part( 'template-parts/content', 'header' ); ?>
 
-				<div class="container">
+			<div class="container">
 
-					<div class="app__inner app">
-						<!-- Sidebar -->
-						<?php get_sidebar(); ?>
+				<div class="app__inner">
 
-						<div class="evie-posts row">
-							<?php
-							/* Start the Loop */
-							while ( have_posts() ) :
-								the_post();
+					<!-- Sidebar -->
+					<?php get_sidebar(); ?>
 
-								/*
-								* Include the Post-Type-specific template for the content.
-								* If you want to override this in a child theme, then include a file
-								* called content-___.php (where ___ is the Post Type name) and that will be used instead.
-								*/
-								get_template_part( 'template-parts/content', get_post_type() );
+					<div class="evie-posts row">
+						<?php
+						/* Start the Loop */
+						while ( have_posts() ) :
+							the_post();
 
-								// echo isset($clearfix) ? 'yes' : 'no';
+							/*
+							* Include the Post-Type-specific template for the content.
+							* If you want to override this in a child theme, then include a file
+							* called content-___.php (where ___ is the Post Type name) and that will be used instead.
+							*/
+							get_template_part( 'template-parts/content', get_post_type() );
 
-							endwhile;
-							?>
-						</div>
+							// echo isset($clearfix) ? 'yes' : 'no';
 
+						endwhile;
+						?>
 					</div>
 
 				</div>
+
+			</div>
 
 			<?php
 			evie_pagination();

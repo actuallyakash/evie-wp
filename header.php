@@ -25,7 +25,7 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'evie' ); ?></a>
 
-	<header class="navbar<?php global $post; echo ( ! has_post_thumbnail( $post->ID ) || is_archive() ) ? ' navbar--extended' : ''; ?>">
+	<header class="navbar<?php global $post; echo ( ! is_home() && ( ! has_post_thumbnail( $post->ID ) || is_archive() || is_search() ) ) ? ' navbar--extended' : ''; ?>">
 		<nav class="nav__mobile"></nav>
 		<div class="container">
 			<div class="navbar__inner">

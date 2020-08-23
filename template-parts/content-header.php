@@ -9,7 +9,7 @@
 
 ?>
 
-<?php if ( ! has_post_thumbnail() || is_archive() ) { ?>
+<?php if ( ! has_post_thumbnail() || is_archive() || is_search() ) { ?>
 
     <div class="page__header">
         <div class="hero__overlay hero__overlay--gradient"></div>
@@ -18,7 +18,7 @@
             <div class="container">
                 <div class="page__header__content">
                     <div class="page__header__content__inner" id='navConverter'>
-                        <?php if ( is_archive() ) {
+                        <?php if ( is_archive() || is_search() ) {
                             the_archive_title();
                             the_archive_description( '<div class="page__header__text">', '</div>' );
                         } else {

@@ -46,6 +46,8 @@ function evie_get_archive_title( $title ) {
 		$title = '<small>Browsing category</small>' . '<h1 class="page__header__title">' . single_cat_title( '', false ) . '</h1>';    
 	} elseif ( is_tag() ) {    
 		$title = '<small>Browsing tag</small>' . '<h1 class="page__header__title">' . single_tag_title( '', false ) . '</h1>';    
+	} elseif ( is_search() ) {    
+		$title = '<small>Search Results for</small>' . '<h1 class="page__header__title">' . get_search_query() . '</h1>';    
 	} elseif ( is_author() ) {    
 		$title = '<small>All Posts by</small>' . '<h1 class="page__header__title">' . get_the_author() . '</h1>' ;    
 	} elseif ( is_tax() ) { //for custom post types

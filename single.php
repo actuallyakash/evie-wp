@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="app single__post">
+	<main id="primary" class="single__post">
 
 		<?php
 		while ( have_posts() ) :

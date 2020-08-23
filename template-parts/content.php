@@ -12,9 +12,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'col-md-4' ); ?>>
 	<div class="evie__post">
 
-	<div class="evie__img__container">
-		<?php evie_post_thumbnail(); ?>
-	</div>
+	<?php evie_post_thumbnail(); ?>
 
 	<div class="post__details">
 

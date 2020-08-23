@@ -44,7 +44,11 @@ if ( ! function_exists( 'evie_first_category' ) ) :
 		$category_name = get_the_category()[0]->cat_name;
 		$category_link = get_category_link( get_cat_ID( $category_name ) );
 
-		echo '<span class="evie__category"><a href="'. esc_url( $category_link ) .'" title="'. $category_name .'">'. $category_name .'</a></span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		if ( ! empty( $category_name ) ) {
+
+			echo '<span class="evie__category"><a href="'. esc_url( $category_link ) .'" title="'. $category_name .'">'. $category_name .'</a></span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+		}
 	}
 endif;
 
@@ -184,23 +188,25 @@ if ( ! function_exists( 'evie_post_thumbnail' ) ) :
 
 		<?php else : ?>
 
-			<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-				<?php
-					the_post_thumbnail(
-						'post-thumbnail',
-						array(
-							'alt' => the_title_attribute(
-								array(
-									'echo' => false,
-								)
-							),
-							'class' => 'featured-image'
-						)
-					);
-				?>
-			</a>
+			<div class="evie__img__container">
+				<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+					<?php
+						the_post_thumbnail(
+							'post-thumbnail',
+							array(
+								'alt' => the_title_attribute(
+									array(
+										'echo' => false,
+									)
+								),
+								'class' => 'featured-image'
+							)
+						);
+					?>
+				</a>
+			</div>
 
-			<?php
+		<?php
 		endif; // End is_singular().
 	}
 endif;

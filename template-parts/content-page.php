@@ -9,12 +9,11 @@
 
 ?>
 
-<?php $coverHeader = has_post_thumbnail() ? ' app' : ''; ?>
-<div id="post-<?php the_ID(); ?>" <?php post_class( "page $coverHeader" ); ?>>
+<div id="post-<?php the_ID(); ?>" <?php post_class( 'page' ); ?>>
 
 	<?php get_template_part( 'template-parts/content', 'header' ); ?>
 
-	<div class="container article">
+	<div class="container">
 		<div class="page__inner">
 			
 			<!-- Sidebar -->
