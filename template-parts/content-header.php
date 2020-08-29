@@ -9,7 +9,7 @@
 
 ?>
 
-<?php if ( ! has_post_thumbnail() || is_archive() || is_search() ) { ?>
+<?php if ( ( ( is_page() || is_single() ) && ! has_post_thumbnail() ) || is_archive() || is_search() ) { ?>
 
     <div class="page__header">
         <div class="hero__overlay hero__overlay--gradient"></div>

@@ -2213,3 +2213,11 @@ aside.comment-box-wrap form {
 #content[tabindex="-1"]:focus {
   outline: 0;
 }
+
+/* 404 Page */
+.error-404 .not-found {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

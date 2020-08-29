@@ -22,6 +22,15 @@ document.addEventListener('DOMContentLoaded',function(){
 		return { top: _y, left: _x };
 	};
 
+	function chkForNavScroll() {
+		// Listen to scroll position changes
+		if ( document.body.contains( document.getElementById("navConverter") ) ) {
+			var lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+			// if the current body position is less than 20 pixels away from our converter, convert
+			if (lastScrollTop > (getOffset( document.getElementById('navConverter') ).top - 60)){ removeClass(document.querySelector('.navbar'),'navbar--extended');} else {addNewClass(document.querySelector('.navbar'),'navbar--extended');}
+		}
+	}
+
 	// Add class to element => https://www.sitepoint.com/add-remove-css-class-vanilla-js/
 	function addNewClass(elements, myClass) {
 		// if there are no elements, we're done
@@ -109,17 +118,13 @@ document.addEventListener('DOMContentLoaded',function(){
 		});
 	}
 
-	
-	// Listen to scroll position changes
+	chkForNavScroll();
+
 	window.addEventListener( "scroll",function() {
 
 		// NAVIGATION BAR ON LANDING FIXED
 		// If there is a #navConverter element then attach listener to scroll events
-		if ( document.body.contains( document.getElementById("navConverter") ) ) {
-			var lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-			// if the current body position is less than 20 pixels away from our converter, convert
-			if (lastScrollTop > (getOffset( document.getElementById('navConverter') ).top - 60)){ removeClass(document.querySelector('.navbar'),'navbar--extended');} else {addNewClass(document.querySelector('.navbar'),'navbar--extended');}
-		}
+		chkForNavScroll();
 
 		// SCROLL TO NEXT ELEMENT ON LANDING
 		if (document.body.contains(document.getElementById('scrollToNext'))){
