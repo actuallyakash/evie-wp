@@ -266,7 +266,6 @@ if ( ! function_exists( 'evie_pagination' ) ) :
      * Display pagination for archives.
      */
     function evie_pagination() { ?>
-		<div class="pagination">
 
 		<?php
 			the_posts_pagination( array(
@@ -275,8 +274,6 @@ if ( ! function_exists( 'evie_pagination' ) ) :
 				'next_text' => esc_html__( 'Next', 'mtminimag' ).' >',
 			) );
 		?>
-		
-		</div>
 
         <?php wp_reset_postdata();
     }
