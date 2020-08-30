@@ -929,6 +929,11 @@ select::-ms-expand {
   text-decoration: none;
 }
 
+.navbar-container {
+  display: flex;
+  align-items: center;
+}
+
 .site__description {
   margin-left: 8px;
   opacity: 0.85;
@@ -987,17 +992,15 @@ select::-ms-expand {
 }
 
 .navbar__menu-mob {
-  display: block;
+  display: flex;
+}
+
+.navbar__menu-mob .search-btn {
+  margin-right: 15pt;
 }
 
 .navbar__menu-mob--noMob {
   display: none;
-}
-
-@media (min-width: 992px) {
-  .navbar__menu-mob {
-    display: none;
-  }
 }
 
 /*--- Extended and transparent version ---*/
@@ -2222,6 +2225,113 @@ aside.comment-box-wrap form {
   transform: translate(-50%, -50%);
 }
 
+/* Search */
+.search-btn {
+  width: 15px;
+  margin-left: 16pt;
+  margin-top: 3px;
+}
+
+.navbar-container .search-btn {
+  display: none;
+}
+
+.modal {
+  z-index: 999;
+  position: fixed;
+  left: -9999rem;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.2s linear, left 0s 0.2s linear;
+}
+
+.close {
+  font-size: 40pt;
+  transition: transform 0.15s ease-in-out;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  cursor: pointer;
+  transform: scale(1.15);
+  transition: transform 0.15s ease-in-out;
+}
+
+.modal-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 2px 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: 7.5rem;
+  animation: animatehide 0.4s
+}
+
+.modal-active .modal-content {
+  animation: animatetop 0.4s
+}
+
+.modal-active {
+  opacity: 1;
+  left: 0;
+  transition: opacity 0.2s linear;
+  display: block;
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0
+  }
+
+  to {
+    top: 0;
+    opacity: 1
+  }
+}
+
+@keyframes animatehide {
+  from {
+    top: 0;
+    opacity: 1
+  }
+
+  to {
+    top: -300px;
+    opacity: 0
+  }
+}
+
+.modal form .search-input {
+  outline: thin dotted;
+  outline-offset: -4px;
+  border: none;
+  color: inherit;
+  font-size: 2rem;
+  margin: 0;
+  height: 100%;
+}
+
+.modal form {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
 /* Media queries breakpoints */
 
 /* Tablet & mobile */
@@ -2237,5 +2347,24 @@ aside.comment-box-wrap form {
   .app__inner {
     display: flex;
     flex-flow: column;
+  }
+
+  .navbar-container .search {
+    margin-top: 5px;
+  }
+
+  .modal-content {
+    height: 5rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+  .navbar__menu-mob {
+    display: none;
+  }
+
+  .navbar-container .search-btn {
+    display: block;
   }
 }

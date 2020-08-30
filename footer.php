@@ -19,6 +19,17 @@
 
 </div><!-- #page -->
 
+<!-- Search Modal -->
+<div id="searchModal" class="modal">
+  	<div class="modal-content">
+		<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+			<span class="screen-reader-text">Search for:</span>
+			<input type="search" class="search-input" placeholder="Search …" value="" name="s">
+		</form>
+		<div class="close">&times;</div>
+	</div>
+</div>
+
 <?php wp_footer(); ?>
 
 </body>

@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded',function(){
 		return { top: _y, left: _x };
 	};
 
+	// Listen to scroll position changes
 	function chkForNavScroll() {
-		// Listen to scroll position changes
 		if ( document.body.contains( document.getElementById("navConverter") ) ) {
 			var lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 			// if the current body position is less than 20 pixels away from our converter, convert
@@ -118,6 +118,52 @@ document.addEventListener('DOMContentLoaded',function(){
 		});
 	}
 
+	// Search Modal
+	if ( document.body.contains( document.getElementById('searchModal') ) ) {
+		// Get the modal
+		var modal = document.getElementById("searchModal");
+
+		// Get the button that opens the modal
+		var btn = document.getElementById("searchBtn");
+		var btnMob = document.getElementById("searchBtnMob");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// Search input field
+		var searchInput = document.getElementsByClassName("search-input")[0];
+
+		// When the user clicks on the button, open the modal
+		btn.onclick = function () {
+			modal.classList.add( "modal-active" );
+			searchInput.focus();
+		}
+
+		btnMob.onclick = function () {
+			modal.classList.add( "modal-active" );
+			searchInput.focus();
+		}
+
+		// When the user clicks on (x), close the modal
+		span.onclick = function () {
+			modal.classList.remove( "modal-active" );
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function (event) {
+			if (event.target == modal) {
+				modal.classList.remove( "modal-active" );
+			}
+		}
+
+		// Esc key press
+		document.addEventListener( "keyup", function( e ) {
+			if ( e.key === "Escape" ) { // escape key maps to keycode `27`
+				modal.classList.remove( "modal-active" );
+		   }
+		});
+	}
+
 	chkForNavScroll();
 
 	window.addEventListener( "scroll",function() {
@@ -152,7 +198,7 @@ document.addEventListener('DOMContentLoaded',function(){
 	} else {
 		 addNewClass(document.querySelector('.navbar__menu'),'navbar__menu--noMob');
 		 addNewClass(document.querySelector('.navbar__menu-mob'), 'navbar__menu-mob--noMob');
-	};	
+	};
 });
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.flexibility = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 module.exports = function alignContent(target) {
