@@ -29,17 +29,23 @@
 		<nav class="nav__mobile"></nav>
 		<div class="container">
 			<div class="navbar__inner">
-				
-				<?php the_custom_logo(); ?>
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-					<span class="navbar__logo"><?php bloginfo( 'name' ); ?></span>
-				<?php
-				$evie_description = get_bloginfo( 'description', 'display' );
-				if ( $evie_description || is_customize_preview() ) : ?>
-					<small class="site__description"><?php echo $evie_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></small>
-				<?php endif; ?>
-				</a>
 
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+				<?php
+					if ( has_custom_logo() ) {
+						$custom_logo_id = get_theme_mod( 'custom_logo' );
+						$custom_logo_url = wp_get_attachment_image_url( $custom_logo_id , 'full' );
+						echo '<img class="custom__logo" src="' . esc_url( $custom_logo_url ) . '" alt="">';
+					} else {
+						echo "<span class='navbar__logo'>" . get_bloginfo( 'name' ) . "</span>";
+					}
+					$evie_description = get_bloginfo( 'description', 'display' );
+					if ( $evie_description || is_customize_preview() ) : ?>
+						<small class="site__description"><?php echo $evie_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></small>
+					<?php endif;
+				?>
+				</a>
+				
 				<div class="navbar-container">
 					<?php
 					wp_nav_menu( array(

@@ -2,9 +2,8 @@
 /**
  * Custom comment walker for WP Evie.
  *
- * @package WordPress
- * @subpackage WP_Evie
- * @since WP Evie 1.0
+ * @package Evie
+ * @since 1.0
  */
 
 if ( ! class_exists( 'Evie_Walker_Comment' ) ) {

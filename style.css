@@ -1013,6 +1013,13 @@ select::-ms-expand {
   color: #ffffff;
 }
 
+/* Logo */
+.navbar__inner .custom__logo {
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+}
+
 /*! responsive-nav.js 1.0.39 by @viljamis */
 .nav__mobile {
   margin: 0;
