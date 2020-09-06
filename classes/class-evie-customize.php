@@ -48,38 +48,50 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				)
 			);
 
-			$wp_customize->selective_refresh->add_partial(
-				'retina_logo',
-				array(
-					'selector'        => '.header-titles [class*=site-]:not(.site-description)',
-				)
-			);
+			// Logo Size Control
+			$wp_customize->add_setting( 'logo_size' , array(
+				'default'   => '50',
+				'transport' => 'postMessage',
+			) );
 
-			/**
-			 * Site Identity
-			 */
+			$wp_customize->add_control( 'logo_size', array(
+				'type' => 'range',
+				'section' => 'title_tagline',
+				'label' => __( 'Logo Size (px)', 'evie' ),
+				'input_attrs' => array(
+					'min' => 0,
+					'max' => 200,
+					'step' => 1,
+				),
+				'priority' => 9
+			) );
 
-			/* 2X Header Logo ---------------- */
-			$wp_customize->add_setting(
-				'retina_logo',
-				array(
-					'capability'        => 'edit_theme_options',
-					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
-					'transport'         => 'postMessage',
-				)
-			);
+			// Hide Tagline
+			$wp_customize->add_setting( 'display_tagline', array (
+				'transport' => 'refresh',
+				'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
+				'default' => true,
+			));
 
-			$wp_customize->add_control(
-				'retina_logo',
-				array(
-					'type'        => 'checkbox',
-					'section'     => 'title_tagline',
-					'priority'    => 10,
-					'label'       => __( 'Retina logo', 'evie' ),
-					'description' => __( 'Scales the logo to half its uploaded size, making it sharp on high-res screens.', 'evie' ),
-				)
-			);
+			$wp_customize->add_control( 'display_tagline', array(
+				'type' 		=> 'checkbox',
+				'section' 	=> 'title_tagline',
+				'label' 	=> __( 'Display Tagline' , 'evie' ),
+				'priority' 	=> 12,
+			) );
+			
 		}
+
+		/**
+		 * Sanitize boolean for checkbox.
+		 *
+		 * @param bool $checked Whether or not a box is checked.
+		 * @return bool
+		 */
+		public static function sanitize_checkbox( $checked ) {
+			return ( ( isset( $checked ) && true === $checked ) ? true : false );
+		}
+
 	}
 
 	// Setup the Theme Customizer settings and controls.
@@ -107,3 +119,21 @@ if ( ! function_exists( 'evie_customize_partial_blogdescription' ) ) {
 		bloginfo( 'description' );
 	}
 }
+
+/**
+ *
+ * Contains refresh events for customizer
+ */
+function evie_customize_preview_js() {
+	wp_enqueue_script( 'evie-customizer', get_template_directory_uri() . '/assets/js/customizer.js', array( 'customize-preview' ), '20200906', true );
+}
+add_action( 'customize_preview_init', 'evie_customize_preview_js' );
+
+/**
+ *
+ * Contains event handlers (hide/show) for customizers
+ */
+function evie_customizer_events() {
+	wp_enqueue_script( 'evie-customize-events', get_template_directory_uri() . '/assets/js/customizer-events.js', array(), '20200906', true );
+}
+add_action( 'customize_controls_enqueue_scripts', 'evie_customizer_events' );

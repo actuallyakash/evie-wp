@@ -39,10 +39,14 @@
 					} else {
 						echo "<span class='navbar__logo'>" . get_bloginfo( 'name' ) . "</span>";
 					}
-					$evie_description = get_bloginfo( 'description', 'display' );
-					if ( $evie_description || is_customize_preview() ) : ?>
-						<small class="site__description"><?php echo $evie_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></small>
-					<?php endif;
+
+					if ( get_theme_mod( 'display_tagline', true ) ) {
+						$evie_description = get_bloginfo( 'description', 'display' );
+						if ( $evie_description || is_customize_preview() ) : ?>
+							<small class="site__description"><?php echo $evie_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></small>
+						<?php endif;
+					}
+					
 				?>
 				</a>
 				

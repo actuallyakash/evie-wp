@@ -941,6 +941,8 @@ select::-ms-expand {
 
 .navbar__menu {
   display: none;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar__menu--noMob {
@@ -960,7 +962,7 @@ select::-ms-expand {
 }
 
 @media (min-width: 992px) {
-  .navbar__menu li {
+  .navbar__menu li:not(:first-child) {
     margin-left: 16pt;
   }
 }
@@ -2324,6 +2326,8 @@ aside.comment-box-wrap form {
   font-size: 2rem;
   margin: 0;
   height: 100%;
+  border-radius: 0;
+  background: transparent;
 }
 
 .modal form {

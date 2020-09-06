@@ -8,15 +8,23 @@
  */
 
 ( function( $ ) {
+
 	// Site title and description.
 	wp.customize( 'blogname', function( value ) {
 		value.bind( function( to ) {
-			$( '.site-title a' ).text( to );
+			$( '.navbar__logo' ).text( to );
 		} );
 	} );
 	wp.customize( 'blogdescription', function( value ) {
 		value.bind( function( to ) {
-			$( '.site-description' ).text( to );
+			$( '.site__description' ).text( to );
+		} );
+	} );
+
+	// Logo Resize
+	wp.customize( 'logo_size', function( value ) {
+		value.bind( function( to ) {
+			$( '.navbar__inner .custom__logo' ).css({ 'width': to, 'height': to });
 		} );
 	} );
 
@@ -39,4 +47,5 @@
 			}
 		} );
 	} );
+	
 }( jQuery ) );
