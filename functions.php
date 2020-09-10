@@ -160,6 +160,12 @@ function evie_scripts() {
 add_action( 'wp_enqueue_scripts', 'evie_scripts' );
 
 /**
+ * Theme defaults
+ */
+
+require get_template_directory() . '/inc/defaults.php';
+
+/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
@@ -178,3 +184,8 @@ require get_template_directory() . '/classes/class-evie-walker-comment.php';
  * Customizer Options
  */
 require get_template_directory() . '/classes/class-evie-customize.php';
+
+/**
+ * Styles for Live Preview
+ */
+require get_template_directory() . '/inc/customizer-css.php';

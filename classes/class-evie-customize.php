@@ -22,6 +22,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			/**
 			 * Site Title & Description.
 			 * */
+			$optionDefaults = evie_get_defaults();
 			$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 			$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
@@ -50,7 +51,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 
 			// Logo Size Control
 			$wp_customize->add_setting( 'logo_size' , array(
-				'default'   => '50',
+				'default'   => $optionDefaults['logo_size'],
 				'transport' => 'postMessage',
 			) );
 
@@ -67,19 +68,246 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			) );
 
 			// Hide Tagline
-			$wp_customize->add_setting( 'display_tagline', array (
+			$wp_customize->add_setting( 'hide_tagline', array (
 				'transport' => 'refresh',
 				'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
-				'default' => true,
+				'default' => $optionDefaults['hide_tagline'],
 			));
 
-			$wp_customize->add_control( 'display_tagline', array(
+			$wp_customize->add_control( 'hide_tagline', array(
 				'type' 		=> 'checkbox',
 				'section' 	=> 'title_tagline',
-				'label' 	=> __( 'Display Tagline' , 'evie' ),
+				'label' 	=> __( 'Hide Tagline' , 'evie' ),
 				'priority' 	=> 12,
 			) );
+
+			/**
+			 * Color Controls
+			 */
+			$colorDefaults = evie_get_color_defaults();
+
+			// Primary Color.
+			$wp_customize->add_setting(
+				'primary_color',
+				array(
+					'default'           => $colorDefaults['primary_color'],
+					'sanitize_callback' => 'sanitize_hex_color',
+					'transport'         => 'postMessage',
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'primary_color',
+					array(
+						'label'   => __( 'Primary Color', 'evie' ),
+						'section' => 'colors',
+					)
+				)
+			);
+
+			// Secondary Color.
+			$wp_customize->add_setting(
+				'secondary_color',
+				array(
+					'default'           => $colorDefaults['secondary_color'],
+					'sanitize_callback' => 'sanitize_hex_color',
+					'transport'         => 'postMessage',
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'secondary_color',
+					array(
+						'label'   => __( 'Secondary Color', 'evie' ),
+						'section' => 'colors',
+					)
+				)
+			);
+
+			// Background Color.
+			$wp_customize->add_setting(
+				'background_color',
+				array(
+					'default'           => $colorDefaults['background_color'],
+					'sanitize_callback' => 'sanitize_hex_color',
+					'transport'         => 'postMessage',
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'background_color',
+					array(
+						'label'   => __( 'Background Color', 'evie' ),
+						'section' => 'colors',
+					)
+				)
+			);
 			
+			// Header Background Color.
+			$wp_customize->add_setting(
+				'header_background_color',
+				array(
+					'default'           => $colorDefaults['header_background_color'],
+					'sanitize_callback' => 'sanitize_hex_color',
+					'transport'         => 'postMessage',
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'header_background_color',
+					array(
+						'label'   => __( 'Header Background Color', 'evie' ),
+						'section' => 'colors',
+					)
+				)
+			);
+
+			// Header Logo Color
+			$wp_customize->add_setting(
+				'header_logo_color',
+				array(
+					'default'           => $colorDefaults['header_logo_color'],
+					'sanitize_callback' => 'sanitize_hex_color',
+					'transport'         => 'postMessage',
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'header_logo_color',
+					array(
+						'label'   => __( 'Logo Color', 'evie' ),
+						'section' => 'colors',
+					)
+				)
+			);
+
+			// Tagline Color
+			$wp_customize->add_setting(
+				'tagline_color',
+				array(
+					'default'           => $colorDefaults['tagline_color'],
+					'sanitize_callback' => 'sanitize_hex_color',
+					'transport'         => 'postMessage',
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'tagline_color',
+					array(
+						'label'   => __( 'Tagline Color', 'evie' ),
+						'section' => 'colors',
+					)
+				)
+			);
+
+			// Header Links Color
+			$wp_customize->add_setting(
+				'header_links_color',
+				array(
+					'default'           => $colorDefaults['header_links_color'],
+					'sanitize_callback' => 'sanitize_hex_color',
+					'transport'         => 'postMessage',
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'header_links_color',
+					array(
+						'label'   => __( 'Header Links Color', 'evie' ),
+						'section' => 'colors',
+					)
+				)
+			);
+
+			// Footer Background Color.
+			$wp_customize->add_setting(
+				'footer_background_color',
+				array(
+					'default'           => $colorDefaults['footer_background_color'],
+					'sanitize_callback' => 'sanitize_hex_color',
+					'transport'         => 'postMessage',
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'footer_background_color',
+					array(
+						'label'   => __( 'Footer Background Color', 'evie' ),
+						'section' => 'colors',
+					)
+				)
+			);
+
+			// Footer Text Color.
+			$wp_customize->add_setting(
+				'footer_text_color',
+				array(
+					'default'           => $colorDefaults['footer_text_color'],
+					'sanitize_callback' => 'sanitize_hex_color',
+					'transport'         => 'postMessage',
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'footer_text_color',
+					array(
+						'label'   => __( 'Footer Text Color', 'evie' ),
+						'section' => 'colors',
+					)
+				)
+			);
+
+			/**
+			 * Theme Options
+			 */
+
+			$wp_customize->add_section(
+				'options',
+				array(
+					'title'      => __( 'Theme Options', 'evie' ),
+					'priority'   => 40,
+					'capability' => 'edit_theme_options',
+				)
+			);
+
+			/* Enable Header Search ----------------------------------------------- */
+
+			$wp_customize->add_setting(
+				'enable_header_search',
+				array(
+					'capability'        => 'edit_theme_options',
+					'default'           => true,
+					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
+				)
+			);
+
+			$wp_customize->add_control(
+				'enable_header_search',
+				array(
+					'type'     => 'checkbox',
+					'section'  => 'options',
+					'priority' => 10,
+					'label'    => __( 'Show search in header', 'evie' ),
+				)
+			);
 		}
 
 		/**

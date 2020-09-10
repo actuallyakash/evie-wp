@@ -498,17 +498,6 @@ a {
   color: inherit;
 }
 
-.link {
-  color: #6C63FF;
-  text-decoration: underline;
-}
-
-@media (min-width: 992px) {
-  .link:hover {
-    color: #463aff;
-  }
-}
-
 button,
 .button {
   display: inline-block;
@@ -535,54 +524,26 @@ button:focus,
   outline: 0;
 }
 
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
 
   button:hover,
   .button:hover {
     border-color: #463aff;
     color: #463aff;
   }
-}
+} */
 
 .button__primary {
   background-color: #6C63FF;
   border-color: #6C63FF;
   color: #fff;
+  opacity: 0.8;
 }
 
 @media (min-width: 992px) {
   .button__primary:hover {
-    background-color: #463aff;
-    border-color: #463aff;
     color: #fff;
-  }
-}
-
-.button__accent {
-  background-color: #06d19c;
-  border-color: #06d19c;
-  color: #fff;
-}
-
-@media (min-width: 992px) {
-  .button__accent:hover {
-    background-color: #05bd8d;
-    border-color: #05bd8d;
-    color: #fff;
-  }
-}
-
-.button__delete {
-  background-color: tomato;
-  border-color: tomato;
-  color: #fff;
-}
-
-@media (min-width: 992px) {
-  .button__delete:hover {
-    background-color: #ff5233;
-    border-color: #ff5233;
-    color: #fff;
+    opacity: 1;
   }
 }
 
@@ -590,14 +551,6 @@ button:focus,
   opacity: 0.25;
   cursor: default;
   pointer-events: none;
-}
-
-.button--fixed {
-  width: 160px;
-}
-
-.button--fixed2 {
-  width: 220px;
 }
 
 form {
@@ -1381,8 +1334,9 @@ select::-ms-expand {
 }
 
 .footer {
-  background-color: #ffffff;
   padding: 36pt 0;
+  background-color: #333C44;
+  color: #fff;
 }
 
 .footer__inner {
@@ -1403,7 +1357,6 @@ select::-ms-expand {
   padding-right: 16pt;
   display: block;
   cursor: pointer;
-  color: #6C63FF;
   font-size: 1.225rem;
   min-width: 33%;
   margin-bottom: 1.5rem;
@@ -1437,14 +1390,6 @@ select::-ms-expand {
 }
 
 /*--- Modifiers---*/
-.footer--dark {
-  background-color: #333C44;
-}
-
-.footer--dark .footer__textLogo {
-  color: #fff;
-}
-
 .auth {
   padding-top: 102.66667px;
 }
@@ -1788,6 +1733,7 @@ select::-ms-expand {
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.125);
   transition: all 0.3s;
   margin: 0 120px 30px 120px;
+  background: #fff;
 }
 
 .evie__post:hover {

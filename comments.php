@@ -77,7 +77,7 @@ if ( post_password_required() ) {
 									</p>
 								</div>',
 				'submit_button' => '<div class="form-submit">
-										<input name="submit" type="submit" id="submit" class="button button__accent" value="Post Comment">
+										<input name="submit" type="submit" id="submit" class="button button__primary" value="Post Comment">
 									</div>',
 				'comment_notes_before' => '<small class="comment-notes">Your email address will not be published. Required fields are marked *</small>',
 				'label_submit' => __( 'Post Comment' ),

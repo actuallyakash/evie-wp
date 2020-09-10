@@ -40,7 +40,7 @@
 						echo "<span class='navbar__logo'>" . get_bloginfo( 'name' ) . "</span>";
 					}
 
-					if ( get_theme_mod( 'display_tagline', true ) ) {
+					if ( ! get_theme_mod( 'hide_tagline', false ) ) {
 						$evie_description = get_bloginfo( 'description', 'display' );
 						if ( $evie_description || is_customize_preview() ) : ?>
 							<small class="site__description"><?php echo $evie_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></small>
