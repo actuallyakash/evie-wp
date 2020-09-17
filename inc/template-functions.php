@@ -58,3 +58,26 @@ function evie_get_archive_title( $title ) {
 	return $title;    
 }
 add_filter( 'get_the_archive_title', 'evie_get_archive_title' );
+
+/**
+ * Returns the bright shade for a HEX color
+ * 
+ * $color - HEX value
+ * $percent - percent of brightness/dullness
+ */
+function colorShade( $color, $percent ) {
+
+	$num = base_convert(substr($color, 1), 16, 10);
+	$amt = round(2.55 * $percent);
+	$r = ($num >> 16) + $amt;
+	$b = ($num >> 8 & 0x00ff) + $amt;
+	$g = ($num & 0x0000ff) + $amt;
+    
+	$partialColor = '#' . substr( base_convert(0x1000000 + ($r<255?$r<1?0:$r:255)*0x10000 + ($b<255?$b<1?0:$b:255)*0x100 + ($g<255?$g<1?0:$g:255), 10, 16), 1 );
+	
+    $colorPostfix = substr( $color, 5 );
+    
+    $finalColor = substr( $partialColor, 0, 5 ) . $colorPostfix;
+    
+    return $finalColor;
+}

@@ -91,8 +91,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				'primary_color',
 				array(
 					'default'           => $colorDefaults['primary_color'],
-					'sanitize_callback' => 'sanitize_hex_color',
-					'transport'         => 'postMessage',
+					'sanitize_callback' => 'sanitize_hex_color'
 				)
 			);
 

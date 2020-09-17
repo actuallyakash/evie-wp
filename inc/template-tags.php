@@ -268,11 +268,13 @@ if ( ! function_exists( 'evie_pagination' ) ) :
 		<?php
 			the_posts_pagination( array(
 				'mid_size'  => 1,
-				'prev_text' => '< ' . esc_html__( 'Previous', 'mtminimag' ),
-				'next_text' => esc_html__( 'Next', 'mtminimag' ).' >',
+				'prev_text' => '< ' . esc_html__( 'Previous', 'evie' ),
+				'next_text' => esc_html__( 'Next', 'evie' ).' >',
 			) );
 		?>
 
         <?php wp_reset_postdata();
     }
 endif;
+
+

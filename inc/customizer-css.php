@@ -49,7 +49,48 @@ function evie_customizer_css() {
         }
 
         .customize-partial-edit-shortcut button, .widget .customize-partial-edit-shortcut button {
-            background: #6C63FF!important;
+            background: var( --primary_color )!important;
+        }
+
+        [type="radio"]:checked+label:after,
+        button,
+        .button,
+        .button__primary {
+            border-color: var( --primary_color );
+        }
+        
+        .comment-body span.reply a {
+            color: var( --primary_color );
+        }
+
+        .pagination .page-numbers:hover,
+        .pagination .page-numbers:focus,
+        .pagination .page-numbers.current,
+        .evie__category,
+        .pagination a,
+        .pagination span,
+        .pagination-next-prev a,
+        .pagination a:hover,
+        .pagination-next-prev a:hover,
+        [type="radio"]:checked+label:after,
+        .hero__overlay,
+        .button__primary {
+            background-color: var( --primary_color );
+        }
+
+        .hero__overlay--gradient {
+            background: linear-gradient(to right, var( --primary_color ), <?php echo colorShade( getOption( 'colors', 'primary_color' ), -15 ) ?>);
+        }
+
+        @media (min-width: 992px) {
+            button:hover,
+            .button:hover {
+                border-color: <?php echo colorShade( getOption( 'colors', 'primary_color' ), -15 ) ?>;
+            }
+        }
+
+        .comment-body span.reply i {
+            color: <?php echo colorShade( getOption( 'colors', 'primary_color' ), -15 ) ?>;
         }
 
     </style>
