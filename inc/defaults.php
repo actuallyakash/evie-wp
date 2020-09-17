@@ -13,6 +13,10 @@ if ( ! function_exists( 'evie_get_defaults' ) ) {
 				'logo_size' => '50',
 				'hide_tagline' => false,
 				'retina_logo' => '',
+				
+				'enable_header_search' => true,
+				'enable_header_search_mobile' => true,
+				'container_width' => '1335',
 			)
 		);
 	}
@@ -24,14 +28,15 @@ if ( ! function_exists( 'evie_get_color_defaults' ) ) {
 		return apply_filters( 'evie_color_option_defaults',
 			array(
                 'primary_color' => '#6C63FF',
-                'secondary_color' => '',
-				'background_color' => '#FFF',
+                'secondary_color' => '#666',
+				'bg_color' => '#fff',
 				'header_background_color' => '#6C63FF',
 				'header_logo_color' => '#FFF',
 				'tagline_color' => '#FFF',
 				'header_links_color' => '#FFF',
 				'footer_background_color' => '#333C44',
 				'footer_text_color' => '#FFF',
+				'heading_color' => '#111',
 			)
 		);
 	}
@@ -45,7 +50,7 @@ if ( ! function_exists( 'getOption' ) ) {
      * $property - value requested
 	 */
 
-    function getOption($type, $property) {
+    function getOption( $type, $property ) {
 
         $defaults = evie_get_defaults();
         $defaultColors = evie_get_color_defaults();

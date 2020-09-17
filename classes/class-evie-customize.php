@@ -129,9 +129,9 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 
 			// Background Color.
 			$wp_customize->add_setting(
-				'background_color',
+				'bg_color',
 				array(
-					'default'           => $colorDefaults['background_color'],
+					'default'           => $colorDefaults['bg_color'],
 					'sanitize_callback' => 'sanitize_hex_color',
 					'transport'         => 'postMessage',
 				)
@@ -140,7 +140,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			$wp_customize->add_control(
 				new WP_Customize_Color_Control(
 					$wp_customize,
-					'background_color',
+					'bg_color',
 					array(
 						'label'   => __( 'Background Color', 'evie' ),
 						'section' => 'colors',
@@ -274,6 +274,27 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				)
 			);
 
+			// Heading Color.
+			$wp_customize->add_setting(
+				'heading_color',
+				array(
+					'default'           => $colorDefaults['heading_color'],
+					'sanitize_callback' => 'sanitize_hex_color',
+					'transport'         => 'postMessage',
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'heading_color',
+					array(
+						'label'   => __( 'Heading Color (H1 - H6)', 'evie' ),
+						'section' => 'colors',
+					)
+				)
+			);
+
 			/**
 			 * Theme Options
 			 */
@@ -287,13 +308,12 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				)
 			);
 
-			/* Enable Header Search ----------------------------------------------- */
-
+			// Enable Header Search
 			$wp_customize->add_setting(
 				'enable_header_search',
 				array(
 					'capability'        => 'edit_theme_options',
-					'default'           => true,
+					'default'           => $optionDefaults['enable_header_search'],
 					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
 				)
 			);
@@ -303,8 +323,44 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type'     => 'checkbox',
 					'section'  => 'options',
-					'priority' => 10,
 					'label'    => __( 'Show search in header', 'evie' ),
+				)
+			);
+
+			// Mobile search
+			$wp_customize->add_setting(
+				'enable_header_search_mobile',
+				array(
+					'capability'        => 'edit_theme_options',
+					'default'           => $optionDefaults['enable_header_search_mobile'],
+					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
+				)
+			);
+
+			$wp_customize->add_control(
+				'enable_header_search_mobile',
+				array(
+					'type'     => 'checkbox',
+					'section'  => 'options',
+					'label'    => __( 'Show search in header (mobile)', 'evie' ),
+				)
+			);
+
+			// Container Width
+			$wp_customize->add_setting(
+				'container_width',
+				array(
+					'default' => $optionDefaults['container_width'],
+					'transport' => 'postMessage'
+				)
+			);
+			
+			$wp_customize->add_control(
+				'container_width',
+				array(
+					'type' => 'number',
+					'section' => 'options',
+					'label' => __( 'Container Width (px)' ),
 				)
 			);
 		}
@@ -318,7 +374,6 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 		public static function sanitize_checkbox( $checked ) {
 			return ( ( isset( $checked ) && true === $checked ) ? true : false );
 		}
-
 	}
 
 	// Setup the Theme Customizer settings and controls.

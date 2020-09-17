@@ -13,18 +13,21 @@ function evie_customizer_css() {
         :root {
             --primary_color: <?php echo getOption( 'colors', 'primary_color' ); ?>;
             --secondary_color: <?php echo getOption( 'colors', 'secondary_color' ); ?>;
-            --background_color: <?php echo getOption( 'colors', 'background_color' ); ?>;
+            --bg_color: <?php echo getOption( 'colors', 'bg_color' ); ?>;
             --header_background_color: <?php echo getOption( 'colors', 'header_background_color' ); ?>;
             --header_logo_color: <?php echo getOption( 'colors', 'header_logo_color' ); ?>;
             --tagline_color: <?php echo getOption( 'colors', 'tagline_color' ); ?>;
             --header_links_color: <?php echo getOption( 'colors', 'header_links_color' ); ?>;
             --footer_background_color: <?php echo getOption( 'colors', 'footer_background_color' ); ?>;
             --footer_text_color: <?php echo getOption( 'colors', 'footer_text_color' ); ?>;
+            --heading_color: <?php echo getOption( 'colors', 'heading_color' ); ?>;
+            --container_width: <?php echo getOption( 'defaults', 'container_width' ) . 'px'; ?>;
         }
 
         html,
         body {
-            background-color: var( --background_color );
+            background-color: var( --bg_color );
+            color: var( --secondary_color );
         }
 
         .navbar {
@@ -91,6 +94,16 @@ function evie_customizer_css() {
 
         .comment-body span.reply i {
             color: <?php echo colorShade( getOption( 'colors', 'primary_color' ), -15 ) ?>;
+        }
+
+        h1, h2, h3, h4, h5, h6, .stress {
+            color: var( --heading_color );
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                width: var( --container_width );
+            }
         }
 
     </style>

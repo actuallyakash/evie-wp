@@ -134,14 +134,18 @@ document.addEventListener('DOMContentLoaded',function(){
 		var searchInput = document.getElementsByClassName("search-input")[0];
 
 		// When the user clicks on the button, open the modal
-		btn.onclick = function () {
-			modal.classList.add( "modal-active" );
-			searchInput.focus();
+		if ( btn !== null ) {
+			btn.onclick = function () {
+				modal.classList.add( "modal-active" );
+				searchInput.focus();
+			}
 		}
-
-		btnMob.onclick = function () {
-			modal.classList.add( "modal-active" );
-			searchInput.focus();
+		
+		if ( btnMob !== null ) {
+			btnMob.onclick = function () {
+				modal.classList.add( "modal-active" );
+				searchInput.focus();
+			}
 		}
 
 		// When the user clicks on (x), close the modal

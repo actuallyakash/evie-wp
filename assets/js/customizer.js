@@ -33,15 +33,15 @@
 	 * Color Controls
 	 */
 
-	wp.customize( 'primary_color', function( value ) {
-		value.bind( function( val ) {
-			document.documentElement.style.setProperty( '--primary_color', val );
-		});
-	});
-
 	wp.customize( 'secondary_color', function( value ) {
 		value.bind( function( val ) {
 			document.documentElement.style.setProperty( '--secondary_color', val );
+		});
+	});
+
+	wp.customize( 'bg_color', function( value ) {
+		value.bind( function( val ) {
+			document.documentElement.style.setProperty( '--bg_color', val );
 		});
 	});
 
@@ -78,6 +78,18 @@
 	wp.customize( 'footer_text_color', function( value ) {
 		value.bind( function( val ) {
 			document.documentElement.style.setProperty( '--footer_text_color', val );
+		});
+	});
+
+	wp.customize( 'heading_color', function( value ) {
+		value.bind( function( val ) {
+			document.documentElement.style.setProperty( '--heading_color', val );
+		});
+	});
+
+	wp.customize( 'container_width', function( value ) {
+		value.bind( function( val ) {
+			document.documentElement.style.setProperty( '--container_width', val + 'px' );
 		});
 	});
 	

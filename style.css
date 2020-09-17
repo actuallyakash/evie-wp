@@ -577,7 +577,6 @@ label {
   margin-bottom: 2pt;
   display: block;
   text-align: left;
-  color: #666;
   font-size: 0.9em;
   padding-left: 10pt;
 }
@@ -1834,14 +1833,12 @@ select::-ms-expand {
 }
 
 .single__post .about-heading {
-  color: #999;
   font-style: italic;
   font-size: 14px;
 }
 
 .single__post .author__card p {
   line-height: 22px;
-  color: #777777;
 }
 
 /* Prev/Next Pagination */
