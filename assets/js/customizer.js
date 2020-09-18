@@ -11,20 +11,20 @@
 
 	// Site title and description.
 	wp.customize( 'blogname', function( value ) {
-		value.bind( function( to ) {
-			$( '.navbar__logo' ).text( to );
+		value.bind( function( val ) {
+			$( '.navbar__logo' ).text( val );
 		} );
 	} );
 	wp.customize( 'blogdescription', function( value ) {
-		value.bind( function( to ) {
-			$( '.site__description' ).text( to );
+		value.bind( function( val ) {
+			$( '.site__description' ).text( val );
 		} );
 	} );
 
 	// Logo Resize
 	wp.customize( 'logo_size', function( value ) {
-		value.bind( function( to ) {
-			$( '.navbar__inner .custom__logo' ).css({ 'width': to, 'height': to });
+		value.bind( function( val ) {
+			$( '.navbar__inner .custom__logo' ).css({ 'width': val, 'height': val });
 		} );
 	} );
 
@@ -92,5 +92,17 @@
 			document.documentElement.style.setProperty( '--container_width', val + 'px' );
 		});
 	});
+
+	wp.customize( 'sidebar_width', function( value ) {
+		value.bind( function( val ) {
+			document.documentElement.style.setProperty( '--sidebar_width', val + 'px' );
+		});
+	});
+
+	wp.customize( 'excerpt_lines', function( value ) {
+		value.bind( function( val ) {
+			$( '.post__content .excerpt' ).css({ '-webkit-line-clamp': val });
+		} );
+	} );
 	
 }( jQuery ) );

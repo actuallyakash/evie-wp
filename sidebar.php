@@ -12,7 +12,6 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 }
 ?>
 
-<!-- todo: Sidebar-right/sidebar-right classes -->
-<aside id="secondary" class="widget-area app__menu sidebar-left">
+<aside id="secondary" class="widget-area app__menu sidebar">
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
 </aside>

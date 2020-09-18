@@ -14,10 +14,13 @@
 	<?php get_template_part( 'template-parts/content', 'header' ); ?>
 
 	<div class="container">
-		<div class="page__inner">
-			
-			<!-- Sidebar -->
-			<?php get_sidebar(); ?>
+		<div class="page__inner <?php echo getOption( 'defaults', 'page_sidebar' ); ?>">
+
+			<?php
+				if ( getOption( 'defaults', 'page_sidebar' ) !== 'sidebar-none' ) {
+					get_sidebar();
+				}
+			?>
 
 			<div class="page__main">
 				

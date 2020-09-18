@@ -22,6 +22,7 @@ function evie_customizer_css() {
             --footer_text_color: <?php echo getOption( 'colors', 'footer_text_color' ); ?>;
             --heading_color: <?php echo getOption( 'colors', 'heading_color' ); ?>;
             --container_width: <?php echo getOption( 'defaults', 'container_width' ) . 'px'; ?>;
+            --sidebar_width: <?php echo getOption( 'defaults', 'sidebar_width' ) . 'px'; ?>;
         }
 
         html,
@@ -104,6 +105,16 @@ function evie_customizer_css() {
             .container {
                 width: var( --container_width );
             }
+        }
+
+        @media (min-width: 992px) {
+            .app__menu {
+                width: var( --sidebar_width );
+            }
+        }
+
+        .post__content .excerpt {
+            -webkit-line-clamp: <?php echo getOption( 'defaults', 'excerpt_lines' ); ?>;
         }
 
     </style>

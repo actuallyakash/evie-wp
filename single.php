@@ -23,9 +23,13 @@ get_header();
 			<div class="container">
 
 				<!-- Article Section -->
-				<div class="app__inner">
-					<!-- Sidebar -->
-					<?php get_sidebar(); ?>
+				<div class="app__inner <?php echo getOption( 'defaults', 'post_sidebar' ); ?>">
+					
+					<?php
+						if ( getOption( 'defaults', 'post_sidebar' ) !== 'sidebar-none' ) {
+							get_sidebar();
+						}
+					?>
 
 					<div class="app__main">
 						<?php the_content(); ?>

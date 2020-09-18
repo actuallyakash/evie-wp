@@ -22,7 +22,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			/**
 			 * Site Title & Description.
 			 * */
-			$optionDefaults = evie_get_defaults();
+			$defaults = evie_get_defaults();
 			$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 			$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
@@ -51,7 +51,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 
 			// Logo Size Control
 			$wp_customize->add_setting( 'logo_size' , array(
-				'default'   => $optionDefaults['logo_size'],
+				'default'   => $defaults['logo_size'],
 				'transport' => 'postMessage',
 			) );
 
@@ -68,10 +68,10 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			) );
 
 			// Hide Tagline
-			$wp_customize->add_setting( 'hide_tagline', array (
+			$wp_customize->add_setting( 'hide_tagline', array(
 				'transport' => 'refresh',
 				'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
-				'default' => $optionDefaults['hide_tagline'],
+				'default' => $defaults['hide_tagline'],
 			));
 
 			$wp_customize->add_control( 'hide_tagline', array(
@@ -313,7 +313,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				'enable_header_search',
 				array(
 					'capability'        => 'edit_theme_options',
-					'default'           => $optionDefaults['enable_header_search'],
+					'default'           => $defaults['enable_header_search'],
 					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
 				)
 			);
@@ -332,7 +332,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				'enable_header_search_mobile',
 				array(
 					'capability'        => 'edit_theme_options',
-					'default'           => $optionDefaults['enable_header_search_mobile'],
+					'default'           => $defaults['enable_header_search_mobile'],
 					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
 				)
 			);
@@ -350,7 +350,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			$wp_customize->add_setting(
 				'container_width',
 				array(
-					'default' => $optionDefaults['container_width'],
+					'default' => $defaults['container_width'],
 					'transport' => 'postMessage'
 				)
 			);
@@ -363,17 +363,160 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 					'label' => __( 'Container Width (px)' ),
 				)
 			);
+
+			// Enable excerpt
+			$wp_customize->add_setting(
+				'enable_excerpt',
+				array(
+					'capability'        => 'edit_theme_options',
+					'default'           => $defaults['enable_excerpt'],
+					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
+				)
+			);
+
+			$wp_customize->add_control(
+				'enable_excerpt',
+				array(
+					'type'     => 'checkbox',
+					'section'  => 'options',
+					'label'    => __( 'Enable Excerpt', 'evie' ),
+				)
+			);
+
+			// Excerpt Length
+			$wp_customize->add_setting(
+				'excerpt_lines',
+				array(
+					'default' => $defaults['excerpt_lines'],
+					'transport' => 'postMessage'
+				)
+			);
+			
+			$wp_customize->add_control(
+				'excerpt_lines',
+				array(
+					'type' => 'number',
+					'section' => 'options',
+					'label' => __( 'Excerpt Lines' ),
+				)
+			);
+
+			/**
+			 * Sidebar
+			 */
+
+			$wp_customize->add_section(
+				'sidebar_options',
+				array(
+					'title'      => __( 'Sidebar', 'evie' ),
+					'priority'   => 50,
+					'capability' => 'edit_theme_options',
+				)
+			);
+
+			$wp_customize->add_setting(
+				'post_sidebar',
+				array(
+					'default' => $defaults['post_sidebar'],
+					'transport' => 'refresh',
+					'sanitize_callback' => array( __CLASS__, 'sanitize_select' ),
+				)
+			);
+
+			$wp_customize->add_control(
+				'post_sidebar',
+				array(
+					'label' => __( 'Post Sidebar', 'mtwriter' ),
+					'section' => 'sidebar_options',
+					'type' => 'select',
+					'choices' => array(
+						'sidebar-none' => 'None',
+						'sidebar-left' => 'Left',
+						'sidebar-right' => 'Right',
+					)
+				)
+			);
+
+			$wp_customize->add_setting(
+				'page_sidebar',
+				array(
+					'default' => $defaults['page_sidebar'],
+					'transport' => 'refresh',
+					'sanitize_callback' => array( __CLASS__, 'sanitize_select' ),
+				)
+			);
+
+			$wp_customize->add_control(
+				'page_sidebar',
+				array(
+					'label' => __( 'Page Sidebar', 'mtwriter' ),
+					'section' => 'sidebar_options',
+					'type' => 'select',
+					'choices' => array(
+						'sidebar-none' => 'None',
+						'sidebar-left' => 'Left',
+						'sidebar-right' => 'Right',
+					)
+				)
+			);
+
+			$wp_customize->add_setting(
+				'archive_sidebar',
+				array(
+					'default' => $defaults['archive_sidebar'],
+					'transport' => 'refresh',
+					'sanitize_callback' => array( __CLASS__, 'sanitize_select' ),
+				)
+			);
+
+			$wp_customize->add_control(
+				'archive_sidebar',
+				array(
+					'label' => __( 'Archive Sidebar', 'mtwriter' ),
+					'section' => 'sidebar_options',
+					'type' => 'select',
+					'choices' => array(
+						'sidebar-none' => 'None',
+						'sidebar-left' => 'Left',
+						'sidebar-right' => 'Right',
+					)
+				)
+			);
+
+			// Sidebar Width
+			$wp_customize->add_setting(
+				'sidebar_width',
+				array(
+					'default' => $defaults['sidebar_width'],
+					'transport' => 'postMessage'
+				)
+			);
+			
+			$wp_customize->add_control(
+				'sidebar_width',
+				array(
+					'type' => 'number',
+					'section' => 'sidebar_options',
+					'label' => __( 'Sidebar Width (px)' ),
+				)
+			);
 		}
 
 		/**
 		 * Sanitize boolean for checkbox.
-		 *
-		 * @param bool $checked Whether or not a box is checked.
-		 * @return bool
 		 */
 		public static function sanitize_checkbox( $checked ) {
 			return ( ( isset( $checked ) && true === $checked ) ? true : false );
 		}
+
+		/**
+		 * Sanitize select field.
+		 */
+		public static function sanitize_select( $input, $setting ) {
+			$input = sanitize_text_field( $input );
+			return $input;
+		}
+		
 	}
 
 	// Setup the Theme Customizer settings and controls.

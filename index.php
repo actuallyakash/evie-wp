@@ -28,10 +28,13 @@ get_header();
 			endif;
 		?>
 
-		<div class="app__inner app">
+		<div class="app__inner app <?php echo getOption( 'defaults', 'archive_sidebar' ); ?>">
 
-			<!-- Sidebar -->
-			<?php get_sidebar(); ?>
+			<?php
+				if ( getOption( 'defaults', 'archive_sidebar' ) !== 'sidebar-none' ) {
+					get_sidebar();
+				}
+			?>
 
 			<div class="main-section">
 

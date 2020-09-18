@@ -1540,13 +1540,15 @@ select::-ms-expand {
   margin-top: 10px;
 }
 
-@media (min-width: 992px) {
-  .sidebar-left {
-    padding-right: 50px;
-  }
+.sidebar-left .sidebar {
+  padding-right: 50px;
 }
 
 .sidebar-right {
+  flex-flow: row-reverse;
+}
+
+.sidebar-right .sidebar {
   padding-left: 50px;
 }
 
@@ -2242,7 +2244,7 @@ input[type="search"]::-webkit-search-results-decoration {
     order: 1;
   }
 
-  .sidebar-left {
+  .sidebar-left .sidebar {
     order: 2;
   }
 
