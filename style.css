@@ -962,7 +962,7 @@ select::-ms-expand {
 
 /*--- Extended and transparent version ---*/
 .navbar--extended {
-  background-color: transparent;
+  background-color: transparent !important;
 }
 
 .navbar--extended .navbar__inner {
@@ -1924,14 +1924,15 @@ aside.comment-box-wrap form {
   text-align: center;
 }
 
-#reply-title .cancel-reply a {
+#reply-title .cancel-reply a,
+.author-tag {
   text-transform: uppercase;
   font-size: 11px;
   background: #eee;
   color: #888;
   padding: 4px 8px 4px;
   font-weight: 400;
-  margin-left: 20px;
+  margin-left: 10px;
   letter-spacing: 1.5px;
   transition: .3s;
   border-radius: 50px;
@@ -1996,7 +1997,6 @@ aside.comment-box-wrap form {
 .comment-body .comment-text p {
   font-size: 15px;
   letter-spacing: 0.01em;
-  color: #111111;
   margin-bottom: 15px;
 }
 
@@ -2006,13 +2006,24 @@ aside.comment-box-wrap form {
   margin-right: 2px;
 }
 
-.comment-body span.reply a {
+.comment-body span.reply a,
+.comment-edit-link {
   color: #6C63FF;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 12px;
   font-weight: 600;
   transition: .2s;
+}
+
+.reply .dashicons {
+  vertical-align: middle;
+  margin-right: 4px;
+  color: #ada6a6;
+}
+
+.comment-reply {
+  margin-right: 15px;
 }
 
 .hidden {

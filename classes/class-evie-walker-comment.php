@@ -46,7 +46,15 @@ if ( ! class_exists( 'Evie_Walker_Comment' ) ) {
 							<?php echo $avatar; ?>
 						</div>
 						<div class="comment-author">
-							<h6 class="author"><?php echo $comment_author; ?></h6>
+							<h6 class="author">
+								<?php 
+								echo $comment_author;
+								
+								if ( evie_is_comment_by_post_author( $comment ) ) {
+									echo '<span class="author-tag">' . __( 'Author', 'Evie' ) . '</span>';
+								}
+								?>
+							</h6>
 
 							<time datetime="<?php comment_time( 'c' ); ?>" title="<?php echo esc_attr( $comment_timestamp ); ?>">
 								<span class="date"><?php echo esc_html( $comment_timestamp ); ?></span>
@@ -58,10 +66,8 @@ if ( ! class_exists( 'Evie_Walker_Comment' ) ) {
 						<?php comment_text(); ?>
 						
 						<span class="reply">
-							<i class="fa fa-reply"></i>
 							
 							<?php
-							
 							$comment_reply_link = get_comment_reply_link(
 								array_merge(
 									$args,
@@ -75,15 +81,15 @@ if ( ! class_exists( 'Evie_Walker_Comment' ) ) {
 								)
 							);
 		
-							$by_post_author = evie_is_comment_by_post_author( $comment );
-		
 							if ( $comment_reply_link || $by_post_author ) {
 
 								if ( $comment_reply_link ) {
+									echo '<span class="dashicons dashicons-format-chat"></span>';
 									echo $comment_reply_link; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Link is escaped in https://developer.wordpress.org/reference/functions/get_comment_reply_link/
 								}
-								if ( $by_post_author ) {
-									echo '<span class="by-post-author">' . __( 'By Post Author', 'Evie' ) . '</span>';
+
+								if ( get_edit_comment_link() ) {
+									echo '<span class="dashicons dashicons-edit"></span> <a class="comment-edit-link" href="' . esc_url( get_edit_comment_link() ) . '">' . __( 'Edit', 'Evie' ) . '</a>';
 								}
 
 							}
@@ -97,11 +103,6 @@ if ( ! class_exists( 'Evie_Walker_Comment' ) ) {
 						?>
 						<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'Evie' ); ?></p>
 						<?php
-					}
-
-						
-					if ( get_edit_comment_link() ) {
-						echo ' <span aria-hidden="true">&bull;</span> <a class="comment-edit-link" href="' . esc_url( get_edit_comment_link() ) . '">' . __( 'Edit', 'Evie' ) . '</a>';
 					}
 
 					?>

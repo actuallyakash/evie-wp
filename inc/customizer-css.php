@@ -63,7 +63,8 @@ function evie_customizer_css() {
             border-color: var( --primary_color );
         }
         
-        .comment-body span.reply a {
+        .comment-body span.reply a,
+        .comment-edit-link {
             color: var( --primary_color );
         }
 
