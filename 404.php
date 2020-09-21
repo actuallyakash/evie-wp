@@ -8,17 +8,5 @@
  */
 
 get_header();
-?>
 
-	<main id="primary" class="site-main container error-404">
-
-		<section class="not-found center ">
-			<img class="img-fluid" src="<?php echo esc_url( get_template_directory_uri() ) ?>/assets/images/undraw_page_not_found.svg" alt="404">
-
-			<h3>The page you were looking for doesn't exist.</h3>
-			<p>Go Back to <a class="stress link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-		</section>
-
-	</main>
-
-<?php
+get_template_part( 'template-parts/content', 'none' );

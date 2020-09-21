@@ -554,10 +554,6 @@ button:focus,
   pointer-events: none;
 }
 
-form {
-  margin-bottom: 1.5em;
-}
-
 form .double {
   -js-display: flex;
   display: flex;
@@ -573,7 +569,7 @@ form .double .half {
   margin-right: auto;
 }
 
-label {
+.comment-respond label {
   margin-bottom: 2pt;
   display: block;
   text-align: left;
@@ -595,10 +591,9 @@ input[type="password"] {
   color: #111;
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  padding: 10pt 20pt;
+  padding: 10pt;
   border-radius: 30px;
   background-color: #f7f7f7;
-  margin-bottom: 1.4em;
   display: block;
 }
 
@@ -2282,4 +2277,29 @@ input[type="search"]::-webkit-search-results-decoration {
   .navbar-container .search-btn {
     display: block;
   }
+}
+
+/* Widgets Design */
+form.search-form {
+  display: flex;
+}
+
+form.search-form .search-submit {
+  padding: 0 7pt;
+  border-width: 1px;
+  border-style: solid;
+  transition: 0.7s;
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 30px;
+  margin-left: 5px;
+  font-size: 14px;
+  background-color: #6C63FF;
+  border-color: #6C63FF;
+  color: #fff;
+  opacity: 0.8;
+}
+
+.not-found form.search-form {
+  justify-content: center;
 }

@@ -79,7 +79,8 @@ function evie_customizer_css() {
         .pagination-next-prev a:hover,
         [type="radio"]:checked+label:after,
         .hero__overlay,
-        .button__primary {
+        .button__primary,
+        .widget_search form .search-submit {
             background-color: var( --primary_color );
         }
 

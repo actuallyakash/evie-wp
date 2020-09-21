@@ -31,13 +31,32 @@
 				esc_url( admin_url( 'post-new.php' ) )
 			);
 
-		elseif ( is_search() ) :
+		elseif ( is_search() || is_404() ) :
 			?>
 
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'evie' ); ?></p>
-			<?php
-			get_search_form();
+			<main id="primary" class="site-main container error-404">
 
+				<section class="not-found center ">
+					<img class="img-fluid" src="<?php echo esc_url( get_template_directory_uri() ) ?>/assets/images/undraw_page_not_found.svg" alt="404">
+
+					<h3>
+					<?php if ( is_search() ) {
+						esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'evie' );
+					} else {
+						esc_html_e( 'The page you were looking for doesn\'t exist.', 'evie' );
+					} ?>
+					</h3>
+
+					<p><?php esc_html_e( 'Go Back to ', 'evie' ); ?><a class="stress link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+
+					<?php if ( is_search() ) {
+						get_search_form(); 
+					} ?>
+				</section>
+				
+			</main>
+
+			<?php
 		else :
 			?>
 
