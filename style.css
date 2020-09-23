@@ -2280,6 +2280,10 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 /* Widgets Design */
+.widget {
+  margin: 0 0 2.8em 0;
+}
+
 form.search-form {
   display: flex;
 }
@@ -2302,4 +2306,50 @@ form.search-form .search-submit {
 
 .not-found form.search-form {
   justify-content: center;
+}
+
+form.search-form .search-submit:hover {
+  opacity: 1;
+}
+
+.widget ul {
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+}
+
+#secondary li {
+  margin-bottom: .55em;
+}
+
+.widget_calendar table {
+  width: 100%;
+}
+
+.widget_calendar caption {
+  line-height: 2.7em;
+}
+
+.widget_calendar thead>tr>th {
+  line-height: 2.5em;
+  border-bottom: 2px solid #eaeaea;
+  border-top: 2px solid #eaeaea;
+}
+
+.widget_calendar tbody {
+  line-height: 2.1em;
+}
+
+.widget_calendar tbody>tr:first-child>td {
+  padding-top: 3px;
+}
+
+.widget_calendar table, .widget_calendar td, .widget_calendar th {
+  padding: 0;
+  text-align: center;
+}
+
+#secondary #calendar_wrap #today {
+  background: #6C63FF;
+  color: white;
 }

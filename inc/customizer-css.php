@@ -43,7 +43,7 @@ function evie_customizer_css() {
             color: var( --tagline_color );
         }
         
-        .navbar__menu a {
+        .navbar-container a {
             color: var( --header_links_color );
         }
 
@@ -59,7 +59,8 @@ function evie_customizer_css() {
         [type="radio"]:checked+label:after,
         button,
         .button,
-        .button__primary {
+        .button__primary,
+        #secondary #calendar_wrap #today {
             border-color: var( --primary_color );
         }
         
