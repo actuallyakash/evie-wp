@@ -97,25 +97,7 @@ document.addEventListener('DOMContentLoaded',function(){
 		}
             // Loop the animation function
             var runAnimation = setInterval(animateScroll, 16);
-        };
-		// Define smooth scroll links
-		var scrollToggle = document.querySelectorAll('.scroll');
-		// For each smooth scroll link
-		[].forEach.call(scrollToggle, function (toggle) {
-			// When the smooth scroll link is clicked
-			toggle.addEventListener('click', function(e) {
-		// Prevent the default link behavior
-		e.preventDefault();
-		// Get anchor link and calculate distance from the top
-		var dataTarget = document.querySelector('.landing__section');
-		var dataSpeed = toggle.getAttribute('data-speed');
-	 	// If the anchor exists
-		if (dataTarget) {
-			// Scroll to the anchor
-				smoothScroll(dataTarget, dataSpeed || 700);
-			}
-		}, false);
-		});
+		};
 	}
 
 	// Search Modal
@@ -175,13 +157,6 @@ document.addEventListener('DOMContentLoaded',function(){
 		// NAVIGATION BAR ON LANDING FIXED
 		// If there is a #navConverter element then attach listener to scroll events
 		chkForNavScroll();
-
-		// SCROLL TO NEXT ELEMENT ON LANDING
-		if (document.body.contains(document.getElementById('scrollToNext'))){
-			var lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-			// if the current body position is less than 20 pixels away from the top, hide the icon
-			if (lastScrollTop > 20){ addNewClass(document.getElementById('scrollToNext'),'invisible');} else {removeClass(document.getElementById('scrollToNext'),'invisible');}
-		}
 	});
 
 	// Responsive mobile menu
