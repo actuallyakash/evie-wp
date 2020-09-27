@@ -65,3 +65,5 @@
 		?>
 	</div><!-- .page-content -->
 </section><!-- .no-results -->
+
+<?php wp_footer(); ?>
