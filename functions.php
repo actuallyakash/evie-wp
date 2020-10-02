@@ -145,6 +145,7 @@ add_action( 'widgets_init', 'evie_widgets_init' );
  * Enqueue scripts and styles.
  */
 function evie_scripts() {
+	wp_enqueue_style( 'evie-fontawesome', get_template_directory_uri() . '/assets/css/all.min.css', [], WP_EVIE_VERSION );
 	wp_enqueue_style( 'evie-bs-grid', get_template_directory_uri() . '/assets/css/bs-grid.css', [], WP_EVIE_VERSION );
 	wp_enqueue_style( 'evie-style', get_stylesheet_uri(), [], WP_EVIE_VERSION );
 	wp_style_add_data( 'evie-style', 'rtl', 'replace' );

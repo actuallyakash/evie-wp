@@ -24,6 +24,17 @@ if ( ! function_exists( 'evie_get_defaults' ) ) {
 				'page_sidebar' => 'sidebar-none',
 				'archive_sidebar' => 'sidebar-none',
 				'sidebar_width' => '300',
+
+				'facebook' => '#',
+				'twitter' => '#',
+				'instagram' => '#',
+				'youtube' => '#',
+				'github' => '#',
+				'linkedin' => '#',
+				'spotify' => '#',
+				'whatsapp' => '#',
+				'telegram' => '#',
+				'email' => '#',
 			)
 		);
 	}

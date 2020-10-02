@@ -42,19 +42,75 @@ get_header();
 					
 					<span class="about-heading">About Author</span>
 
-					<h4><a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" title="Posts by <?php echo esc_html( get_the_author() ); ?>" rel="author"> <?php echo esc_html( get_the_author() ); ?> </a></h4>
+					<h4><a href="<?php echo esc_url(  get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" title="Posts by <?php echo esc_html( get_the_author() ); ?>" rel="author"> <?php echo esc_html( get_the_author() ); ?> </a></h4>
 
 					<?php if( get_the_author_meta( 'description' ) ) : ?>
 					<p><?php echo nl2br( get_the_author_meta( 'description' ) ); ?></p>
 					<?php endif; ?>
 					
-					<!-- Todo: Author links -->
+					<!-- Author links -->
 					<div class="author-links">
-						<a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
-						<a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
-						<a target="_blank" href="#"><i class="fa fa-instagram"></i></a>
-						<a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>	
-						<a target="_blank" href="#"><i class="fa fa-youtube-play"></i></a>
+
+						<?php if( getOption( 'defaults', 'facebook' ) ) : ?>
+							<a href="<?php echo esc_url( getOption( 'defaults', 'facebook' ) ); ?>" target="_blank">
+								<i class="fab fa-facebook-f" aria-hidden="true"></i>
+							</a>
+						<?php endif; ?>
+
+						<?php if( getOption( 'defaults', 'twitter' ) ) : ?>
+							<a href="<?php echo esc_url( getOption( 'defaults', 'twitter' ) ); ?>" target="_blank">
+								<i class="fab fa-twitter" aria-hidden="true"></i>
+							</a>
+						<?php endif; ?>
+
+						<?php if( getOption( 'defaults', 'instagram' ) ) : ?>
+							<a href="<?php echo esc_url( getOption( 'defaults', 'instagram' ) ); ?>" target="_blank">
+								<i class="fab fa-instagram" aria-hidden="true"></i>
+							</a>
+						<?php endif; ?>
+
+						<?php if( getOption( 'defaults', 'youtube' ) ) : ?>
+							<a href="<?php echo esc_url( getOption( 'defaults', 'youtube' ) ); ?>" target="_blank">
+								<i class="fab fa-youtube" aria-hidden="true"></i>
+							</a>
+						<?php endif; ?>
+
+						<?php if( getOption( 'defaults', 'linkedin' ) ) : ?>
+							<a href="<?php echo esc_url( getOption( 'defaults', 'linkedin' ) ); ?>" target="_blank">
+								<i class="fab fa-linkedin-in" aria-hidden="true"></i>
+							</a>
+						<?php endif; ?>
+
+						<?php if( getOption( 'defaults', 'spotify' ) ) : ?>
+							<a href="<?php echo esc_url( getOption( 'defaults', 'spotify' ) ); ?>" target="_blank">
+								<i class="fab fa-spotify" aria-hidden="true"></i>
+							</a>
+						<?php endif; ?>
+
+						<?php if( getOption( 'defaults', 'github' ) ) : ?>
+							<a href="<?php echo esc_url( getOption( 'defaults', 'github' ) ); ?>" target="_blank">
+								<i class="fab fa-github" aria-hidden="true"></i>
+							</a>
+						<?php endif; ?>
+
+						<?php if( getOption( 'defaults', 'whatsapp' ) ) : ?>
+							<a href="<?php echo esc_url( getOption( 'defaults', 'whatsapp' ) ); ?>" target="_blank">
+								<i class="fab fa-whatsapp" aria-hidden="true"></i>
+							</a>
+						<?php endif; ?>
+
+						<?php if( getOption( 'defaults', 'telegram' ) ) : ?>
+							<a href="<?php echo esc_url( getOption( 'defaults', 'telegram' ) ); ?>" target="_blank">
+								<i class="fab fa-telegram-plane" aria-hidden="true"></i>
+							</a>
+						<?php endif; ?>
+
+						<?php if( getOption( 'defaults', 'email' ) ) : ?>
+							<a href="mailto: <?php echo esc_url( getOption( 'defaults', 'email' ) ); ?>" target="_blank">
+								<i class="far fa-envelope" aria-hidden="true"></i>
+							</a>
+						<?php endif; ?>
+
 					</div>
 				</div>
 
@@ -71,7 +127,7 @@ get_header();
 							?>
 
 							<div class="nav-el nav-left">
-								<a href="<?php echo esc_url( get_permalink( $prev_post->ID ) ); ?>" rel="prev">
+								<a href="<?php echo esc_url(  get_permalink(  $prev_post->ID  )  ); ?>" rel="prev">
 									<small class="nav-label">< Previous Article</small>
 									<span class="nav-inner">
 										<img src="<?php echo get_the_post_thumbnail_url( $prev_post->ID ) ?>" class="" alt="<?php echo $prev_post->post_title; ?>">		
@@ -88,7 +144,7 @@ get_header();
 							?>
 
 							<div class="nav-el nav-right">
-								<a href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>" rel="next">
+								<a href="<?php echo esc_url(  get_permalink(  $next_post->ID  )  ); ?>" rel="next">
 									<small class="nav-label">Next Article ></small>
 									<span class="nav-inner">
 										<img src="<?php echo get_the_post_thumbnail_url( $next_post->ID ) ?>" class="" alt="<?php echo $next_post->post_title; ?>">		

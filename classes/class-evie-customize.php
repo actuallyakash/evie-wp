@@ -500,6 +500,190 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 					'label' => __( 'Sidebar Width (px)' ),
 				)
 			);
+
+			/**
+			 * Social Icons
+			 */
+
+			$wp_customize->add_section(
+				'social_icons_options',
+				array(
+					'title'      => __( 'Social Icons', 'evie' ),
+					'priority'   => 50,
+					'capability' => 'edit_theme_options',
+				)
+			);
+
+			// Facebook
+			$wp_customize->add_setting(
+				'facebook',
+				array(
+					'default' => $defaults['facebook']
+				)
+			);
+			
+			$wp_customize->add_control(
+				'facebook',
+				array(
+					'type' => 'url',
+					'section' => 'social_icons_options',
+					'label' => __( 'Facebook' ),
+				)
+			);
+
+			// Twitter
+			$wp_customize->add_setting(
+				'twitter',
+				array(
+					'default' => $defaults['twitter']
+				)
+			);
+			
+			$wp_customize->add_control(
+				'twitter',
+				array(
+					'type' => 'url',
+					'section' => 'social_icons_options',
+					'label' => __( 'Twitter' ),
+				)
+			);
+
+			// Instagram
+			$wp_customize->add_setting(
+				'instagram',
+				array(
+					'default' => $defaults['instagram']
+				)
+			);
+			
+			$wp_customize->add_control(
+				'instagram',
+				array(
+					'type' => 'url',
+					'section' => 'social_icons_options',
+					'label' => __( 'Instagram' ),
+				)
+			);
+
+			// Youtube
+			$wp_customize->add_setting(
+				'youtube',
+				array(
+					'default' => $defaults['youtube']
+				)
+			);
+			
+			$wp_customize->add_control(
+				'youtube',
+				array(
+					'type' => 'url',
+					'section' => 'social_icons_options',
+					'label' => __( 'Youtube' ),
+				)
+			);
+
+			// Github
+			$wp_customize->add_setting(
+				'github',
+				array(
+					'default' => $defaults['github']
+				)
+			);
+			
+			$wp_customize->add_control(
+				'github',
+				array(
+					'type' => 'url',
+					'section' => 'social_icons_options',
+					'label' => __( 'Github' ),
+				)
+			);
+
+			// LinkedIn
+			$wp_customize->add_setting(
+				'linkedin',
+				array(
+					'default' => $defaults['linkedin']
+				)
+			);
+			
+			$wp_customize->add_control(
+				'linkedin',
+				array(
+					'type' => 'url',
+					'section' => 'social_icons_options',
+					'label' => __( 'LinkedIn' ),
+				)
+			);
+
+			// Spotify
+			$wp_customize->add_setting(
+				'spotify',
+				array(
+					'default' => $defaults['spotify']
+				)
+			);
+			
+			$wp_customize->add_control(
+				'spotify',
+				array(
+					'type' => 'url',
+					'section' => 'social_icons_options',
+					'label' => __( 'Spotify' ),
+				)
+			);
+
+			// WhatsApp
+			$wp_customize->add_setting(
+				'whatsapp',
+				array(
+					'default' => $defaults['whatsapp']
+				)
+			);
+			
+			$wp_customize->add_control(
+				'whatsapp',
+				array(
+					'type' => 'url',
+					'section' => 'social_icons_options',
+					'label' => __( 'WhatsApp' ),
+				)
+			);
+
+			// Telegram
+			$wp_customize->add_setting(
+				'telegram',
+				array(
+					'default' => $defaults['telegram']
+				)
+			);
+			
+			$wp_customize->add_control(
+				'telegram',
+				array(
+					'type' => 'url',
+					'section' => 'social_icons_options',
+					'label' => __( 'Telegram' ),
+				)
+			);
+
+			// Email
+			$wp_customize->add_setting(
+				'email',
+				array(
+					'default' => $defaults['email'],
+					'placeholder' => __( 'Your Email' ),
+				)
+			);
+			
+			$wp_customize->add_control(
+				'email',
+				array(
+					'type' => 'url',
+					'section' => 'social_icons_options',
+					'label' => __( 'Email' ),
+				)
+			);
 		}
 
 		/**
