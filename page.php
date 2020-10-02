@@ -15,18 +15,74 @@
 get_header();
 ?>
 
-	<main id="primary" class="single__page">
+	<main id="primary" class="single__page<?php echo getOption( 'defaults', 'page_sidebar' ) !== 'sidebar-none' ? ' sidebar' : ''; ?>">
 
 		<?php
 		while ( have_posts() ) :
 			the_post();
+			
+			get_template_part( 'template-parts/content', 'header' ); 
+			
+			?>
 
-			get_template_part( 'template-parts/content', 'page' );
+			<div id="post-<?php the_ID(); ?>" <?php post_class( 'page container text-container text-container--center' ); ?>>
+			
+				<div class="page__inner <?php echo getOption( 'defaults', 'page_sidebar' ); ?>">
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+					<?php
+						if ( getOption( 'defaults', 'page_sidebar' ) !== 'sidebar-none' ) {
+							get_sidebar();
+						}
+					?>
+
+					<div class="page__main">
+						
+						<?php 
+							the_content();
+
+							wp_link_pages(
+								array(
+									'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'evie' ),
+									'after'  => '</div>',
+								)
+							);
+						
+						if ( get_edit_post_link() ) : ?>
+							<footer class="entry-footer">
+								<?php
+								edit_post_link(
+									sprintf(
+										wp_kses(
+											/* translators: %s: Name of current post. Only visible to screen readers */
+											__( 'Edit <span class="screen-reader-text stress">%s</span>', 'evie' ),
+											array(
+												'span' => array(
+													'class' => array(),
+												),
+											)
+										),
+										wp_kses_post( get_the_title() )
+									),
+									'<code class="edit-link stress">',
+									'</code>'
+								);
+								?>
+							</footer><!-- .entry-footer -->
+						<?php endif; ?>
+						
+					</div>
+				</div>
+				
+				<?php
+				// If comments are open or we have at least one comment, load up the comment template.
+				if ( comments_open() || get_comments_number() ) :
+					comments_template();
+				endif;
+				?>
+
+			</div>
+
+			<?php
 
 		endwhile; // End of the loop.
 		?>

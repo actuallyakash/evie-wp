@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="single__post">
+	<main id="primary" class="single__post<?php echo getOption( 'defaults', 'post_sidebar' ) !== 'sidebar-none' ? ' sidebar' : ''; ?>">
 
 		<?php
 		while ( have_posts() ) :
@@ -20,7 +20,7 @@ get_header();
 			
 			?>
 			
-			<div class="container">
+			<div class="container text-container text-container--center">
 
 				<!-- Article Section -->
 				<div class="app__inner <?php echo getOption( 'defaults', 'post_sidebar' ); ?>">
