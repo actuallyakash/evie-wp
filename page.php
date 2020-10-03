@@ -15,7 +15,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="single__page<?php echo getOption( 'defaults', 'page_sidebar' ) !== 'sidebar-none' ? ' sidebar' : ''; ?>">
+	<main id="primary" class="single__page<?php echo esc_attr( getOption( 'defaults', 'page_sidebar' ) !== 'sidebar-none' ? ' sidebar' : '' ); ?>">
 
 		<?php
 		while ( have_posts() ) :
@@ -27,7 +27,7 @@ get_header();
 
 			<div id="post-<?php the_ID(); ?>" <?php post_class( 'page container text-container text-container--center' ); ?>>
 			
-				<div class="page__inner <?php echo getOption( 'defaults', 'page_sidebar' ); ?>">
+				<div class="page__inner <?php echo esc_attr( getOption( 'defaults', 'page_sidebar' ) ); ?>">
 
 					<?php
 						if ( getOption( 'defaults', 'page_sidebar' ) !== 'sidebar-none' ) {

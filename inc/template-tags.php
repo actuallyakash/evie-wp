@@ -216,3 +216,24 @@ if ( ! function_exists( 'evie_pagination' ) ) :
         <?php wp_reset_postdata();
     }
 endif;
+
+if ( ! function_exists( 'evie_get_tags' ) ) :
+	/**
+	 * Gets the tags for the post
+	 */
+	function evie_get_tags() {
+
+		$tags = get_the_tags();
+
+		echo '<div class="evie__tags">';
+		
+		if ( $tags && ! is_wp_error( $tags ) ) {
+			foreach ($tags as $tag ) {
+				echo '<span class="evie__category"><a href="'. esc_url( get_tag_link( $tag->term_id ) ) .'" title="'. $tag->name .'">'. $tag->name .'</a></span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
+		}
+
+		echo '</div>';
+
+	}
+endif;

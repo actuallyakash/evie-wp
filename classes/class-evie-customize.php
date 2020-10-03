@@ -53,6 +53,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			$wp_customize->add_setting( 'logo_size' , array(
 				'default'   => $defaults['logo_size'],
 				'transport' => 'postMessage',
+				'sanitize_callback' => 'absint'
 			) );
 
 			$wp_customize->add_control( 'logo_size', array(
@@ -351,7 +352,8 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				'container_width',
 				array(
 					'default' => $defaults['container_width'],
-					'transport' => 'postMessage'
+					'transport' => 'postMessage',
+					'sanitize_callback' => 'absint'
 				)
 			);
 			
@@ -360,7 +362,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'number',
 					'section' => 'options',
-					'label' => __( 'Container Width (px)' ),
+					'label' => __( 'Container Width (px)', 'evie' ),
 				)
 			);
 
@@ -388,7 +390,8 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				'excerpt_lines',
 				array(
 					'default' => $defaults['excerpt_lines'],
-					'transport' => 'postMessage'
+					'transport' => 'postMessage',
+					'sanitize_callback' => 'absint'
 				)
 			);
 			
@@ -397,7 +400,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'number',
 					'section' => 'options',
-					'label' => __( 'Excerpt Lines' ),
+					'label' => __( 'Excerpt Lines', 'evie' ),
 				)
 			);
 
@@ -426,7 +429,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			$wp_customize->add_control(
 				'post_sidebar',
 				array(
-					'label' => __( 'Post Sidebar', 'mtwriter' ),
+					'label' => __( 'Post Sidebar', 'evie' ),
 					'section' => 'sidebar_options',
 					'type' => 'select',
 					'choices' => array(
@@ -449,7 +452,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			$wp_customize->add_control(
 				'page_sidebar',
 				array(
-					'label' => __( 'Page Sidebar', 'mtwriter' ),
+					'label' => __( 'Page Sidebar', 'evie' ),
 					'section' => 'sidebar_options',
 					'type' => 'select',
 					'choices' => array(
@@ -472,7 +475,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			$wp_customize->add_control(
 				'archive_sidebar',
 				array(
-					'label' => __( 'Archive Sidebar', 'mtwriter' ),
+					'label' => __( 'Archive Sidebar', 'evie' ),
 					'section' => 'sidebar_options',
 					'type' => 'select',
 					'choices' => array(
@@ -488,7 +491,8 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				'sidebar_width',
 				array(
 					'default' => $defaults['sidebar_width'],
-					'transport' => 'postMessage'
+					'transport' => 'postMessage',
+					'sanitize_callback' => 'absint'
 				)
 			);
 			
@@ -497,7 +501,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'number',
 					'section' => 'sidebar_options',
-					'label' => __( 'Sidebar Width (px)' ),
+					'label' => __( 'Sidebar Width (px)', 'evie' ),
 				)
 			);
 
@@ -518,7 +522,8 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			$wp_customize->add_setting(
 				'facebook',
 				array(
-					'default' => $defaults['facebook']
+					'default' => $defaults['facebook'],
+					'sanitize_callback' => 'esc_url_raw'
 				)
 			);
 			
@@ -527,7 +532,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'url',
 					'section' => 'social_icons_options',
-					'label' => __( 'Facebook' ),
+					'label' => __( 'Facebook', 'evie' ),
 				)
 			);
 
@@ -535,7 +540,8 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			$wp_customize->add_setting(
 				'twitter',
 				array(
-					'default' => $defaults['twitter']
+					'default' => $defaults['twitter'],
+					'sanitize_callback' => 'esc_url_raw'
 				)
 			);
 			
@@ -544,7 +550,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'url',
 					'section' => 'social_icons_options',
-					'label' => __( 'Twitter' ),
+					'label' => __( 'Twitter', 'evie' ),
 				)
 			);
 
@@ -552,7 +558,8 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			$wp_customize->add_setting(
 				'instagram',
 				array(
-					'default' => $defaults['instagram']
+					'default' => $defaults['instagram'],
+					'sanitize_callback' => 'esc_url_raw'
 				)
 			);
 			
@@ -561,7 +568,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'url',
 					'section' => 'social_icons_options',
-					'label' => __( 'Instagram' ),
+					'label' => __( 'Instagram', 'evie' ),
 				)
 			);
 
@@ -569,7 +576,8 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			$wp_customize->add_setting(
 				'youtube',
 				array(
-					'default' => $defaults['youtube']
+					'default' => $defaults['youtube'],
+					'sanitize_callback' => 'esc_url_raw'
 				)
 			);
 			
@@ -578,7 +586,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'url',
 					'section' => 'social_icons_options',
-					'label' => __( 'Youtube' ),
+					'label' => __( 'Youtube', 'evie' ),
 				)
 			);
 
@@ -586,7 +594,8 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			$wp_customize->add_setting(
 				'github',
 				array(
-					'default' => $defaults['github']
+					'default' => $defaults['github'],
+					'sanitize_callback' => 'esc_url_raw'
 				)
 			);
 			
@@ -595,7 +604,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'url',
 					'section' => 'social_icons_options',
-					'label' => __( 'Github' ),
+					'label' => __( 'Github', 'evie' ),
 				)
 			);
 
@@ -603,7 +612,8 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			$wp_customize->add_setting(
 				'linkedin',
 				array(
-					'default' => $defaults['linkedin']
+					'default' => $defaults['linkedin'],
+					'sanitize_callback' => 'esc_url_raw'
 				)
 			);
 			
@@ -612,7 +622,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'url',
 					'section' => 'social_icons_options',
-					'label' => __( 'LinkedIn' ),
+					'label' => __( 'LinkedIn', 'evie' ),
 				)
 			);
 
@@ -620,7 +630,8 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			$wp_customize->add_setting(
 				'spotify',
 				array(
-					'default' => $defaults['spotify']
+					'default' => $defaults['spotify'],
+					'sanitize_callback' => 'esc_url_raw'
 				)
 			);
 			
@@ -629,7 +640,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'url',
 					'section' => 'social_icons_options',
-					'label' => __( 'Spotify' ),
+					'label' => __( 'Spotify', 'evie' ),
 				)
 			);
 
@@ -637,7 +648,8 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			$wp_customize->add_setting(
 				'whatsapp',
 				array(
-					'default' => $defaults['whatsapp']
+					'default' => $defaults['whatsapp'],
+					'sanitize_callback' => 'esc_url_raw'
 				)
 			);
 			
@@ -646,7 +658,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'url',
 					'section' => 'social_icons_options',
-					'label' => __( 'WhatsApp' ),
+					'label' => __( 'WhatsApp', 'evie' ),
 				)
 			);
 
@@ -654,7 +666,8 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			$wp_customize->add_setting(
 				'telegram',
 				array(
-					'default' => $defaults['telegram']
+					'default' => $defaults['telegram'],
+					'sanitize_callback' => 'esc_url_raw'
 				)
 			);
 			
@@ -663,7 +676,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'url',
 					'section' => 'social_icons_options',
-					'label' => __( 'Telegram' ),
+					'label' => __( 'Telegram', 'evie' ),
 				)
 			);
 
@@ -672,7 +685,8 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				'email',
 				array(
 					'default' => $defaults['email'],
-					'placeholder' => __( 'Your Email' ),
+					'placeholder' => __( 'Your Email', 'evie' ),
+					'sanitize_callback' => 'sanitize_email'
 				)
 			);
 			
@@ -681,7 +695,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'url',
 					'section' => 'social_icons_options',
-					'label' => __( 'Email' ),
+					'label' => __( 'Email', 'evie' ),
 				)
 			);
 		}

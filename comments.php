@@ -80,10 +80,10 @@ if ( post_password_required() ) {
 										<input name="submit" type="submit" id="submit" class="button button__primary" value="Post Comment">
 									</div>',
 				'comment_notes_before' => '<small class="comment-notes">Your email address will not be published. Required fields are marked *</small>',
-				'label_submit' => __( 'Post Comment' ),
+				'label_submit' => __( 'Post Comment', 'evie' ),
 				'cancel_reply_before' => '<small class="cancel-reply">',
 				'cancel_reply_after' => '</small>',
-				'cancel_reply_link' => __( 'Cancel' ),
+				'cancel_reply_link' => __( 'Cancel', 'evie' ),
 			);
 			
 			echo '<div class="center">';

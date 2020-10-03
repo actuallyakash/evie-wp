@@ -1,11 +1,11 @@
 **Theme Name:** Evie  
-**Theme URI:** https://wordpress.org/themes/evie/  
+**Theme URI:** #  
 **Contributors:** actuallyakash  
 **Requires at least:** WordPress 5.5  
 **Version:** 1.0  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-**Tags:** custom-colors, custom-logo, custom-menu, editor-style, featured-images, sidebar-widgets, theme-options, threaded-comments, right-sidebar, left-sidebar, blog, minimal  
+**Tags:** custom-colors, custom-logo, custom-menu, editor-style, featured-images, theme-options, threaded-comments, right-sidebar, left-sidebar, blog, two-columns  
 
 ## Description
 

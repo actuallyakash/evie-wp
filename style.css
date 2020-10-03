@@ -1,6 +1,6 @@
 /*!
 Theme Name: Evie
-Theme URI: https://wordpress.org/themes/evie/
+Theme URI: #
 Author: actuallyakash
 Author URI: http://akashgupta.xyz
 Description: A production-ready theme for your projects.
@@ -10,7 +10,7 @@ Requires PHP: 5.6
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: evie
-Tags: custom-colors, custom-logo, custom-menu, editor-style, featured-images, sidebar-widgets, theme-options, threaded-comments, right-sidebar, left-sidebar, blog, minimal
+Tags: custom-colors, custom-logo, custom-menu, editor-style, featured-images, theme-options, threaded-comments, right-sidebar, left-sidebar, blog, two-columns
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned.
@@ -1239,12 +1239,17 @@ select::-ms-expand {
   -webkit-box-orient: vertical;
 }
 
+.evie__tags span:not(:first-child) {
+  margin: 0 10px;
+}
+
 .evie__category {
   background-color: #6c63ff;
   padding: 2px 12px;
   color: #fff;
   border-radius: 5px;
   font-size: 14px;
+  text-transform: capitalize;
 }
 
 /* Single */
@@ -1821,4 +1826,49 @@ form.search-form .search-submit:hover {
 .author__card .author-links a {
   margin: 0 6px;
   font-size: 18px;
+}
+
+/* WP Classes */
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin: 0 auto;
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+.wp-caption .wp-caption-text {
+	margin: 0;
+	color: grey;
+	font-size: 15px;
+}
+
+.sticky {
+	display: block;
+}
+
+.gallery-caption {
+	display: block;
+}
+
+.bypostauthor {
+	display: block;
+}
+
+.alignleft {
+	text-align: left;
+}
+
+.alignright {
+	text-align: right;
+}
+
+.aligncenter {
+	text-align: center;
 }

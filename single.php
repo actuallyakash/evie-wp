@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="single__post<?php echo getOption( 'defaults', 'post_sidebar' ) !== 'sidebar-none' ? ' sidebar' : ''; ?>">
+	<main id="primary" class="single__post<?php echo esc_attr( getOption( 'defaults', 'post_sidebar' ) !== 'sidebar-none' ? ' sidebar' : '' ); ?>">
 
 		<?php
 		while ( have_posts() ) :
@@ -23,7 +23,7 @@ get_header();
 			<div class="container text-container text-container--center">
 
 				<!-- Article Section -->
-				<div class="app__inner <?php echo getOption( 'defaults', 'post_sidebar' ); ?>">
+				<div class="app__inner <?php echo esc_attr( getOption( 'defaults', 'post_sidebar' ) ); ?>">
 					
 					<?php
 						if ( getOption( 'defaults', 'post_sidebar' ) !== 'sidebar-none' ) {
@@ -36,11 +36,14 @@ get_header();
 					</div>
 				</div>
 
+				<!-- Tags -->
+				<?php evie_get_tags(); ?>
+
 				<!-- Author Card -->
 				<div class="author__card">
-					<img alt="<?php get_the_title(); ?>" src="<?php echo get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 450 )); ?>" height="110" width="110">
+					<img alt="<?php get_the_title(); ?>" src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 450 ) ) ); ?>" height="110" width="110">
 					
-					<span class="about-heading">About Author</span>
+					<span class="about-heading"><?php esc_html_e( 'About Author', 'evie' ); ?></span>
 
 					<h4><a href="<?php echo esc_url(  get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" title="Posts by <?php echo esc_html( get_the_author() ); ?>" rel="author"> <?php echo esc_html( get_the_author() ); ?> </a></h4>
 
@@ -128,9 +131,9 @@ get_header();
 
 							<div class="nav-el nav-left">
 								<a href="<?php echo esc_url(  get_permalink(  $prev_post->ID  )  ); ?>" rel="prev">
-									<small class="nav-label">< Previous Article</small>
+									<small class="nav-label"><?php esc_html_e( '< Previous Article', 'evie' ); ?></small>
 									<span class="nav-inner">
-										<img src="<?php echo get_the_post_thumbnail_url( $prev_post->ID ) ?>" class="" alt="<?php echo $prev_post->post_title; ?>">		
+										<img src="<?php echo get_the_post_thumbnail_url( $prev_post->ID ) ?>" class="" alt="<?php echo esc_attr( $prev_post->post_title ); ?>">		
 										
 										<span class="nav-title"><?php echo wordwrap( $prev_post->post_title, 40, "<br>" ); ?></span>
 									</span>
@@ -145,9 +148,9 @@ get_header();
 
 							<div class="nav-el nav-right">
 								<a href="<?php echo esc_url(  get_permalink(  $next_post->ID  )  ); ?>" rel="next">
-									<small class="nav-label">Next Article ></small>
+									<small class="nav-label"><?php esc_html_e( 'Next Article >', 'evie' ); ?> </small>
 									<span class="nav-inner">
-										<img src="<?php echo get_the_post_thumbnail_url( $next_post->ID ) ?>" class="" alt="<?php echo $next_post->post_title; ?>">		
+										<img src="<?php echo get_the_post_thumbnail_url( $next_post->ID ) ?>" class="" alt="<?php echo esc_attr( $next_post->post_title ); ?>">		
 										
 										<span class="nav-title"><?php echo wordwrap( $next_post->post_title, 40, "<br>" ); ?></span>
 									</span>

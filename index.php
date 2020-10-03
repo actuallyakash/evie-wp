@@ -28,7 +28,7 @@ get_header();
 			endif;
 		?>
 
-		<div class="app__inner app <?php echo getOption( 'defaults', 'archive_sidebar' ); ?>">
+		<div class="app__inner app <?php echo esc_attr( getOption( 'defaults', 'archive_sidebar' ) ); ?>">
 
 			<?php
 				if ( getOption( 'defaults', 'archive_sidebar' ) !== 'sidebar-none' ) {
