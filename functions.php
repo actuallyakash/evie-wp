@@ -14,7 +14,7 @@ if ( ! defined( 'WP_EVIE_VERSION' ) ) {
 	define( 'WP_EVIE_PLG_URL', plugin_dir_url( __FILE__ ) );
 }
 
-if ( ! function_exists( 'evie_setup' ) ) :
+if ( ! function_exists( 'evie_setup' ) ) {
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -41,6 +41,15 @@ if ( ! function_exists( 'evie_setup' ) ) :
 		 * provide it for us.
 		 */
 		add_theme_support( 'title-tag' );
+
+		// Add support for Block Styles.
+		add_theme_support( 'wp-block-styles' );
+
+		// Add support for editor styles.
+		add_theme_support( 'editor-styles' );
+
+		// Enqueue editor styles.
+		add_editor_style( 'style-editor.css' );
 
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
@@ -103,7 +112,7 @@ if ( ! function_exists( 'evie_setup' ) ) :
 			)
 		);
 	}
-endif;
+}
 add_action( 'after_setup_theme', 'evie_setup' );
 
 /**

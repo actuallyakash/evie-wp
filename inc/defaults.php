@@ -47,6 +47,7 @@ if ( ! function_exists( 'evie_get_color_defaults' ) ) {
 			array(
                 'primary_color' => '#6C63FF',
                 'secondary_color' => '#666',
+				'link_color' => '#6C63FF',
 				'bg_color' => '#fff',
 				'header_background_color' => '#6C63FF',
 				'header_logo_color' => '#FFF',

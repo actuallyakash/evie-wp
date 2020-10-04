@@ -118,52 +118,7 @@ get_header();
 				</div>
 
 				<?php
-				// Article Navigation
-				$next_post = get_next_post();
-				$prev_post = get_previous_post();
-				
-				if ( $next_post || $prev_post ) { ?>
-
-					<nav class="article-navigation">
-						<?php 
-						if ( $prev_post ) { 
-							?>
-
-							<div class="nav-el nav-left">
-								<a href="<?php echo esc_url(  get_permalink(  $prev_post->ID  )  ); ?>" rel="prev">
-									<small class="nav-label"><?php esc_html_e( '< Previous Article', 'evie' ); ?></small>
-									<span class="nav-inner">
-										<img src="<?php echo get_the_post_thumbnail_url( $prev_post->ID ) ?>" class="" alt="<?php echo esc_attr( $prev_post->post_title ); ?>">		
-										
-										<span class="nav-title"><?php echo wordwrap( $prev_post->post_title, 40, "<br>" ); ?></span>
-									</span>
-								</a>
-							</div>
-
-							<?php
-						}
-						
-						if( $next_post ) {
-							?>
-
-							<div class="nav-el nav-right">
-								<a href="<?php echo esc_url(  get_permalink(  $next_post->ID  )  ); ?>" rel="next">
-									<small class="nav-label"><?php esc_html_e( 'Next Article >', 'evie' ); ?> </small>
-									<span class="nav-inner">
-										<img src="<?php echo get_the_post_thumbnail_url( $next_post->ID ) ?>" class="" alt="<?php echo esc_attr( $next_post->post_title ); ?>">		
-										
-										<span class="nav-title"><?php echo wordwrap( $next_post->post_title, 40, "<br>" ); ?></span>
-									</span>
-								</a>
-							</div>
-
-							<?php
-						}
-						?>
-
-					</nav>
-
-				<?php }
+				evie_singular_pagination();
 				
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( comments_open() || get_comments_number() ) :

@@ -13,6 +13,7 @@ function evie_customizer_css() {
         :root {
             --primary_color: <?php echo getOption( 'colors', 'primary_color' ); ?>;
             --secondary_color: <?php echo getOption( 'colors', 'secondary_color' ); ?>;
+            --link_color: <?php echo getOption( 'colors', 'link_color' ); ?>;
             --bg_color: <?php echo getOption( 'colors', 'bg_color' ); ?>;
             --header_background_color: <?php echo getOption( 'colors', 'header_background_color' ); ?>;
             --header_logo_color: <?php echo getOption( 'colors', 'header_logo_color' ); ?>;
@@ -37,6 +38,11 @@ function evie_customizer_css() {
 
         .navbar__logo {
             color: var( --header_logo_color );
+        }
+
+        .page__inner a,
+        .app__inner a {
+            color: var( --link_color );
         }
 
         .site__description {

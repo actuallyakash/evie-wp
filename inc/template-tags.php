@@ -229,11 +229,71 @@ if ( ! function_exists( 'evie_get_tags' ) ) :
 		
 		if ( $tags && ! is_wp_error( $tags ) ) {
 			foreach ($tags as $tag ) {
-				echo '<span class="evie__category"><a href="'. esc_url( get_tag_link( $tag->term_id ) ) .'" title="'. $tag->name .'">'. $tag->name .'</a></span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo '<span class="evie__category"><a href="'. esc_url( get_tag_link( $tag->term_id ) ) .'" title="'. $tag->name .'">'. ucfirst( $tag->name ) .'</a></span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 
 		echo '</div>';
+
+	}
+endif;
+
+if ( ! function_exists( 'evie_singular_pagination' ) ) :
+	/**
+	 * Gets the page for single post
+	 */
+	function evie_singular_pagination() {
+
+		// Article Navigation
+		$next_post = get_next_post();
+		$prev_post = get_previous_post();
+		
+		if ( $next_post || $prev_post ) { ?>
+
+			<nav class="article-navigation">
+				<?php 
+				if ( $prev_post ) { 
+					?>
+
+					<div class="nav-el nav-left">
+						<a href="<?php echo esc_url(  get_permalink(  $prev_post->ID  )  ); ?>" rel="prev">
+							<small class="nav-label"><?php esc_html_e( '< Previous Article', 'evie' ); ?></small>
+							<span class="nav-inner">
+								<?php if ( ! empty( get_the_post_thumbnail_url( $prev_post->ID ) ) ) { ?>
+								<img src="<?php echo get_the_post_thumbnail_url( $prev_post->ID ) ?>" class="" alt="<?php echo esc_attr( $prev_post->post_title ); ?>">	
+								<?php } ?>
+								
+								<span class="nav-title"><?php echo wordwrap( $prev_post->post_title, 40, "<br>" ); ?></span>
+							</span>
+						</a>
+					</div>
+
+					<?php
+				}
+				
+				if( $next_post ) {
+					?>
+
+					<div class="nav-el nav-right">
+						<a href="<?php echo esc_url(  get_permalink(  $next_post->ID  )  ); ?>" rel="next">
+							<small class="nav-label"><?php esc_html_e( 'Next Article >', 'evie' ); ?> </small>
+							<span class="nav-inner">
+								<?php if ( ! empty( get_the_post_thumbnail_url( $next_post->ID ) ) ) { ?>
+								<img src="<?php echo get_the_post_thumbnail_url( $next_post->ID ) ?>" class="" alt="<?php echo esc_attr( $next_post->post_title ); ?>">	
+								<?php } ?>
+								
+								<span class="nav-title"><?php echo wordwrap( $next_post->post_title, 40, "<br>" ); ?></span>
+							</span>
+						</a>
+					</div>
+
+					<?php
+				}
+				?>
+
+			</nav>
+
+		<?php }
 
 	}
 endif;

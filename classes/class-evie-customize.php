@@ -128,6 +128,27 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				)
 			);
 
+			// Link Color
+			$wp_customize->add_setting(
+				'link_color',
+				array(
+					'default'           => $colorDefaults['link_color'],
+					'sanitize_callback' => 'sanitize_hex_color',
+					'transport'         => 'postMessage',
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'link_color',
+					array(
+						'label'   => __( 'Link Color', 'evie' ),
+						'section' => 'colors',
+					)
+				)
+			);
+
 			// Background Color.
 			$wp_customize->add_setting(
 				'bg_color',

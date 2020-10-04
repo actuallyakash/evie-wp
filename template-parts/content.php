@@ -29,8 +29,11 @@
 
 		<div class="post__content">
 			<?php the_title( '<h3 class="post__heading"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' ); ?>
+			
 			<?php if ( getOption('defaults', 'enable_excerpt' ) ) { ?>
-				<p class="excerpt"> <?php echo substr( get_the_excerpt(), 0, 260 ); ?> </p>
+				<a href="<?php echo esc_url( get_permalink() ); ?>">
+					<p class="excerpt"> <?php echo substr( get_the_excerpt(), 0, 260 ); ?> </p>
+				</a>
 			<?php } ?>
 		</div>
 

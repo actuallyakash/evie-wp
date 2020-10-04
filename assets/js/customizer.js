@@ -39,6 +39,12 @@
 		});
 	});
 
+	wp.customize( 'link_color', function( value ) {
+		value.bind( function( val ) {
+			document.documentElement.style.setProperty( '--link_color', val );
+		});
+	});
+
 	wp.customize( 'bg_color', function( value ) {
 		value.bind( function( val ) {
 			document.documentElement.style.setProperty( '--bg_color', val );
