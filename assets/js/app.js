@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
 	// Responsive mobile menu
 	// Create the menu 
-	if (document.getElementsByClassName("nav__mobile") && document.getElementsByClassName('nav__mobile').length > 0){
+	if ( document.getElementsByClassName("nav__mobile") && document.getElementsByClassName('nav__mobile').length > 0 ){
 		var navElements = document.getElementsByClassName('navbar__menu')[0].innerHTML;
 		document.getElementsByClassName('nav__mobile')[0].innerHTML = navElements;
 		// Load 

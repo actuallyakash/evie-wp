@@ -372,6 +372,10 @@ center-align {
   color: #111;
 }
 
+a:focus {
+  outline: thin dotted;
+}
+
 img,
 svg {
   max-width: 100%;
@@ -801,15 +805,15 @@ select::-ms-expand {
   margin-right: auto;
 }
 
-.page__inner a,
-.app__inner a {
+.page__main a,
+.app__main a {
   opacity: 0.75;
   color: #6C63FF;
   text-decoration: underline;
 }
 
-.page__inner a:hover,
-.app__inner a:hover {
+.page__main a:hover,
+.app__main a:hover {
   opacity: 1;
 }
 

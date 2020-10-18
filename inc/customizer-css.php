@@ -40,8 +40,8 @@ function evie_customizer_css() {
             color: var( --header_logo_color );
         }
 
-        .page__inner a,
-        .app__inner a {
+        .page__main a,
+        .app__main a {
             color: var( --link_color );
         }
 
