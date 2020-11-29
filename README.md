@@ -1,5 +1,5 @@
 **Theme Name:** Evie  
-**Theme URI:** #  
+**Theme URI:** https://github.com/actuallyakash/evie-wp  
 **Contributors:** actuallyakash  
 **Requires at least:** WordPress 5.5  
 **Version:** 1.0  

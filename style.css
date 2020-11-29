@@ -1,6 +1,6 @@
 /*!
 Theme Name: Evie
-Theme URI: #
+Theme URI: https://github.com/actuallyakash/evie-wp
 Author: actuallyakash
 Author URI: http://akashgupta.xyz
 Description: A production-ready theme for your projects.
@@ -1115,13 +1115,6 @@ select::-ms-expand {
   padding: calc(80px) 0 40px 0;
 }
 
-@media (min-width: 992px) {
-  .app__inner {
-    -js-display: flex;
-    display: flex;
-  }
-}
-
 .app__menu {
   width: 100%;
   position: relative;
@@ -1134,6 +1127,11 @@ select::-ms-expand {
     width: 300px;
     flex-shrink: 0;
   }
+}
+
+.sidebar-left {
+  -js-display: flex;
+  display: flex;
 }
 
 .sidebar-left .sidebar {
