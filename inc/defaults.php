@@ -5,9 +5,9 @@
  * @package EvieWP WordPress theme
  */
 
-if ( ! function_exists( 'evie_get_defaults' ) ) {
-	function evie_get_defaults() {
-		return apply_filters( 'evie_option_defaults',
+if ( ! function_exists( 'eviewp_get_defaults' ) ) {
+	function eviewp_get_defaults() {
+		return apply_filters( 'eviewp_option_defaults',
 			array(
                 'custom_logo' => '',
 				'logo_size' => '50',
@@ -41,9 +41,9 @@ if ( ! function_exists( 'evie_get_defaults' ) ) {
 }
 
 // Customizer Color Defaults
-if ( ! function_exists( 'evie_get_color_defaults' ) ) {
-	function evie_get_color_defaults() {
-		return apply_filters( 'evie_color_option_defaults',
+if ( ! function_exists( 'eviewp_get_color_defaults' ) ) {
+	function eviewp_get_color_defaults() {
+		return apply_filters( 'eviewp_color_option_defaults',
 			array(
                 'primary_color' => '#6C63FF',
                 'secondary_color' => '#666',
@@ -69,10 +69,10 @@ if ( ! function_exists( 'getOption' ) ) {
      * $property - value requested
 	 */
 
-    function getOption( $type, $property ) {
+    function getOption( $type, $property ) { // phpcs:ignore WPThemeReview.CoreFunctionality.PrefixAllGlobals.NonPrefixedFunctionFound
 
-        $defaults = evie_get_defaults();
-        $defaultColors = evie_get_color_defaults();
+        $defaults = eviewp_get_defaults();
+        $defaultColors = eviewp_get_color_defaults();
 
         switch( $type ) {
             case 'defaults': return get_theme_mod( $property, $defaults[$property] );

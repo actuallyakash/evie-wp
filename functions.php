@@ -7,14 +7,14 @@
  * @package EvieWP WordPress theme
  */
 
-if ( ! defined( 'WP_EVIE_VERSION' ) ) {
+if ( ! defined( 'EVIEWP_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'WP_EVIE_VERSION', '1.0.1' );
-	define( 'WP_EVIE_DIR_PATH', plugin_dir_path( __FILE__ ) );
-	define( 'WP_EVIE_PLG_URL', plugin_dir_url( __FILE__ ) );
+	define( 'EVIEWP_VERSION', '1.0.0' );
+	define( 'EVIEWP_DIR_PATH', plugin_dir_path( __FILE__ ) );
+	define( 'EVIEWP_PLG_URL', plugin_dir_url( __FILE__ ) );
 }
 
-if ( ! function_exists( 'evie_setup' ) ) {
+if ( ! function_exists( 'eviewp_setup' ) ) {
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -22,7 +22,7 @@ if ( ! function_exists( 'evie_setup' ) ) {
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function evie_setup() {
+	function eviewp_setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
@@ -86,7 +86,7 @@ if ( ! function_exists( 'evie_setup' ) ) {
 		add_theme_support(
 			'custom-background',
 			apply_filters(
-				'evie_custom_background_args',
+				'eviewp_custom_background_args',
 				array(
 					'default-color' => 'ffffff',
 					'default-image' => '',
@@ -113,29 +113,28 @@ if ( ! function_exists( 'evie_setup' ) ) {
 		);
 	}
 }
-add_action( 'after_setup_theme', 'evie_setup' );
+add_action( 'after_setup_theme', 'eviewp_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
  * Priority 0 to make it available to lower priority callbacks.
  *
- * @global int $content_width
+ * @global int $eviewp_content_width
  */
-function evie_content_width() {
+function eviewp_content_width() {
 	// This variable is intended to be overruled from themes.
 	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
-	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'evie_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'eviewp_content_width', 640 ); // phpcs:ignore WPThemeReview.CoreFunctionality.PrefixAllGlobals.NonPrefixedVariableFound
 }
-add_action( 'after_setup_theme', 'evie_content_width', 0 );
+add_action( 'after_setup_theme', 'eviewp_content_width', 0 );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function evie_widgets_init() {
+function eviewp_widgets_init() {
 	register_sidebar(
 		array(
 			'name'          => esc_html__( 'Sidebar', 'eviewp' ),
@@ -148,27 +147,27 @@ function evie_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'evie_widgets_init' );
+add_action( 'widgets_init', 'eviewp_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
-function evie_scripts() {
-	wp_enqueue_style( 'eviewp-fontawesome', get_template_directory_uri() . '/assets/css/all.min.css', [], WP_EVIE_VERSION );
-	wp_enqueue_style( 'eviewp-bs-grid', get_template_directory_uri() . '/assets/css/bs-grid.css', [], WP_EVIE_VERSION );
-	wp_enqueue_style( 'eviewp-style', get_stylesheet_uri(), [], WP_EVIE_VERSION );
+function eviewp_scripts() {
+	wp_enqueue_style( 'eviewp-fontawesome', get_template_directory_uri() . '/assets/css/all.min.css', [], EVIEWP_VERSION );
+	wp_enqueue_style( 'eviewp-bs-grid', get_template_directory_uri() . '/assets/css/bs-grid.css', [], EVIEWP_VERSION );
+	wp_enqueue_style( 'eviewp-style', get_stylesheet_uri(), [], EVIEWP_VERSION );
 	wp_style_add_data( 'eviewp-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'eviewp-navigation', get_template_directory_uri() . '/assets/js/navigation.js', [], WP_EVIE_VERSION, true );
+	wp_enqueue_script( 'eviewp-navigation', get_template_directory_uri() . '/assets/js/navigation.js', [], EVIEWP_VERSION, true );
 
-	wp_enqueue_script( 'eviewp-app', get_template_directory_uri() . '/assets/js/app.js', [], WP_EVIE_VERSION, true );
+	wp_enqueue_script( 'eviewp-app', get_template_directory_uri() . '/assets/js/app.js', [], EVIEWP_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 	wp_enqueue_style('dashicons');
 }
-add_action( 'wp_enqueue_scripts', 'evie_scripts' );
+add_action( 'wp_enqueue_scripts', 'eviewp_scripts' );
 
 /**
  * Theme defaults

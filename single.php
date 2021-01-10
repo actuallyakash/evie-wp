@@ -37,7 +37,7 @@ get_header();
 				</div>
 
 				<!-- Tags -->
-				<?php evie_get_tags(); ?>
+				<?php eviewp_get_tags(); ?>
 
 				<!-- Author Card -->
 				<div class="author__card">
@@ -118,7 +118,7 @@ get_header();
 				</div>
 
 				<?php
-				evie_singular_pagination();
+				eviewp_singular_pagination();
 				
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( comments_open() || get_comments_number() ) :

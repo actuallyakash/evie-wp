@@ -45,7 +45,7 @@ get_header();
 							?>
 						</div>
 
-						<?php evie_pagination(); ?>
+						<?php eviewp_pagination(); ?>
 						
 					</div>
 

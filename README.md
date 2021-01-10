@@ -45,8 +45,8 @@ Copyright (c) 2020 WordPress.org
 License: GPLv2  
 Source: https://wordpress.org/themes/twentytwenty/  
 Included as part of the following classes and functions:  
-- Evie_Walker_Comment
-- evie_is_comment_by_post_author()
+- EvieWP_Walker_Comment
+- eviewp_is_comment_by_post_author()
 
 Underscores  
 Licence: [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)  

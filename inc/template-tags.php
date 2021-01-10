@@ -7,11 +7,11 @@
  * @package EvieWP WordPress theme
  */
 
-if ( ! function_exists( 'evie_posted_on' ) ) :
+if ( ! function_exists( 'eviewp_posted_on' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
-	function evie_posted_on() {
+	function eviewp_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
@@ -33,11 +33,11 @@ if ( ! function_exists( 'evie_posted_on' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'evie_first_category' ) ) :
+if ( ! function_exists( 'eviewp_first_category' ) ) :
 	/**
 	 * Gets first category from the list of category
 	 */
-	function evie_first_category() {
+	function eviewp_first_category() {
 		
 		$category_name = get_the_category()[0]->cat_name;
 		$category_link = get_category_link( get_cat_ID( $category_name ) );
@@ -50,11 +50,11 @@ if ( ! function_exists( 'evie_first_category' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'evie_get_breadcrumbs' ) ) :
+if ( ! function_exists( 'eviewp_get_breadcrumbs' ) ) :
 	/**
 	 * Gets breadcrumbs for the page
 	 */
-	function evie_get_breadcrumbs() {
+	function eviewp_get_breadcrumbs() {
 		
 		echo '<a href="' . home_url() . '" rel="nofollow">Home</a>';
 		if ( is_category() || is_single() ) {
@@ -77,11 +77,11 @@ if ( ! function_exists( 'evie_get_breadcrumbs' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'evie_posted_by' ) ) :
+if ( ! function_exists( 'eviewp_posted_by' ) ) :
 	/**
 	 * Prints HTML with meta information for the current author.
 	 */
-	function evie_posted_by() {
+	function eviewp_posted_by() {
 		$byline = sprintf(
 			/* translators: %s: post author. */
 			esc_html_x( 'by %s', 'post author', 'eviewp' ),
@@ -93,14 +93,14 @@ if ( ! function_exists( 'evie_posted_by' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'evie_post_thumbnail' ) ) :
+if ( ! function_exists( 'eviewp_post_thumbnail' ) ) :
 	/**
 	 * Displays an optional post thumbnail.
 	 *
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
 	 */
-	function evie_post_thumbnail() {
+	function eviewp_post_thumbnail() {
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
 		}
@@ -126,7 +126,7 @@ if ( ! function_exists( 'evie_post_thumbnail' ) ) :
 
 		<?php else : ?>
 
-			<div class="evie__img__container">
+			<div class="eviewp__img__container">
 				<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 					<?php
 						the_post_thumbnail(
@@ -149,22 +149,22 @@ if ( ! function_exists( 'evie_post_thumbnail' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'wp_body_open' ) ) :
+if ( ! function_exists( 'eviewp_body_open' ) ) :
 	/**
 	 * Shim for sites older than 5.2.
 	 *
 	 * @link https://core.trac.wordpress.org/ticket/12563
 	 */
-	function wp_body_open() {
-		do_action( 'wp_body_open' );
+	function eviewp_body_open() {
+		do_action( 'wp_body_open' ); // phpcs:ignore WPThemeReview.CoreFunctionality.PrefixAllGlobals.NonPrefixedHooknameFound
 	}
 endif;
 
-if ( ! function_exists( 'evie_is_comment_by_post_author' ) ) :
+if ( ! function_exists( 'eviewp_is_comment_by_post_author' ) ) :
 	/**
 	 * Check if the specified comment is written by the author of the post commented on
 	 */
-	function evie_is_comment_by_post_author( $comment = null ) {
+	function eviewp_is_comment_by_post_author( $comment = null ) {
 
 		if ( is_object( $comment ) && $comment->user_id > 0 ) {
 
@@ -182,11 +182,11 @@ if ( ! function_exists( 'evie_is_comment_by_post_author' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'evie_site_footer' ) ) {
+if ( ! function_exists( 'eviewp_site_footer' ) ) {
 	/**
 	 * Display footer
 	 */
-	function evie_site_footer() {
+	function eviewp_site_footer() {
 		$footerText = sprintf( '&copy; %1$s %2$s &bull; %4$s <a href="%3$s" itemprop="url">%5$s</a>',
 			date( 'Y' ),
 			get_bloginfo( 'name' ),
@@ -199,11 +199,11 @@ if ( ! function_exists( 'evie_site_footer' ) ) {
 	}
 }
 
-if ( ! function_exists( 'evie_pagination' ) ) :
+if ( ! function_exists( 'eviewp_pagination' ) ) :
     /**
      * Display pagination for archives.
      */
-    function evie_pagination() { ?>
+    function eviewp_pagination() { ?>
 
 		<?php
 			the_posts_pagination( array(
@@ -217,11 +217,11 @@ if ( ! function_exists( 'evie_pagination' ) ) :
     }
 endif;
 
-if ( ! function_exists( 'evie_get_tags' ) ) :
+if ( ! function_exists( 'eviewp_get_tags' ) ) :
 	/**
 	 * Gets the tags for the post
 	 */
-	function evie_get_tags() {
+	function eviewp_get_tags() {
 
 		$tags = get_the_tags();
 
@@ -238,11 +238,11 @@ if ( ! function_exists( 'evie_get_tags' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'evie_singular_pagination' ) ) :
+if ( ! function_exists( 'eviewp_singular_pagination' ) ) :
 	/**
 	 * Gets the page for single post
 	 */
-	function evie_singular_pagination() {
+	function eviewp_singular_pagination() {
 
 		// Article Navigation
 		$next_post = get_next_post();

@@ -11,7 +11,7 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
-function evie_body_classes( $classes ) {
+function eviewp_body_classes( $classes ) {
 	// Adds a class of hfeed to non-singular pages.
 	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
@@ -24,24 +24,24 @@ function evie_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'evie_body_classes' );
+add_filter( 'body_class', 'eviewp_body_classes' );
 
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
  */
-function evie_pingback_header() {
+function eviewp_pingback_header() {
 	if ( is_singular() && pings_open() ) {
 		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
 	}
 }
-add_action( 'wp_head', 'evie_pingback_header' );
+add_action( 'wp_head', 'eviewp_pingback_header' );
 
 /**
  * Customizes the title of the Archive Page
  * 
  * Credits: https://wordpress.stackexchange.com/a/179590
  */
-function evie_get_archive_title( $title ) {    
+function eviewp_get_archive_title( $title ) {    
 	if ( is_category() ) {    
 		$title = '<small>Browsing category</small>' . '<h1 class="page__header__title">' . single_cat_title( '', false ) . '</h1>';    
 	} elseif ( is_tag() ) {    
@@ -57,7 +57,7 @@ function evie_get_archive_title( $title ) {
 	}
 	return $title;    
 }
-add_filter( 'get_the_archive_title', 'evie_get_archive_title' );
+add_filter( 'get_the_archive_title', 'eviewp_get_archive_title' );
 
 /**
  * Returns the bright shade for a HEX color
@@ -65,7 +65,7 @@ add_filter( 'get_the_archive_title', 'evie_get_archive_title' );
  * $color - HEX value
  * $percent - percent of brightness/dullness
  */
-function colorShade( $color, $percent ) {
+function eviewpColorShade( $color, $percent ) {
 
 	$num = base_convert(substr($color, 1), 16, 10);
 	$amt = round(2.55 * $percent);
@@ -83,10 +83,10 @@ function colorShade( $color, $percent ) {
 }
 
 // Search Modal at the bottom
-function searchModal() {
+function eviewpSearchModal() {
 	?>
     <!-- Search Modal -->
-	<div id="searchModal" class="modal">
+	<div id="eviewpSearchModal" class="modal">
 		<div class="modal-content">
 			<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 				<span class="screen-reader-text">Search for:</span>
@@ -97,4 +97,4 @@ function searchModal() {
 	</div>
 	<?php
 }
-add_action( 'wp_footer', 'searchModal' );
+add_action( 'wp_footer', 'eviewpSearchModal' );

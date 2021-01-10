@@ -12,16 +12,16 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'col-md-4' ); ?>>
 	<div class="evie__post">
 
-	<?php evie_post_thumbnail(); ?>
+	<?php eviewp_post_thumbnail(); ?>
 
 	<div class="post__details">
 
 		<div class="post__meta">
 			<?php
-			evie_first_category();
+			eviewp_first_category();
 
 			if ( 'post' === get_post_type() ) :
-				evie_posted_on();
+				eviewp_posted_on();
 			endif; 
 			?>
 		</div>
@@ -42,7 +42,7 @@
 				<img src="<?php echo get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 450 )); ?>" alt="<?php get_the_title(); ?>">
 			</div>
 			<?php if ( 'post' === get_post_type() ) :
-				evie_posted_by();
+				eviewp_posted_by();
 			endif; ?>
 		</div>
 

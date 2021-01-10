@@ -5,7 +5,7 @@
  * @package EvieWP WordPress theme
  */
 
-function evie_customizer_css() {
+function eviewp_customizer_css() {
 ?>
 
     <style type="text/css">
@@ -92,18 +92,18 @@ function evie_customizer_css() {
         }
 
         .hero__overlay--gradient {
-            background: linear-gradient(to right, var( --primary_color ), <?php echo colorShade( getOption( 'colors', 'primary_color' ), -15 ) ?>);
+            background: linear-gradient(to right, var( --primary_color ), <?php echo eviewpColorShade( getOption( 'colors', 'primary_color' ), -15 ) ?>);
         }
 
         @media (min-width: 992px) {
             button:hover,
             .button:hover {
-                border-color: <?php echo colorShade( getOption( 'colors', 'primary_color' ), -15 ) ?>;
+                border-color: <?php echo eviewpColorShade( getOption( 'colors', 'primary_color' ), -15 ) ?>;
             }
         }
 
         .comment-body span.reply i {
-            color: <?php echo colorShade( getOption( 'colors', 'primary_color' ), -15 ) ?>;
+            color: <?php echo eviewpColorShade( getOption( 'colors', 'primary_color' ), -15 ) ?>;
         }
 
         h1, h2, h3, h4, h5, h6, .stress {
@@ -130,4 +130,4 @@ function evie_customizer_css() {
 
 <?php
 }
-add_action( 'wp_head', 'evie_customizer_css' );
+add_action( 'wp_head', 'eviewp_customizer_css' );

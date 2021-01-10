@@ -122,9 +122,9 @@ document.addEventListener('DOMContentLoaded',function(){
 	}
 
 	// Search Modal
-	if ( document.body.contains( document.getElementById('searchModal') ) ) {
+	if ( document.body.contains( document.getElementById('eviewpSearchModal') ) ) {
 		// Get the modal
-		var modal = document.getElementById("searchModal");
+		var modal = document.getElementById("eviewpSearchModal");
 
 		// Get the button that opens the modal
 		var btn = document.getElementById("searchBtn");

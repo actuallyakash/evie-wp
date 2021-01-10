@@ -6,11 +6,11 @@
  * @since 1.0
  */
 
-if ( ! class_exists( 'Evie_Customize' ) ) {
+if ( ! class_exists( 'EvieWP_Customize' ) ) {
 	/**
 	 * CUSTOMIZER SETTINGS
 	 */
-	class Evie_Customize {
+	class EvieWP_Customize {
 
 		/**
 		 * Register customizer options.
@@ -22,7 +22,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			/**
 			 * Site Title & Description.
 			 * */
-			$defaults = evie_get_defaults();
+			$defaults = eviewp_get_defaults();
 			$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 			$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
@@ -30,7 +30,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				'blogname',
 				array(
 					'selector'        => '.navbar__inner .navbar__logo',
-					'render_callback' => 'evie_customize_partial_blogname',
+					'render_callback' => 'eviewp_customize_partial_blogname',
 				)
 			);
 
@@ -38,7 +38,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				'blogdescription',
 				array(
 					'selector'        => '.navbar__inner .site__description',
-					'render_callback' => 'evie_customize_partial_blogdescription',
+					'render_callback' => 'eviewp_customize_partial_blogdescription',
 				)
 			);
 
@@ -85,7 +85,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			/**
 			 * Color Controls
 			 */
-			$colorDefaults = evie_get_color_defaults();
+			$colorDefaults = eviewp_get_color_defaults();
 
 			// Primary Color.
 			$wp_customize->add_setting(
@@ -739,27 +739,27 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 	}
 
 	// Setup the Theme Customizer settings and controls.
-	add_action( 'customize_register', array( 'Evie_Customize', 'register' ) );
+	add_action( 'customize_register', array( 'EvieWP_Customize', 'register' ) );
 
 }
 
 /**
  * PARTIAL REFRESH FUNCTIONS
  * */
-if ( ! function_exists( 'evie_customize_partial_blogname' ) ) {
+if ( ! function_exists( 'eviewp_customize_partial_blogname' ) ) {
 	/**
 	 * Render the site title for the selective refresh partial.
 	 */
-	function evie_customize_partial_blogname() {
+	function eviewp_customize_partial_blogname() {
 		bloginfo( 'name' );
 	}
 }
 
-if ( ! function_exists( 'evie_customize_partial_blogdescription' ) ) {
+if ( ! function_exists( 'eviewp_customize_partial_blogdescription' ) ) {
 	/**
 	 * Render the site description for the selective refresh partial.
 	 */
-	function evie_customize_partial_blogdescription() {
+	function eviewp_customize_partial_blogdescription() {
 		bloginfo( 'description' );
 	}
 }
@@ -768,16 +768,16 @@ if ( ! function_exists( 'evie_customize_partial_blogdescription' ) ) {
  *
  * Contains refresh events for customizer
  */
-function evie_customize_preview_js() {
+function eviewp_customize_preview_js() {
 	wp_enqueue_script( 'eviewp-customizer', get_template_directory_uri() . '/assets/js/customizer.js', array( 'customize-preview' ), '20200906', true );
 }
-add_action( 'customize_preview_init', 'evie_customize_preview_js' );
+add_action( 'customize_preview_init', 'eviewp_customize_preview_js' );
 
 /**
  *
  * Contains event handlers (hide/show) for customizers
  */
-function evie_customizer_events() {
+function eviewp_customizer_events() {
 	wp_enqueue_script( 'eviewp-customize-events', get_template_directory_uri() . '/assets/js/customizer-events.js', array(), '20200906', true );
 }
-add_action( 'customize_controls_enqueue_scripts', 'evie_customizer_events' );
+add_action( 'customize_controls_enqueue_scripts', 'eviewp_customizer_events' );

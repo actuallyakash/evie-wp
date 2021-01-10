@@ -6,12 +6,12 @@
  * @since 1.0
  */
 
-if ( ! class_exists( 'Evie_Walker_Comment' ) ) {
+if ( ! class_exists( 'EvieWP_Walker_Comment' ) ) {
 	/**
 	 * CUSTOM COMMENT WALKER
 	 * A custom walker for comments, based on the walker in Twenty Nineteen.
 	 */
-	class Evie_Walker_Comment extends Walker_Comment {
+	class EvieWP_Walker_Comment extends Walker_Comment {
 
 		/**
 		 * Outputs a comment in the HTML5 format.
@@ -50,7 +50,7 @@ if ( ! class_exists( 'Evie_Walker_Comment' ) ) {
 								<?php 
 								echo $comment_author;
 								
-								if ( evie_is_comment_by_post_author( $comment ) ) {
+								if ( eviewp_is_comment_by_post_author( $comment ) ) {
 									echo '<span class="author-tag">' . __( 'Author', 'eviewp' ) . '</span>';
 								}
 								?>

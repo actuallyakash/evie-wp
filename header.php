@@ -21,7 +21,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
+<?php eviewp_body_open(); ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'eviewp' ); ?></a>
 
@@ -41,9 +41,9 @@
 					}
 
 					if ( ! get_theme_mod( 'hide_tagline', false ) ) {
-						$evie_description = get_bloginfo( 'description', 'display' );
-						if ( $evie_description || is_customize_preview() ) : ?>
-							<small class="site__description"><?php echo $evie_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></small>
+						$eviewp_description = get_bloginfo( 'description', 'display' );
+						if ( $eviewp_description || is_customize_preview() ) : ?>
+							<small class="site__description"><?php echo $eviewp_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></small>
 						<?php endif;
 					}
 					

@@ -35,7 +35,7 @@ if ( post_password_required() ) {
 					<?php
 					wp_list_comments(
 						array(
-							'walker'      => new Evie_Walker_Comment(),
+							'walker'      => new EvieWP_Walker_Comment(),
 							'avatar_size' => 60,
 							'style'       => 'ul',
 						)

@@ -23,7 +23,7 @@
                             the_archive_description( '<div class="page__header__text">', '</div>' );
                         } else {
                             the_title( '<h1 class="page__header__title">', '</h1>' ); ?>
-                            <p class="page__header__text"> <?php evie_get_breadcrumbs(); ?> </p>
+                            <p class="page__header__text"> <?php eviewp_get_breadcrumbs(); ?> </p>
                         <?php } ?>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
 
     <div class="container center article__header">
         <small class="article__breadcrumbs">
-            <?php evie_get_breadcrumbs(); ?>
+            <?php eviewp_get_breadcrumbs(); ?>
         </small>
 
         <?php the_title( '<h1 class="article__header__title">', '</h1>' ); ?>
@@ -46,12 +46,12 @@
                     <img src="<?php echo get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 450 )); ?>" alt="<?php get_the_title(); ?>">
                 </div>
             <?php
-                evie_posted_by();
+                eviewp_posted_by();
             endif; ?>
         </div>
         
         <div class="page__header__image">
-            <?php evie_post_thumbnail(); ?>
+            <?php eviewp_post_thumbnail(); ?>
         </div>
     </div>
 
