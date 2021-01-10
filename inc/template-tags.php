@@ -12,8 +12,10 @@ if ( ! function_exists( 'eviewp_posted_on' ) ) :
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
 	function eviewp_posted_on() {
+		/* translators: 1: published date & time 2: published date & time */
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+			/* translators: 1: published date & time 2: published date & time */
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 		}
 
@@ -56,7 +58,7 @@ if ( ! function_exists( 'eviewp_get_breadcrumbs' ) ) :
 	 */
 	function eviewp_get_breadcrumbs() {
 		
-		echo '<a href="' . home_url() . '" rel="nofollow">Home</a>';
+		echo '<a href="' . esc_url( home_url() ) . '" rel="nofollow">Home</a>';
 		if ( is_category() || is_single() ) {
 			echo " > ";
 			the_category(' &bull; ');
@@ -66,11 +68,11 @@ if ( ! function_exists( 'eviewp_get_breadcrumbs' ) ) :
 				}
 		} elseif ( is_page() ) {
 			echo " > ";
-			echo the_title();
+			echo the_title(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} elseif ( is_search() ) {
 			echo " > Search Results for... ";
 			echo '"<em>';
-			echo the_search_query();
+			echo the_search_query(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo '</em>"';
 		}
 	
@@ -187,6 +189,7 @@ if ( ! function_exists( 'eviewp_site_footer' ) ) {
 	 * Display footer
 	 */
 	function eviewp_site_footer() {
+		/* translators: 1: current year 2: site title 3: theme's dev URL 4: Powered by string 5: Theme name */
 		$footerText = sprintf( '&copy; %1$s %2$s &bull; %4$s <a href="%3$s" itemprop="url">%5$s</a>',
 			date( 'Y' ),
 			get_bloginfo( 'name' ),
@@ -195,7 +198,7 @@ if ( ! function_exists( 'eviewp_site_footer' ) ) {
 			__( 'EvieWP', 'eviewp' )
         );
         
-        echo $footerText; // phpcs:ignore.
+        echo $footerText; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 
@@ -260,10 +263,10 @@ if ( ! function_exists( 'eviewp_singular_pagination' ) ) :
 							<small class="nav-label"><?php esc_html_e( '< Previous Article', 'eviewp' ); ?></small>
 							<span class="nav-inner">
 								<?php if ( ! empty( get_the_post_thumbnail_url( $prev_post->ID ) ) ) { ?>
-								<img src="<?php echo get_the_post_thumbnail_url( $prev_post->ID ) ?>" class="" alt="<?php echo esc_attr( $prev_post->post_title ); ?>">	
+								<img src="<?php echo esc_url( get_the_post_thumbnail_url( $prev_post->ID ) ) ?>" alt="<?php echo esc_attr( $prev_post->post_title ); ?>">	
 								<?php } ?>
 								
-								<span class="nav-title"><?php echo wordwrap( $prev_post->post_title, 40, "<br>" ); ?></span>
+								<span class="nav-title"><?php echo wordwrap( $prev_post->post_title, 40, "<br>" ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 							</span>
 						</a>
 					</div>
@@ -279,10 +282,10 @@ if ( ! function_exists( 'eviewp_singular_pagination' ) ) :
 							<small class="nav-label"><?php esc_html_e( 'Next Article >', 'eviewp' ); ?> </small>
 							<span class="nav-inner">
 								<?php if ( ! empty( get_the_post_thumbnail_url( $next_post->ID ) ) ) { ?>
-								<img src="<?php echo get_the_post_thumbnail_url( $next_post->ID ) ?>" class="" alt="<?php echo esc_attr( $next_post->post_title ); ?>">	
+								<img src="<?php echo esc_url( get_the_post_thumbnail_url( $next_post->ID ) ) ?>" class="" alt="<?php echo esc_attr( $next_post->post_title ); ?>">	
 								<?php } ?>
 								
-								<span class="nav-title"><?php echo wordwrap( $next_post->post_title, 40, "<br>" ); ?></span>
+								<span class="nav-title"><?php echo wordwrap( $next_post->post_title, 40, "<br>" ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span> 
 							</span>
 						</a>
 					</div>

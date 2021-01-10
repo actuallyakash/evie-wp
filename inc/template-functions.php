@@ -31,6 +31,7 @@ add_filter( 'body_class', 'eviewp_body_classes' );
  */
 function eviewp_pingback_header() {
 	if ( is_singular() && pings_open() ) {
+		/* translators: %s: pingback URL */
 		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
 	}
 }
@@ -50,8 +51,9 @@ function eviewp_get_archive_title( $title ) {
 		$title = '<small>Search Results for</small>' . '<h1 class="page__header__title">' . get_search_query() . '</h1>';    
 	} elseif ( is_author() ) {    
 		$title = '<small>All Posts by</small>' . '<h1 class="page__header__title">' . get_the_author() . '</h1>' ;    
-	} elseif ( is_tax() ) { //for custom post types
-		$title = '<small>Browsing</small>' . '<h1 class="page__header__title">' . sprintf( __( '%1$s', 'eviewp' ), single_term_title( '', false ) ) . '</h1>';
+	} elseif ( is_tax() ) { // for custom post types
+		/* translators: 1: single term taxonomy title */
+		$title = '<small>Browsing</small>' . '<h1 class="page__header__title">' . sprintf( esc_html__( '%1$s', 'eviewp' ), single_term_title( '', false ) ) . '</h1>'; // phpcs:ignore WordPress.WP.I18n.NoEmptyStrings
 	} elseif ( is_post_type_archive() ) {
 		$title = '<small>Browsing</small>' . '<h1 class="page__header__title">' . post_type_archive_title( '', false ) . '</h1>';
 	}

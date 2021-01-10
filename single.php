@@ -48,7 +48,7 @@ get_header();
 					<h4><a href="<?php echo esc_url(  get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" title="Posts by <?php echo esc_html( get_the_author() ); ?>" rel="author"> <?php echo esc_html( get_the_author() ); ?> </a></h4>
 
 					<?php if( get_the_author_meta( 'description' ) ) : ?>
-					<p><?php echo nl2br( get_the_author_meta( 'description' ) ); ?></p>
+					<p><?php echo esc_html( nl2br( get_the_author_meta( 'description' ) ) ) ?></p>
 					<?php endif; ?>
 					
 					<!-- Author links -->

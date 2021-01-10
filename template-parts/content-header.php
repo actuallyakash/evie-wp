@@ -43,7 +43,7 @@
         <div class="user__info">
             <?php if ( 'post' === get_post_type() ) :?>
                 <div class="user__img__container">
-                    <img src="<?php echo get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 450 )); ?>" alt="<?php get_the_title(); ?>">
+                    <img src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 450 )) ); ?>" alt="<?php get_the_title(); ?>">
                 </div>
             <?php
                 eviewp_posted_by();

@@ -100,7 +100,7 @@ if ( post_password_required() ) {
 
 			<div class="comment-respond center" id="respond">
 
-				<p class="comments-closed"><?php _e( 'Comments are closed.', 'eviewp' ); ?></p>
+				<p class="comments-closed"><?php esc_html_e( 'Comments are closed.', 'eviewp' ); ?></p>
 
 			</div><!-- #respond -->
 

@@ -35,9 +35,9 @@
 					if ( has_custom_logo() ) {
 						$custom_logo_id = get_theme_mod( 'custom_logo' );
 						$custom_logo_url = wp_get_attachment_image_url( $custom_logo_id , 'full' );
-						echo '<img class="custom__logo" src="' . esc_url( $custom_logo_url ) . '" alt="' . get_bloginfo( 'name' ) . '">';
+						echo '<img class="custom__logo" src="' . esc_url( $custom_logo_url ) . '" alt="' . esc_html( get_bloginfo( 'name' ) ) . '">';
 					} else {
-						echo "<span class='navbar__logo'>" . get_bloginfo( 'name' ) . "</span>";
+						echo "<span class='navbar__logo'>" . esc_html( get_bloginfo( 'name' ) ) . "</span>";
 					}
 
 					if ( ! get_theme_mod( 'hide_tagline', false ) ) {

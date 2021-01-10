@@ -140,6 +140,7 @@ function eviewp_widgets_init() {
 			'name'          => esc_html__( 'Sidebar', 'eviewp' ),
 			'id'            => 'sidebar-1',
 			'description'   => esc_html__( 'Add widgets here.', 'eviewp' ),
+			/* translators: 1: section id 2: widget class */
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',

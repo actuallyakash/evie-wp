@@ -77,9 +77,9 @@ if ( ! function_exists( 'getOption' ) ) {
         switch( $type ) {
             case 'defaults': return get_theme_mod( $property, $defaults[$property] );
             break;
-            case 'colors': return esc_html( get_theme_mod( $property, $defaultColors[$property] ) );
+            case 'colors': return esc_attr( get_theme_mod( $property, $defaultColors[$property] ) );
             break;
-            default: echo "<b>Notice: <big>" . $type . '</big></b> Property not found.';
+            default: echo "<b>" . esc_html__( 'Notice:', 'eviewp' ) . "<big>" . esc_html( $type ) . "</big></b>" . esc_html__( 'Property not found.', 'eviewp' );
         }
 
     }

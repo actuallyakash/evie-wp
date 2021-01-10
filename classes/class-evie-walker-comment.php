@@ -39,19 +39,20 @@ if ( ! class_exists( 'EvieWP_Walker_Comment' ) ) {
 						<?php
 						$comment_author     = get_comment_author( $comment );
 						$avatar             = get_avatar( $comment, $args['avatar_size'] );
+						/* translators: 1: comment date 2: comment time */
 						$comment_timestamp 	= sprintf( __( '%1$s at %2$s', 'eviewp' ), get_comment_date( '', $comment ), get_comment_time() );
 						?>
 						
 						<div class="author-img">
-							<?php echo $avatar; ?>
+							<?php echo $avatar; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						</div>
 						<div class="comment-author">
 							<h6 class="author">
-								<?php 
-								echo $comment_author;
+								<?php
+								echo esc_html( $comment_author );
 								
 								if ( eviewp_is_comment_by_post_author( $comment ) ) {
-									echo '<span class="author-tag">' . __( 'Author', 'eviewp' ) . '</span>';
+									echo '<span class="author-tag">' . esc_html__( 'Author', 'eviewp' ) . '</span>';
 								}
 								?>
 							</h6>
@@ -89,7 +90,7 @@ if ( ! class_exists( 'EvieWP_Walker_Comment' ) ) {
 								}
 
 								if ( get_edit_comment_link() ) {
-									echo '<span class="dashicons dashicons-edit"></span> <a class="comment-edit-link" href="' . esc_url( get_edit_comment_link() ) . '">' . __( 'Edit', 'eviewp' ) . '</a>';
+									echo '<span class="dashicons dashicons-edit"></span> <a class="comment-edit-link" href="' . esc_url( get_edit_comment_link() ) . '">' . esc_html__( 'Edit', 'eviewp' ) . '</a>';
 								}
 
 							}
@@ -101,7 +102,7 @@ if ( ! class_exists( 'EvieWP_Walker_Comment' ) ) {
 
 					if ( '0' === $comment->comment_approved ) {
 						?>
-						<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'eviewp' ); ?></p>
+						<p class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'eviewp' ); ?></p>
 						<?php
 					}
 
