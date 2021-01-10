@@ -1,11 +1,10 @@
-=== evie ===
-
-Contributors: actuallyakash
+=== EvieWP ===
+Contributors: Akash
 Tags: custom-colors, custom-logo, custom-menu, editor-style, featured-images, theme-options, threaded-comments, right-sidebar, left-sidebar, blog
 Requires at least: 4.5
-Tested up to: 5.4
-Requires PHP: 5.6
-Stable tag: 1.0.1
+Tested up to: 5.6
+Requires PHP: 7.0
+Stable tag: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,12 +12,9 @@ A production-ready and minimal theme for your website.
 
 == Description ==
 
-A production-ready and minimal theme for your projects and websites. It is extemely lightweight, customizable and works perfectly on modern browsers. Install the theme from WordPress and begin your awesome website quickly.
+A production-ready and minimal theme for your projects and websites. It is extremely lightweight, customizable and works perfectly on modern browsers. Install the theme from WordPress and begin your awesome website quickly.
 
 == Changelog ==
-
-= 1.0.1
-Updated Screenshot  
 
 = 1.0.0
 Initial release  

@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package evie
+ * @package EvieWP WordPress theme
  */
 
 if ( ! function_exists( 'evie_posted_on' ) ) :
@@ -84,7 +84,7 @@ if ( ! function_exists( 'evie_posted_by' ) ) :
 	function evie_posted_by() {
 		$byline = sprintf(
 			/* translators: %s: post author. */
-			esc_html_x( 'by %s', 'post author', 'evie' ),
+			esc_html_x( 'by %s', 'post author', 'eviewp' ),
 			'<span class="author stress"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
@@ -191,8 +191,8 @@ if ( ! function_exists( 'evie_site_footer' ) ) {
 			date( 'Y' ),
 			get_bloginfo( 'name' ),
 			esc_url( 'http://akashgupta.xyz' ),
-			_x( 'Powered by', 'Evie', 'evie' ),
-			__( 'Evie', 'evie' )
+			_x( 'Powered by', 'EvieWP', 'eviewp' ),
+			__( 'EvieWP', 'eviewp' )
         );
         
         echo $footerText; // phpcs:ignore.
@@ -208,8 +208,8 @@ if ( ! function_exists( 'evie_pagination' ) ) :
 		<?php
 			the_posts_pagination( array(
 				'mid_size'  => 1,
-				'prev_text' => '< ' . esc_html__( 'Previous', 'evie' ),
-				'next_text' => esc_html__( 'Next', 'evie' ).' >',
+				'prev_text' => '< ' . esc_html__( 'Previous', 'eviewp' ),
+				'next_text' => esc_html__( 'Next', 'eviewp' ).' >',
 			) );
 		?>
 
@@ -257,7 +257,7 @@ if ( ! function_exists( 'evie_singular_pagination' ) ) :
 
 					<div class="nav-el nav-left">
 						<a href="<?php echo esc_url(  get_permalink(  $prev_post->ID  )  ); ?>" rel="prev">
-							<small class="nav-label"><?php esc_html_e( '< Previous Article', 'evie' ); ?></small>
+							<small class="nav-label"><?php esc_html_e( '< Previous Article', 'eviewp' ); ?></small>
 							<span class="nav-inner">
 								<?php if ( ! empty( get_the_post_thumbnail_url( $prev_post->ID ) ) ) { ?>
 								<img src="<?php echo get_the_post_thumbnail_url( $prev_post->ID ) ?>" class="" alt="<?php echo esc_attr( $prev_post->post_title ); ?>">	
@@ -276,7 +276,7 @@ if ( ! function_exists( 'evie_singular_pagination' ) ) :
 
 					<div class="nav-el nav-right">
 						<a href="<?php echo esc_url(  get_permalink(  $next_post->ID  )  ); ?>" rel="next">
-							<small class="nav-label"><?php esc_html_e( 'Next Article >', 'evie' ); ?> </small>
+							<small class="nav-label"><?php esc_html_e( 'Next Article >', 'eviewp' ); ?> </small>
 							<span class="nav-inner">
 								<?php if ( ! empty( get_the_post_thumbnail_url( $next_post->ID ) ) ) { ?>
 								<img src="<?php echo get_the_post_thumbnail_url( $next_post->ID ) ?>" class="" alt="<?php echo esc_attr( $next_post->post_title ); ?>">	

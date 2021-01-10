@@ -7,7 +7,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package evie
+ * @package EvieWP WordPress theme
  */
 
 /*
@@ -80,10 +80,10 @@ if ( post_password_required() ) {
 										<input name="submit" type="submit" id="submit" class="button button__primary" value="Post Comment">
 									</div>',
 				'comment_notes_before' => '<small class="comment-notes">Your email address will not be published. Required fields are marked *</small>',
-				'label_submit' => __( 'Post Comment', 'evie' ),
+				'label_submit' => __( 'Post Comment', 'eviewp' ),
 				'cancel_reply_before' => '<small class="cancel-reply">',
 				'cancel_reply_after' => '</small>',
-				'cancel_reply_link' => __( 'Cancel', 'evie' ),
+				'cancel_reply_link' => __( 'Cancel', 'eviewp' ),
 			);
 			
 			echo '<div class="center">';
@@ -100,7 +100,7 @@ if ( post_password_required() ) {
 
 			<div class="comment-respond center" id="respond">
 
-				<p class="comments-closed"><?php _e( 'Comments are closed.', 'evie' ); ?></p>
+				<p class="comments-closed"><?php _e( 'Comments are closed.', 'eviewp' ); ?></p>
 
 			</div><!-- #respond -->
 

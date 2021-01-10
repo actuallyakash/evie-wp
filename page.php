@@ -9,7 +9,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package evie
+ * @package EvieWP WordPress theme
  */
 
 get_header();
@@ -42,7 +42,7 @@ get_header();
 
 							wp_link_pages(
 								array(
-									'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'evie' ),
+									'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'eviewp' ),
 									'after'  => '</div>',
 								)
 							);
@@ -54,7 +54,7 @@ get_header();
 									sprintf(
 										wp_kses(
 											/* translators: %s: Name of current post. Only visible to screen readers */
-											__( 'Edit <span class="screen-reader-text stress">%s</span>', 'evie' ),
+											__( 'Edit <span class="screen-reader-text stress">%s</span>', 'eviewp' ),
 											array(
 												'span' => array(
 													'class' => array(),

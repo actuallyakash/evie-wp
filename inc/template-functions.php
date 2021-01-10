@@ -2,7 +2,7 @@
 /**
  * Functions which enhance the theme by hooking into WordPress
  *
- * @package evie
+ * @package EvieWP WordPress theme
  */
 
 /**
@@ -51,7 +51,7 @@ function evie_get_archive_title( $title ) {
 	} elseif ( is_author() ) {    
 		$title = '<small>All Posts by</small>' . '<h1 class="page__header__title">' . get_the_author() . '</h1>' ;    
 	} elseif ( is_tax() ) { //for custom post types
-		$title = '<small>Browsing</small>' . '<h1 class="page__header__title">' . sprintf( __( '%1$s', 'evie' ), single_term_title( '', false ) ) . '</h1>';
+		$title = '<small>Browsing</small>' . '<h1 class="page__header__title">' . sprintf( __( '%1$s', 'eviewp' ), single_term_title( '', false ) ) . '</h1>';
 	} elseif ( is_post_type_archive() ) {
 		$title = '<small>Browsing</small>' . '<h1 class="page__header__title">' . post_type_archive_title( '', false ) . '</h1>';
 	}

@@ -1,8 +1,8 @@
 <?php
 /**
- * Custom comment walker for WP Evie.
+ * Custom comment walker for EvieWP.
  *
- * @package Evie
+ * @package EvieWP WordPress theme
  * @since 1.0
  */
 
@@ -39,7 +39,7 @@ if ( ! class_exists( 'Evie_Walker_Comment' ) ) {
 						<?php
 						$comment_author     = get_comment_author( $comment );
 						$avatar             = get_avatar( $comment, $args['avatar_size'] );
-						$comment_timestamp 	= sprintf( __( '%1$s at %2$s', 'evie' ), get_comment_date( '', $comment ), get_comment_time() );
+						$comment_timestamp 	= sprintf( __( '%1$s at %2$s', 'eviewp' ), get_comment_date( '', $comment ), get_comment_time() );
 						?>
 						
 						<div class="author-img">
@@ -51,7 +51,7 @@ if ( ! class_exists( 'Evie_Walker_Comment' ) ) {
 								echo $comment_author;
 								
 								if ( evie_is_comment_by_post_author( $comment ) ) {
-									echo '<span class="author-tag">' . __( 'Author', 'evie' ) . '</span>';
+									echo '<span class="author-tag">' . __( 'Author', 'eviewp' ) . '</span>';
 								}
 								?>
 							</h6>
@@ -89,7 +89,7 @@ if ( ! class_exists( 'Evie_Walker_Comment' ) ) {
 								}
 
 								if ( get_edit_comment_link() ) {
-									echo '<span class="dashicons dashicons-edit"></span> <a class="comment-edit-link" href="' . esc_url( get_edit_comment_link() ) . '">' . __( 'Edit', 'evie' ) . '</a>';
+									echo '<span class="dashicons dashicons-edit"></span> <a class="comment-edit-link" href="' . esc_url( get_edit_comment_link() ) . '">' . __( 'Edit', 'eviewp' ) . '</a>';
 								}
 
 							}
@@ -101,7 +101,7 @@ if ( ! class_exists( 'Evie_Walker_Comment' ) ) {
 
 					if ( '0' === $comment->comment_approved ) {
 						?>
-						<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'evie' ); ?></p>
+						<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'eviewp' ); ?></p>
 						<?php
 					}
 

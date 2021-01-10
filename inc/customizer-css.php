@@ -2,7 +2,7 @@
 /**
  * Customizer produced CSS
  *
- * @package evie
+ * @package EvieWP WordPress theme
  */
 
 function evie_customizer_css() {

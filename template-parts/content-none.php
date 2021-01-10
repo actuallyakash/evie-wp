@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package evie
+ * @package EvieWP WordPress theme
  */
 
 ?>
@@ -18,7 +18,7 @@
 			printf(
 				'<p>' . wp_kses(
 					/* translators: 1: link to WP admin new post page. */
-					__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'evie' ),
+					__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'eviewp' ),
 					array(
 						'a' => array(
 							'href' => array(),
@@ -34,17 +34,17 @@
 			<main id="primary" class="site-main container error-404">
 
 				<section class="not-found center ">
-					<img class="img-fluid" src="<?php echo esc_url( get_template_directory_uri() ) ?>/assets/images/undraw_page_not_found.svg" alt="<?php esc_attr_e( '404', 'evie' ); ?>">
+					<img class="img-fluid" src="<?php echo esc_url( get_template_directory_uri() ) ?>/assets/images/undraw_page_not_found.svg" alt="<?php esc_attr_e( '404', 'eviewp' ); ?>">
 
 					<h3>
 					<?php if ( is_search() ) {
-						esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'evie' );
+						esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'eviewp' );
 					} else {
-						esc_html_e( 'The page you were looking for doesn\'t exist.', 'evie' );
+						esc_html_e( 'The page you were looking for doesn\'t exist.', 'eviewp' );
 					} ?>
 					</h3>
 
-					<p><?php esc_html_e( 'Go Back to ', 'evie' ); ?><a class="stress link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+					<p><?php esc_html_e( 'Go Back to ', 'eviewp' ); ?><a class="stress link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 
 					<?php if ( is_search() ) {
 						get_search_form(); 
@@ -57,7 +57,7 @@
 		else :
 			?>
 
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'evie' ); ?></p>
+			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'eviewp' ); ?></p>
 			<?php
 			get_search_form();
 

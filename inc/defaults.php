@@ -2,7 +2,7 @@
 /**
  * Default Values for the Theme
  *
- * @package evie
+ * @package EvieWP WordPress theme
  */
 
 if ( ! function_exists( 'evie_get_defaults' ) ) {

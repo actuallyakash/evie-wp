@@ -2,7 +2,7 @@
 /**
  * Customizer settings for this theme.
  *
- * @package Evie
+ * @package EvieWP WordPress theme
  * @since 1.0
  */
 
@@ -59,7 +59,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			$wp_customize->add_control( 'logo_size', array(
 				'type' => 'range',
 				'section' => 'title_tagline',
-				'label' => __( 'Logo Size (px)', 'evie' ),
+				'label' => __( 'Logo Size (px)', 'eviewp' ),
 				'input_attrs' => array(
 					'min' => 0,
 					'max' => 200,
@@ -78,7 +78,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			$wp_customize->add_control( 'hide_tagline', array(
 				'type' 		=> 'checkbox',
 				'section' 	=> 'title_tagline',
-				'label' 	=> __( 'Hide Tagline' , 'evie' ),
+				'label' 	=> __( 'Hide Tagline' , 'eviewp' ),
 				'priority' 	=> 12,
 			) );
 
@@ -101,7 +101,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 					$wp_customize,
 					'primary_color',
 					array(
-						'label'   => __( 'Primary Color', 'evie' ),
+						'label'   => __( 'Primary Color', 'eviewp' ),
 						'section' => 'colors',
 					)
 				)
@@ -122,7 +122,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 					$wp_customize,
 					'secondary_color',
 					array(
-						'label'   => __( 'Secondary Color', 'evie' ),
+						'label'   => __( 'Secondary Color', 'eviewp' ),
 						'section' => 'colors',
 					)
 				)
@@ -143,7 +143,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 					$wp_customize,
 					'link_color',
 					array(
-						'label'   => __( 'Link Color', 'evie' ),
+						'label'   => __( 'Link Color', 'eviewp' ),
 						'section' => 'colors',
 					)
 				)
@@ -164,7 +164,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 					$wp_customize,
 					'bg_color',
 					array(
-						'label'   => __( 'Background Color', 'evie' ),
+						'label'   => __( 'Background Color', 'eviewp' ),
 						'section' => 'colors',
 					)
 				)
@@ -185,7 +185,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 					$wp_customize,
 					'header_background_color',
 					array(
-						'label'   => __( 'Header Background Color', 'evie' ),
+						'label'   => __( 'Header Background Color', 'eviewp' ),
 						'section' => 'colors',
 					)
 				)
@@ -206,7 +206,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 					$wp_customize,
 					'header_logo_color',
 					array(
-						'label'   => __( 'Logo Color', 'evie' ),
+						'label'   => __( 'Logo Color', 'eviewp' ),
 						'section' => 'colors',
 					)
 				)
@@ -227,7 +227,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 					$wp_customize,
 					'tagline_color',
 					array(
-						'label'   => __( 'Tagline Color', 'evie' ),
+						'label'   => __( 'Tagline Color', 'eviewp' ),
 						'section' => 'colors',
 					)
 				)
@@ -248,7 +248,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 					$wp_customize,
 					'header_links_color',
 					array(
-						'label'   => __( 'Header Links Color', 'evie' ),
+						'label'   => __( 'Header Links Color', 'eviewp' ),
 						'section' => 'colors',
 					)
 				)
@@ -269,7 +269,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 					$wp_customize,
 					'footer_background_color',
 					array(
-						'label'   => __( 'Footer Background Color', 'evie' ),
+						'label'   => __( 'Footer Background Color', 'eviewp' ),
 						'section' => 'colors',
 					)
 				)
@@ -290,7 +290,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 					$wp_customize,
 					'footer_text_color',
 					array(
-						'label'   => __( 'Footer Text Color', 'evie' ),
+						'label'   => __( 'Footer Text Color', 'eviewp' ),
 						'section' => 'colors',
 					)
 				)
@@ -311,7 +311,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 					$wp_customize,
 					'heading_color',
 					array(
-						'label'   => __( 'Heading Color (H1 - H6)', 'evie' ),
+						'label'   => __( 'Heading Color (H1 - H6)', 'eviewp' ),
 						'section' => 'colors',
 					)
 				)
@@ -324,7 +324,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			$wp_customize->add_section(
 				'options',
 				array(
-					'title'      => __( 'Theme Options', 'evie' ),
+					'title'      => __( 'Theme Options', 'eviewp' ),
 					'priority'   => 40,
 					'capability' => 'edit_theme_options',
 				)
@@ -345,7 +345,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type'     => 'checkbox',
 					'section'  => 'options',
-					'label'    => __( 'Show search in header', 'evie' ),
+					'label'    => __( 'Show search in header', 'eviewp' ),
 				)
 			);
 
@@ -364,7 +364,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type'     => 'checkbox',
 					'section'  => 'options',
-					'label'    => __( 'Show search in header (mobile)', 'evie' ),
+					'label'    => __( 'Show search in header (mobile)', 'eviewp' ),
 				)
 			);
 
@@ -383,7 +383,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'number',
 					'section' => 'options',
-					'label' => __( 'Container Width (px)', 'evie' ),
+					'label' => __( 'Container Width (px)', 'eviewp' ),
 				)
 			);
 
@@ -402,7 +402,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type'     => 'checkbox',
 					'section'  => 'options',
-					'label'    => __( 'Enable Excerpt', 'evie' ),
+					'label'    => __( 'Enable Excerpt', 'eviewp' ),
 				)
 			);
 
@@ -421,7 +421,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'number',
 					'section' => 'options',
-					'label' => __( 'Excerpt Lines', 'evie' ),
+					'label' => __( 'Excerpt Lines', 'eviewp' ),
 				)
 			);
 
@@ -432,7 +432,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			$wp_customize->add_section(
 				'sidebar_options',
 				array(
-					'title'      => __( 'Sidebar', 'evie' ),
+					'title'      => __( 'Sidebar', 'eviewp' ),
 					'priority'   => 50,
 					'capability' => 'edit_theme_options',
 				)
@@ -450,7 +450,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			$wp_customize->add_control(
 				'post_sidebar',
 				array(
-					'label' => __( 'Post Sidebar', 'evie' ),
+					'label' => __( 'Post Sidebar', 'eviewp' ),
 					'section' => 'sidebar_options',
 					'type' => 'select',
 					'choices' => array(
@@ -473,7 +473,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			$wp_customize->add_control(
 				'page_sidebar',
 				array(
-					'label' => __( 'Page Sidebar', 'evie' ),
+					'label' => __( 'Page Sidebar', 'eviewp' ),
 					'section' => 'sidebar_options',
 					'type' => 'select',
 					'choices' => array(
@@ -496,7 +496,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			$wp_customize->add_control(
 				'archive_sidebar',
 				array(
-					'label' => __( 'Archive Sidebar', 'evie' ),
+					'label' => __( 'Archive Sidebar', 'eviewp' ),
 					'section' => 'sidebar_options',
 					'type' => 'select',
 					'choices' => array(
@@ -522,7 +522,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'number',
 					'section' => 'sidebar_options',
-					'label' => __( 'Sidebar Width (px)', 'evie' ),
+					'label' => __( 'Sidebar Width (px)', 'eviewp' ),
 				)
 			);
 
@@ -533,7 +533,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 			$wp_customize->add_section(
 				'social_icons_options',
 				array(
-					'title'      => __( 'Social Icons', 'evie' ),
+					'title'      => __( 'Social Icons', 'eviewp' ),
 					'priority'   => 50,
 					'capability' => 'edit_theme_options',
 				)
@@ -553,7 +553,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'url',
 					'section' => 'social_icons_options',
-					'label' => __( 'Facebook', 'evie' ),
+					'label' => __( 'Facebook', 'eviewp' ),
 				)
 			);
 
@@ -571,7 +571,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'url',
 					'section' => 'social_icons_options',
-					'label' => __( 'Twitter', 'evie' ),
+					'label' => __( 'Twitter', 'eviewp' ),
 				)
 			);
 
@@ -589,7 +589,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'url',
 					'section' => 'social_icons_options',
-					'label' => __( 'Instagram', 'evie' ),
+					'label' => __( 'Instagram', 'eviewp' ),
 				)
 			);
 
@@ -607,7 +607,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'url',
 					'section' => 'social_icons_options',
-					'label' => __( 'Youtube', 'evie' ),
+					'label' => __( 'Youtube', 'eviewp' ),
 				)
 			);
 
@@ -625,7 +625,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'url',
 					'section' => 'social_icons_options',
-					'label' => __( 'Github', 'evie' ),
+					'label' => __( 'Github', 'eviewp' ),
 				)
 			);
 
@@ -643,7 +643,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'url',
 					'section' => 'social_icons_options',
-					'label' => __( 'LinkedIn', 'evie' ),
+					'label' => __( 'LinkedIn', 'eviewp' ),
 				)
 			);
 
@@ -661,7 +661,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'url',
 					'section' => 'social_icons_options',
-					'label' => __( 'Spotify', 'evie' ),
+					'label' => __( 'Spotify', 'eviewp' ),
 				)
 			);
 
@@ -679,7 +679,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'url',
 					'section' => 'social_icons_options',
-					'label' => __( 'WhatsApp', 'evie' ),
+					'label' => __( 'WhatsApp', 'eviewp' ),
 				)
 			);
 
@@ -697,7 +697,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'url',
 					'section' => 'social_icons_options',
-					'label' => __( 'Telegram', 'evie' ),
+					'label' => __( 'Telegram', 'eviewp' ),
 				)
 			);
 
@@ -706,7 +706,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				'email',
 				array(
 					'default' => $defaults['email'],
-					'placeholder' => __( 'Your Email', 'evie' ),
+					'placeholder' => __( 'Your Email', 'eviewp' ),
 					'sanitize_callback' => 'sanitize_email'
 				)
 			);
@@ -716,7 +716,7 @@ if ( ! class_exists( 'Evie_Customize' ) ) {
 				array(
 					'type' => 'url',
 					'section' => 'social_icons_options',
-					'label' => __( 'Email', 'evie' ),
+					'label' => __( 'Email', 'eviewp' ),
 				)
 			);
 		}
@@ -769,7 +769,7 @@ if ( ! function_exists( 'evie_customize_partial_blogdescription' ) ) {
  * Contains refresh events for customizer
  */
 function evie_customize_preview_js() {
-	wp_enqueue_script( 'evie-customizer', get_template_directory_uri() . '/assets/js/customizer.js', array( 'customize-preview' ), '20200906', true );
+	wp_enqueue_script( 'eviewp-customizer', get_template_directory_uri() . '/assets/js/customizer.js', array( 'customize-preview' ), '20200906', true );
 }
 add_action( 'customize_preview_init', 'evie_customize_preview_js' );
 
@@ -778,6 +778,6 @@ add_action( 'customize_preview_init', 'evie_customize_preview_js' );
  * Contains event handlers (hide/show) for customizers
  */
 function evie_customizer_events() {
-	wp_enqueue_script( 'evie-customize-events', get_template_directory_uri() . '/assets/js/customizer-events.js', array(), '20200906', true );
+	wp_enqueue_script( 'eviewp-customize-events', get_template_directory_uri() . '/assets/js/customizer-events.js', array(), '20200906', true );
 }
 add_action( 'customize_controls_enqueue_scripts', 'evie_customizer_events' );

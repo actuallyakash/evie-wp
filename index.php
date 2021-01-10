@@ -9,7 +9,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package evie
+ * @package EvieWP WordPress theme
  */
 
 get_header();

@@ -1,4 +1,4 @@
-**Theme Name:** Evie  
+**Theme Name:** EvieWP  
 **Theme URI:** https://github.com/actuallyakash/evie-wp  
 **Contributors:** actuallyakash  
 **Requires at least:** WordPress 5.5  
@@ -9,7 +9,7 @@
 
 ## Description
 
-A production-ready and minimal theme for your projects and websites. It is extemely lightweight, customizable and works perfectly on modern browsers. Install the theme from WordPress and begin your awesome website quickly.
+A production-ready and minimal theme for your projects and websites. It is extremely lightweight, customizable and works perfectly on modern browsers. Install the theme from WordPress and begin your awesome website quickly.
 
 ## Installation
 
@@ -54,7 +54,5 @@ Source: https://underscores.me/, (C) 2012-2019 Automattic, Inc.,
 
 ## Changelog  
 
-### v1.0.1
-> Updated Screenshot
 ### v1.0.0
 > Initial release  

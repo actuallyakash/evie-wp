@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package evie
+ * @package EvieWP WordPress theme
  */
 
 get_header();
@@ -43,7 +43,7 @@ get_header();
 				<div class="author__card">
 					<img alt="<?php get_the_title(); ?>" src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 450 ) ) ); ?>" height="110" width="110">
 					
-					<span class="about-heading"><?php esc_html_e( 'About Author', 'evie' ); ?></span>
+					<span class="about-heading"><?php esc_html_e( 'About Author', 'eviewp' ); ?></span>
 
 					<h4><a href="<?php echo esc_url(  get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" title="Posts by <?php echo esc_html( get_the_author() ); ?>" rel="author"> <?php echo esc_html( get_the_author() ); ?> </a></h4>
 
