@@ -156,6 +156,7 @@ add_action( 'widgets_init', 'eviewp_widgets_init' );
 function eviewp_scripts() {
 	wp_enqueue_style( 'eviewp-fontawesome', get_template_directory_uri() . '/assets/css/all.min.css', [], EVIEWP_VERSION );
 	wp_enqueue_style( 'eviewp-bs-grid', get_template_directory_uri() . '/assets/css/bs-grid.css', [], EVIEWP_VERSION );
+	wp_enqueue_style( 'eviewp-lato-font', 'https://fonts.googleapis.com/css?family=Lato:400', [], EVIEWP_VERSION );
 	wp_enqueue_style( 'eviewp-style', get_stylesheet_uri(), [], EVIEWP_VERSION );
 	wp_style_add_data( 'eviewp-style', 'rtl', 'replace' );
 
