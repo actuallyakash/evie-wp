@@ -5,7 +5,7 @@ Theme URI: https://github.com/actuallyakash/evie-wp
 Author: Akash
 Author URI: http://akashgupta.xyz
 Description: A production-ready theme for your projects.
-Version: 1.0.0
+Version: 1.0.1
 Tested up to: 5.6
 Requires at least:  5.6
 Requires PHP: 7.0
@@ -374,6 +374,7 @@ center-align {
 
 a:focus {
   outline: thin dotted;
+  opacity: .66;
 }
 
 img,
@@ -817,6 +818,10 @@ select::-ms-expand {
   opacity: 1;
 }
 
+.app__inner {
+  display: flex;
+}
+
 .navbar {
   position: fixed;
   top: 0;
@@ -990,6 +995,7 @@ select::-ms-expand {
 @media (min-width: 992px) {
   .js .nav__mobile {
     position: relative;
+    display: none;
   }
 
   .js .nav__mobile.closed {
@@ -1749,7 +1755,6 @@ input[type="search"]::-webkit-search-results-decoration {
   }
 
   .app__inner {
-    display: flex;
     flex-flow: column;
   }
 

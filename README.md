@@ -11,6 +11,9 @@
 
 A production-ready and minimal theme for your projects and websites. It is extremely lightweight, customizable and works perfectly on modern browsers. Install the theme from WordPress and begin your awesome website quickly.
 
+## Note
+Note: Only one level menu is supported.
+
 ## Installation
 
 1. Upload the theme
@@ -56,3 +59,8 @@ Source: https://underscores.me/, (C) 2012-2019 Automattic, Inc.,
 
 ### v1.0.0
 > Initial release  
+
+### v1.0.1
+> Added trac suggestion fixes
+> Updated screenshot
+> Fixed styling issues with sidebar and tab navigation 
