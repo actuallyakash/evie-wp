@@ -16,25 +16,14 @@ if ( ! function_exists( 'eviewp_get_defaults' ) ) {
 				
 				'enable_header_search' => true,
 				'enable_header_search_mobile' => true,
-				'container_width' => '1335',
+				'container_width' => '',
 				'enable_excerpt' => true,
 				'excerpt_lines' => 3,
 
 				'post_sidebar' => 'sidebar-none',
 				'page_sidebar' => 'sidebar-none',
 				'archive_sidebar' => 'sidebar-none',
-				'sidebar_width' => '300',
-
-				'facebook' => '#',
-				'twitter' => '#',
-				'instagram' => '#',
-				'youtube' => '#',
-				'github' => '#',
-				'linkedin' => '#',
-				'spotify' => '#',
-				'whatsapp' => '#',
-				'telegram' => '#',
-				'email' => '#',
+				'sidebar_width' => '300'
 			)
 		);
 	}

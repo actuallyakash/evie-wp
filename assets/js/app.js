@@ -26,13 +26,6 @@ document.addEventListener('DOMContentLoaded',function(){
 	function chkForNavScroll() {
 		var lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-		// when page scrolled to 100px, enable sticky header
-		// if ( lastScrollTop >= 50 ) {
-		// 	addNewClass(document.querySelector('.navbar'), 'navbar-sticky');
-		// } else {
-		// 	removeClass(document.querySelector('.navbar'), 'navbar-sticky');
-		// }
-
 		// if the current body position is less than 20 pixels away from our converter, convert
 		if ( document.body.contains( document.getElementById("navConverter") ) ) {
 			if (lastScrollTop > (getOffset( document.getElementById('navConverter') ).top - 60)) {
@@ -42,15 +35,6 @@ document.addEventListener('DOMContentLoaded',function(){
 			}
 		}
 	}
-
-	// $(window).scroll(function () {
-    //     // when page scrolled to 100px, enable sticky header
-    //     if ($(this).scrollTop() >= 100) {
-    //         $('.enable-sticky-header').addClass('sticky-header');
-    //     } else {
-    //         $('.enable-sticky-header').removeClass('sticky-header');
-    //     }
-    // });
 
 	// Add class to element => https://www.sitepoint.com/add-remove-css-class-vanilla-js/
 	function addNewClass(elements, myClass) {

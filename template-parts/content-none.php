@@ -34,7 +34,6 @@
 			<main id="primary" class="site-main container error-404">
 
 				<section class="not-found center ">
-					<img class="img-fluid" src="<?php echo esc_url( get_template_directory_uri() ) ?>/assets/images/undraw_page_not_found.svg" alt="<?php esc_attr_e( '404', 'eviewp' ); ?>">
 
 					<h3>
 					<?php if ( is_search() ) {
