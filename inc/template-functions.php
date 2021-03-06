@@ -44,18 +44,18 @@ add_action( 'wp_head', 'eviewp_pingback_header' );
  */
 function eviewp_get_archive_title( $title ) {    
 	if ( is_category() ) {    
-		$title = '<small>Browsing category</small>' . '<h1 class="page__header__title">' . single_cat_title( '', false ) . '</h1>';    
+		$title = '<small>' . esc_html__( 'Browsing category', 'eviewp' ) . '</small>' . '<h1 class="page__header__title">' . single_cat_title( '', false ) . '</h1>';    
 	} elseif ( is_tag() ) {    
-		$title = '<small>Browsing tag</small>' . '<h1 class="page__header__title">' . single_tag_title( '', false ) . '</h1>';    
+		$title = '<small>' . esc_html__( 'Browsing tag', 'eviewp' ) . '</small>' . '<h1 class="page__header__title">' . single_tag_title( '', false ) . '</h1>';    
 	} elseif ( is_search() ) {    
-		$title = '<small>Search Results for</small>' . '<h1 class="page__header__title">' . get_search_query() . '</h1>';    
+		$title = '<small>' . esc_html__( 'Search Results for', 'eviewp' ) . '</small>' . '<h1 class="page__header__title">' . get_search_query() . '</h1>';    
 	} elseif ( is_author() ) {    
-		$title = '<small>All Posts by</small>' . '<h1 class="page__header__title">' . get_the_author() . '</h1>' ;    
+		$title = '<small>' . esc_html__( 'All Posts by', 'eviewp' ) . '</small>' . '<h1 class="page__header__title">' . get_the_author() . '</h1>' ;    
 	} elseif ( is_tax() ) { // for custom post types
 		/* translators: 1: single term taxonomy title */
-		$title = '<small>Browsing</small>' . '<h1 class="page__header__title">' . sprintf( esc_html__( '%1$s', 'eviewp' ), single_term_title( '', false ) ) . '</h1>'; // phpcs:ignore WordPress.WP.I18n.NoEmptyStrings
+		$title = '<small>' . esc_html__( 'Browsing', 'eviewp' ) . '</small>' . '<h1 class="page__header__title">' . sprintf( esc_html__( '%1$s', 'eviewp' ), single_term_title( '', false ) ) . '</h1>'; // phpcs:ignore WordPress.WP.I18n.NoEmptyStrings
 	} elseif ( is_post_type_archive() ) {
-		$title = '<small>Browsing</small>' . '<h1 class="page__header__title">' . post_type_archive_title( '', false ) . '</h1>';
+		$title = '<small>' . esc_html__( 'Browsing', 'eviewp' ) . '</small>' . '<h1 class="page__header__title">' . post_type_archive_title( '', false ) . '</h1>';
 	}
 	return $title;    
 }
@@ -91,7 +91,7 @@ function eviewpSearchModal() {
 	<div id="eviewpSearchModal" class="modal">
 		<div class="modal-content">
 			<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-				<span class="screen-reader-text">Search for:</span>
+				<span class="screen-reader-text"><?php esc_html__( 'Search for:', 'eviewp' ) ?></span>
 				<input type="search" class="search-input" placeholder="Search …" value="" name="s">
 			</form>
 			<div class="close">&times;</div>

@@ -1132,6 +1132,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         if (!navOpen) {
           removeClass(nav, "closed");
           addClass(nav, "opened");
+		  if( nav.parentNode.classList.contains('navbar--extended') ) {
+			removeClass( nav.parentNode, "navbar--extended" );
+		  }
           addClass(htmlEl, opts.navActiveClass);
           addClass(navToggle, "active");
           nav.style.position = opts.openPos;

@@ -60,17 +60,17 @@ if ( ! function_exists( 'eviewp_get_breadcrumbs' ) ) :
 		
 		echo '<a href="' . esc_url( home_url() ) . '" rel="nofollow">Home</a>';
 		if ( is_category() || is_single() ) {
-			echo " > ";
+			esc_html_e( ' > ', 'eviewp' );
 			the_category(' &bull; ');
 				if ( is_single() ) {
-					echo " > ";
+					esc_html_e( ' > ', 'eviewp' );
 					the_title();
 				}
 		} elseif ( is_page() ) {
-			echo " > ";
+			esc_html_e( ' > ', 'eviewp' );
 			echo the_title(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} elseif ( is_search() ) {
-			echo " > Search Results for... ";
+			esc_html_e( ' > Search Results for... ', 'eviewp' );
 			echo '"<em>';
 			echo the_search_query(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo '</em>"';
