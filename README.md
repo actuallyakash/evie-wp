@@ -2,7 +2,7 @@
 **Theme URI:** https://github.com/actuallyakash/evie-wp  
 **Contributors:** actuallyakash  
 **Requires at least:** WordPress 5.5  
-**Version:** 1.0.1  
+**Version:** 1.0.2  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 **Tags:** custom-colors, custom-logo, custom-menu, editor-style, featured-images, theme-options, threaded-comments, right-sidebar, left-sidebar, blog, two-columns  
@@ -57,10 +57,14 @@ Source: https://underscores.me/, (C) 2012-2019 Automattic, Inc.,
 
 ## Changelog  
 
-### v1.0.0
-> Initial release  
+### v1.0.2
+> Added trac suggestion fixes
+> Updated screenshot
 
 ### v1.0.1
 > Added trac suggestion fixes
 > Updated screenshot
 > Fixed styling issues with sidebar and tab navigation 
+
+### v1.0.0
+> Initial release  

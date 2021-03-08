@@ -4,7 +4,7 @@ Tags: custom-colors, custom-logo, custom-menu, editor-style, featured-images, th
 Requires at least: 4.5
 Tested up to: 5.6
 Requires PHP: 7.0
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,10 +61,14 @@ Only one level menu is supported.
 
 == Changelog ==
 
-= 1.0.0
-Initial release  
+= 1.0.2
+> Added trac suggestion fixes
+> Updated screenshot
 
 = 1.0.1
 > Added trac suggestion fixes
 > Updated screenshot
 > Fixed styling issues with sidebar and tab navigation
+
+= 1.0.0
+Initial release  
