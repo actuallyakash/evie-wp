@@ -168,6 +168,7 @@ document.addEventListener('DOMContentLoaded',function(){
 	// Create the menu 
 	if ( document.getElementsByClassName("nav__mobile") && document.getElementsByClassName('nav__mobile').length > 0 ){
 		var navElements = document.getElementsByClassName('navbar__menu')[0].innerHTML;
+
 		document.getElementsByClassName('nav__mobile')[0].innerHTML = navElements;
 		// Load 
 		var nav = responsiveNav(".nav__mobile", { // Selector
@@ -179,11 +180,24 @@ document.addEventListener('DOMContentLoaded',function(){
 			openPos: "relative", // String: Position of the opened nav, relative or static
 			navClass: "nav__mobile", // String: Default CSS class. If changed, you need to edit the CSS too!
 		});
+
+		// Disabling tabindex when menu is close
+		document.querySelectorAll('.nav__mobile li a').forEach(link => {
+			link.setAttribute( 'tabindex', '-1' );
+		});
 	} else {
-		 addNewClass(document.querySelector('.navbar__menu'),'navbar__menu--noMob');
-		 addNewClass(document.querySelector('.navbar__menu-mob'), 'navbar__menu-mob--noMob');
+		addNewClass(document.querySelector('.navbar__menu'),'navbar__menu--noMob');
+		addNewClass(document.querySelector('.navbar__menu-mob'), 'navbar__menu-mob--noMob');
 	};
 });
+
+/*! Flexibility.js
+ * https://github.com/jonathantneal/flexibility
+ * https://jonneal.dev/flexibility/
+ *
+ * Available under the MIT license
+ * Licensed under the MIT license.
+ */
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.flexibility = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 module.exports = function alignContent(target) {
 	var start;
@@ -824,6 +838,7 @@ module.exports = function write(target) {
 
 },{}]},{},[13])(13)
 });
+
 /*! responsive-nav.js 1.0.39
  * https://github.com/viljamis/responsive-nav.js
  * http://responsive-nav.com
@@ -1139,6 +1154,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           addClass(navToggle, "active");
           nav.style.position = opts.openPos;
           setAttributes(nav, {"aria-hidden": "false"});
+		  // Enabling tabindex in links for accessiblity when menu opens
+		  document.querySelectorAll('.nav__mobile li a').forEach(link => {
+			link.setAttribute( 'tabindex', '' );
+		  });
           navOpen = true;
           opts.open();
         }
@@ -1154,6 +1173,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           removeClass(htmlEl, opts.navActiveClass);
           removeClass(navToggle, "active");
           setAttributes(nav, {"aria-hidden": "true"});
+
+		  // Disabling tabindex in links for accessiblity when menu closes
+		  document.querySelectorAll('.nav__mobile li a').forEach(link => {
+			link.setAttribute( 'tabindex', '-1' );
+		  });
 
           // If animations are enabled, wait until they finish
           if (opts.animate) {

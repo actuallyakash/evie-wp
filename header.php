@@ -26,7 +26,6 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'eviewp' ); ?></a>
 
 	<header class="navbar">
-		<nav class="nav__mobile"></nav>
 		<div class="container">
 			<div class="navbar__inner">
 
@@ -78,4 +77,5 @@
 				</div>
 			</div>
 		</div>
+		<nav class="nav__mobile"></nav>
 	</header>
