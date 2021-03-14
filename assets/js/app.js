@@ -29,6 +29,13 @@ document.addEventListener('DOMContentLoaded', function () {
 	function chkForNavScroll() {
 		var lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
+		// Quick fix for navbar when WP Admin bar is present
+		if( lastScrollTop > 0 ) {
+			document.querySelector('#wpadminbar.mobile + #page header').style.marginTop = "0";
+		} else {
+			document.querySelector('#wpadminbar.mobile + #page header').style.marginTop = "35px";
+		}
+
 		// if the current body position is less than 20 pixels away from our converter, convert
 		if (document.body.contains(document.getElementById("navConverter"))) {
 			if (lastScrollTop > (getOffset(document.getElementById('navConverter')).top - 60)) {
