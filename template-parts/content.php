@@ -28,7 +28,14 @@
 		
 
 		<div class="post__content">
-			<?php the_title( '<h3 class="post__heading"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' ); ?>
+			
+			<?php
+			if( get_the_title() ) {
+				the_title( '<h3 class="post__heading"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
+			} else {
+				echo '<h3 class="post__heading"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">...</a></h3>';
+			}
+			?>
 			
 			<?php if ( getOption('defaults', 'enable_excerpt' ) ) { ?>
 				<a href="<?php echo esc_url( get_permalink() ); ?>">

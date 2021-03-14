@@ -1,5 +1,5 @@
 === EvieWP ===
-Contributors: eviewp
+Contributors: actuallyakash
 Tags: custom-colors, custom-logo, custom-menu, editor-style, featured-images, theme-options, threaded-comments, right-sidebar, left-sidebar, blog
 Requires at least: 4.5
 Tested up to: 5.6
@@ -19,12 +19,17 @@ Only one level menu is supported.
 
 == Credits ==
 
-* Evie by unDraw https://evie.undraw.co/, [MIT](https://opensource.org/licenses/MIT)
+* EvieWP WordPress Theme is derived from Evie HTML Theme by unDraw https://evie.undraw.co, Copyright 2012 Aggelos Gesoulis under [MIT](https://opensource.org/licenses/MIT) Licence
 * normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2018 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)
-* Flexibility 2.0.0, https://github.com/jonathantneal/flexibility, [MIT](https://opensource.org/licenses/MIT)
-* Responsive Nav (app.js), https://github.com/viljamis/responsive-nav.js, [MIT](https://opensource.org/licenses/MIT)
+* Flexibility 2.0.0 (app.js), https://github.com/jonathantneal/flexibility, [MIT](https://opensource.org/licenses/MIT)
+* Responsive Nav (app.js), http://viljamis.com/, https://github.com/viljamis/responsive-nav.js, [MIT](https://opensource.org/licenses/MIT)
 * FontAwesome https://fontawesome.com, [MIT](https://opensource.org/licenses/MIT)
-* Bootstrap (bs-grid.css) https://getbootstrap.com/, [MIT](https://opensource.org/licenses/MIT)
+* Grid by Bootstrap (bs-grid.css) https://getbootstrap.com/, [MIT](https://opensource.org/licenses/MIT)
+* Code snippets for
+    * Adding class to element => https://www.sitepoint.com/add-remove-css-class-vanilla-js/
+    * Removeing class from element => https://www.sitepoint.com/add-remove-css-class-vanilla-js/
+    * Smooth scrolling => https://codepen.io/andylobban/pen/qOLKVW
+    * Add Event function => http://www.thecssninja.com/javascript/handleevent
 * Based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 
 == Media Licenses ==
