@@ -9,7 +9,7 @@
 
 if ( ! defined( 'EVIEWP_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'EVIEWP_VERSION', '1.0.2' );
+	define( 'EVIEWP_VERSION', '1.0.3' );
 	define( 'EVIEWP_DIR_PATH', plugin_dir_path( __FILE__ ) );
 	define( 'EVIEWP_PLG_URL', plugin_dir_url( __FILE__ ) );
 }
