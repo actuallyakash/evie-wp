@@ -2,7 +2,7 @@
 **Theme URI:** https://github.com/actuallyakash/evie-wp  
 **Contributors:** actuallyakash  
 **Requires at least:** WordPress 5.5  
-**Version:** 1.0.3  
+**Version:** 1.0.4  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 **Tags:** custom-colors, custom-logo, custom-menu, editor-style, featured-images, theme-options, threaded-comments, right-sidebar, left-sidebar, blog, two-columns  
@@ -56,6 +56,12 @@ Licence: [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 Source: https://underscores.me/, (C) 2012-2019 Automattic, Inc.,
 
 ## Changelog  
+
+### v1.0.4
+> Added trac suggestion fixes
+> Fixed JS console errors
+> Added Licence info for code snippets
+> Fixed issue with navbar hamburger control
 
 ### v1.0.3
 > Added trac suggestion fixes
