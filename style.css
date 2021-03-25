@@ -5,7 +5,7 @@ Theme URI: https://github.com/actuallyakash/evie-wp
 Author: Akash
 Author URI: http://akashgupta.xyz
 Description: A simple blog theme for your WordPress Projects
-Version: 1.0.4
+Version: 1.0.5
 Tested up to: 5.6
 Requires at least:  5.6
 Requires PHP: 7.0
@@ -828,6 +828,13 @@ select::-ms-expand {
   z-index: 100;
   width: 100%;
   background-color: #6C63FF;
+}
+
+/* Quick fix for mobile navigation when admin logged in */
+@media screen and (max-width: 600px) {
+  #wpadminbar + #page header {
+    position: absolute;
+  }
 }
 
 #wpadminbar + #page header {
