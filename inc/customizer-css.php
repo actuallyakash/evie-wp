@@ -24,6 +24,12 @@ function eviewp_customizer_css() {
             --heading_color: <?php echo getOption( 'colors', 'heading_color' ); ?>;
             --container_width: <?php echo getOption( 'defaults', 'container_width' ) . 'px'; ?>;
             --sidebar_width: <?php echo getOption( 'defaults', 'sidebar_width' ) . 'px'; ?>;
+            --logo_size: <?php echo getOption( 'defaults', 'logo_size' ) . 'px'; ?>;
+        }
+
+        .navbar__inner .custom__logo {
+            width: var( --logo_size );
+            height: var( --logo_size );
         }
 
         html,

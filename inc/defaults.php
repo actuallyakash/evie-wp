@@ -64,7 +64,7 @@ if ( ! function_exists( 'getOption' ) ) {
         $defaultColors = eviewp_get_color_defaults();
 
         switch( $type ) {
-            case 'defaults': return get_theme_mod( $property, $defaults[$property] );
+            case 'defaults': return esc_html( get_theme_mod( $property, $defaults[$property] ) );
             break;
             case 'colors': return esc_attr( get_theme_mod( $property, $defaultColors[$property] ) );
             break;
