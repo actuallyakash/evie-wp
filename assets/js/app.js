@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 
+	// Add class to element => https://www.sitepoint.com/add-remove-css-class-vanilla-js/
 	function addNewClass(elements, myClass) {
 		// if there are no elements, we're done
 		if (!elements) {
@@ -62,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	};
 
+	// Remove class from element => https://www.sitepoint.com/add-remove-css-class-vanilla-js/
 	function removeClass(elements, myClass) {
 		// if there are no elements, we're done
 		if (!elements) {

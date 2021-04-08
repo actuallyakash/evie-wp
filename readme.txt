@@ -2,9 +2,9 @@
 Contributors: actuallyakash
 Tags: custom-colors, custom-logo, custom-menu, editor-style, featured-images, theme-options, threaded-comments, right-sidebar, left-sidebar, blog
 Requires at least: 4.5
-Tested up to: 5.6
+Tested up to: 5.7
 Requires PHP: 7.0
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,6 +26,8 @@ Only one level menu is supported.
 * FontAwesome https://fontawesome.com, [MIT](https://opensource.org/licenses/MIT)
 * Grid by Bootstrap (bs-grid.css) https://getbootstrap.com/, [MIT](https://opensource.org/licenses/MIT)
 * Code snippets for
+    * Adding class to element => https://www.sitepoint.com/add-remove-css-class-vanilla-js, [MIT](https://opensource.org/licenses/MIT)
+    * Removing class from element => https://www.sitepoint.com/add-remove-css-class-vanilla-js, [MIT](https://opensource.org/licenses/MIT)
     * Smooth scrolling => https://codepen.io/andylobban/pen/qOLKVW, [MIT](https://opensource.org/licenses/MIT)
 * Based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 
@@ -62,6 +64,9 @@ Only one level menu is supported.
 * Source: https://pxhere.com/en/photo/1347732
 
 == Changelog ==
+
+= 1.0.7
+> Added trac suggestion fixes
 
 = 1.0.6
 > Added trac suggestion fixes
