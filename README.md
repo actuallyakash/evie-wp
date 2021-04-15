@@ -62,7 +62,7 @@ Source: https://underscores.me/, (C) 2012-2019 Automattic, Inc.,
 
 ### v1.0.6
 > Added trac suggestion fixes
-> Escaped getOption() output
+> Escaped eviewpGetOption() output
 
 ### v1.0.5
 > Added trac suggestion fixes

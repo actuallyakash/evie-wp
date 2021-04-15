@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="single__post<?php echo esc_attr( getOption( 'defaults', 'post_sidebar' ) !== 'sidebar-none' ? ' sidebar' : '' ); ?>">
+	<main id="primary" class="single__post<?php echo esc_attr( eviewpGetOption( 'defaults', 'post_sidebar' ) !== 'sidebar-none' ? ' sidebar' : '' ); ?>">
 
 		<?php
 		while ( have_posts() ) :
@@ -23,10 +23,10 @@ get_header();
 			<div class="container text-container text-container--center">
 
 				<!-- Article Section -->
-				<div class="app__inner <?php echo esc_attr( getOption( 'defaults', 'post_sidebar' ) ); ?>">
+				<div class="app__inner <?php echo esc_attr( eviewpGetOption( 'defaults', 'post_sidebar' ) ); ?>">
 					
 					<?php
-						if ( getOption( 'defaults', 'post_sidebar' ) !== 'sidebar-none' ) {
+						if ( eviewpGetOption( 'defaults', 'post_sidebar' ) !== 'sidebar-none' ) {
 							get_sidebar();
 						}
 					?>

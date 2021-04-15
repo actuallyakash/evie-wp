@@ -37,7 +37,7 @@
 			}
 			?>
 			
-			<?php if ( getOption('defaults', 'enable_excerpt' ) ) { ?>
+			<?php if ( eviewpGetOption('defaults', 'enable_excerpt' ) ) { ?>
 				<a href="<?php echo esc_url( get_permalink() ); ?>">
 					<p class="excerpt"> <?php echo esc_html( substr( get_the_excerpt(), 0, 260 ) ); ?> </p>
 				</a>

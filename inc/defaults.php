@@ -58,7 +58,7 @@ if ( ! function_exists( 'getOption' ) ) {
      * $property - value requested
 	 */
 
-    function getOption( $type, $property ) { // phpcs:ignore WPThemeReview.CoreFunctionality.PrefixAllGlobals.NonPrefixedFunctionFound
+    function eviewpGetOption( $type, $property ) { // phpcs:ignore WPThemeReview.CoreFunctionality.PrefixAllGlobals.NonPrefixedFunctionFound
 
         $defaults = eviewp_get_defaults();
         $defaultColors = eviewp_get_color_defaults();

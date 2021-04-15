@@ -70,7 +70,7 @@ Only one level menu is supported.
 
 = 1.0.6
 > Added trac suggestion fixes
-> Escaped getOption() output
+> Escaped eviewpGetOption() output
 
 = 1.0.5
 > Added trac suggestion fixes

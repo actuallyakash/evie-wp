@@ -18,10 +18,10 @@ get_header();
 
 			<div class="container">
 
-				<div class="app__inner <?php echo esc_attr( getOption( 'defaults', 'archive_sidebar' ) ); ?>">
+				<div class="app__inner <?php echo esc_attr( eviewpGetOption( 'defaults', 'archive_sidebar' ) ); ?>">
 
 					<?php
-						if ( getOption( 'defaults', 'archive_sidebar' ) !== 'sidebar-none' ) {
+						if ( eviewpGetOption( 'defaults', 'archive_sidebar' ) !== 'sidebar-none' ) {
 							get_sidebar();
 						}
 					?>
