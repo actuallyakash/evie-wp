@@ -127,49 +127,106 @@ document.addEventListener('DOMContentLoaded', function () {
 	// Search Modal
 	if (document.body.contains(document.getElementById('eviewpSearchModal'))) {
 		// Get the modal
-		var modal = document.getElementById("eviewpSearchModal");
+		var searchModal = document.getElementById("eviewpSearchModal");
 
 		// Get the button that opens the modal
 		var btn = document.getElementById("searchBtn");
 		var btnMob = document.getElementById("searchBtnMob");
 
 		// Get the <span> element that closes the modal
-		var span = document.getElementsByClassName("close")[0];
+		var closeModal = document.getElementsByClassName("close")[0];
 
 		// Search input field
 		var searchInput = document.getElementsByClassName("search-input")[0];
 
-		// When the user clicks on the button, open the modal
+		// When the user clicks on the Search button, open the modal
 		if (btn !== null) {
 			btn.onclick = function () {
-				modal.classList.add("modal-active");
+				// Adding tabindex on input and close button for accessibility
+				searchInput.setAttribute( 'tabindex', 1 );
+				closeModal.setAttribute( 'tabindex', 2 );
+				// Opening Modal
+				searchModal.classList.add("modal-active");
 				searchInput.focus();
 			}
 		}
 
+		// Mobile Searchbar
 		if (btnMob !== null) {
 			btnMob.onclick = function () {
-				modal.classList.add("modal-active");
+				searchModal.classList.add("modal-active");
 				searchInput.focus();
 			}
 		}
 
+		// Smooth scrolling => https://codepen.io/myogeshchavan97/pen/zYGVbxN
+		/* Licence
+			Copyright (c) 2021 by Yogesh (https://codepen.io/myogeshchavan97/pen/zYGVbxN?editors=0010)
+			Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+			The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+			THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+		*/
+		// Focus looping fix for search modal
+		const focusableElements = 'input, .close';
+		const firstFocusableElement = searchModal.querySelectorAll(focusableElements)[0]; // get first element to be focused inside modal
+		const focusableContent = searchModal.querySelectorAll(focusableElements);
+		const lastFocusableElement = focusableContent[focusableContent.length - 1]; // get last element to be focused inside modal
+		
+		document.addEventListener('keydown', function (e) {
+			let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+			
+			if (!isTabPressed) {
+				return;
+			}
+
+			if (e.shiftKey) { // if shift key pressed for shift + tab combination
+				if (document.activeElement === firstFocusableElement) {
+					lastFocusableElement.focus(); // add focus for the last focusable element
+					e.preventDefault();
+				}
+			} else { // if tab key is pressed				
+				if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
+					firstFocusableElement.focus(); // add focus for the first focusable element
+					e.preventDefault();
+				}
+			}
+		});
+		firstFocusableElement.focus();
+
 		// When the user clicks on (x), close the modal
-		span.onclick = function () {
-			modal.classList.remove("modal-active");
+		closeModal.onclick = function () {
+			closeSearchModal();
+		}
+
+		closeModal.onkeypress = function( event ) {
+			if (event.keyCode == 13) {
+				closeSearchModal();
+			}
+		}
+
+		function closeSearchModal() {
+			// Removes tabindex
+			searchInput.removeAttribute( 'tabindex' );
+			closeModal.removeAttribute( 'tabindex' );
+			// Close modal
+			searchModal.classList.remove("modal-active");
+			btn.focus();
+			btnMob.focus();
 		}
 
 		// When the user clicks anywhere outside of the modal, close it
 		window.onclick = function (event) {
-			if (event.target == modal) {
-				modal.classList.remove("modal-active");
+			if (event.target == searchModal) {
+				searchModal.classList.remove("modal-active");
 			}
 		}
 
 		// Esc key press
 		document.addEventListener("keyup", function (e) {
 			if (e.key === "Escape") { // escape key maps to keycode `27`
-				modal.classList.remove("modal-active");
+				searchModal.classList.remove("modal-active");
 			}
 		});
 	}
