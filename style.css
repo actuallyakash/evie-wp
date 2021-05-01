@@ -1708,6 +1708,22 @@ aside.comment-box-wrap form {
   animation: animatetop 0.4s
 }
 
+.modal-active .modal-content .search-submit {
+  height: 50px;
+  width: 150px;
+  transform: translateY(50%);
+}
+
+@media only screen and (max-width: 990px) {
+  .modal-active .modal-content .search-submit {
+    transform: translateY(20%);
+  }
+}
+
+.modal-active .modal-content .search-submit:focus {
+  display: block;
+}
+
 .modal-active {
   opacity: 1;
   left: 0;
@@ -1812,7 +1828,7 @@ form.search-form {
   display: flex;
 }
 
-form.search-form .search-submit {
+.search-submit {
   padding: 0 7pt;
   border-width: 1px;
   border-style: solid;
@@ -1828,11 +1844,21 @@ form.search-form .search-submit {
   opacity: 0.8;
 }
 
+#eviewpSearchModal .search-submit {
+  right: -800px;
+  position: absolute;
+}
+
+#eviewpSearchModal .search-submit:focus {
+  position: unset;
+}
+
 .not-found form.search-form {
   justify-content: center;
 }
 
-form.search-form .search-submit:hover {
+.search-submit:hover,
+.search-submit:focus {
   opacity: 1;
 }
 
