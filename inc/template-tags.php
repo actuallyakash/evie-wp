@@ -42,6 +42,10 @@ if ( ! function_exists( 'eviewp_first_category' ) ) :
 	 * Gets first category from the list of category
 	 */
 	function eviewp_first_category() {
+
+		if( empty( get_the_category() ) ) {
+			return;
+		}
 		
 		$category_name = get_the_category()[0]->cat_name;
 		$category_link = get_category_link( get_cat_ID( $category_name ) );

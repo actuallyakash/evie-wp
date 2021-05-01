@@ -88,11 +88,13 @@ function eviewpColorShade( $color, $percent ) {
 function eviewpSearchModal() {
 	?>
     <!-- Search Modal -->
-	<div id="eviewpSearchModal" class="modal">
+	<div role="dialog" id="eviewpSearchModal" class="modal">
 		<div class="modal-content">
 			<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 				<span class="screen-reader-text"><?php esc_html__( 'Search for:', 'eviewp' ) ?></span>
 				<input type="search" class="search-input" placeholder="Search …" value="" name="s">
+				<input type="submit" class="search-submit" name="submit" value="Search">
+				<!-- <button class="search-submit">Search (btn)</button> -->
 			</form>
 			<div class="close">&times;</div>
 		</div>
