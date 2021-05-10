@@ -228,6 +228,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		document.addEventListener("keyup", function (e) {
 			if (e.key === "Escape") { // escape key maps to keycode `27`
 				searchModal.classList.remove("modal-active");
+				btn.focus();
+				btnMob.focus();
 			}
 		});
 	}
