@@ -185,6 +185,9 @@ document.addEventListener('DOMContentLoaded', function () {
 			open: function() {
 				let navElements = document.querySelectorAll('.nav__mobile li a, #nav-toggle');
 				openModal( 'nav', navElements );
+				// Updating icons
+				document.querySelector('#nav-toggle .nav-open').style.display = 'none';
+				document.querySelector('#nav-toggle .nav-close').style.display = 'inline';
 			},
 			close: function() {
 				// Disabling tabindex in links for accessiblity when menu closes
@@ -193,6 +196,10 @@ document.addEventListener('DOMContentLoaded', function () {
 				});
 
 				document.querySelector('#nav-toggle').removeAttribute( 'tabindex' );
+
+				// Updating icons
+				document.querySelector('#nav-toggle .nav-close').style.display = 'none';
+				document.querySelector('#nav-toggle .nav-open').style.display = 'inline';
 			}
 		});
 

@@ -1691,6 +1691,10 @@ aside.comment-box-wrap form {
   transition: transform 0.15s ease-in-out;
 }
 
+.nav-close {
+  display: none;
+}
+
 .modal-content {
   display: flex;
   align-items: center;
