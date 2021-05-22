@@ -1019,7 +1019,7 @@ select::-ms-expand {
   }
 }
 
-#toggle svg {
+#nav-toggle svg {
   height: 1.2em;
   width: 1.2em;
   vertical-align: middle;

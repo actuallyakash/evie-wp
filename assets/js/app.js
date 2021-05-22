@@ -86,44 +86,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 
-	// Smooth scrolling => https://codepen.io/andylobban/pen/qOLKVW
-	/* Licence
-		Copyright (c) 2021 by Andy Lobban (https://codepen.io/andylobban/pen/qOLKVW)
-		Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-		The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-		THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-	*/
-	if ('querySelector' in document && 'addEventListener' in window && Array.prototype.forEach) {
-		// Function to animate the scroll
-		var smoothScroll = function (anchor, duration) {
-			// Calculate how far and how fast to scroll
-			var startLocation = window.pageYOffset;
-			var endLocation = anchor.offsetTop - 40; // Remove 40 pixels for padding
-			var distance = endLocation - startLocation;
-			var increments = distance / (duration / 16);
-			var stopAnimation;
-			// Scroll the page by an increment, and check if it's time to stop
-			var animateScroll = function () {
-				window.scrollBy(0, increments);
-				stopAnimation();
-			};
-			// If scrolling down
-			if (increments >= 0) {
-				// Stop animation when you reach the anchor OR the bottom of the page
-				stopAnimation = function () {
-					var travelled = window.pageYOffset;
-					if ((travelled >= (endLocation - increments)) || ((window.innerHeight + travelled) >= document.body.offsetHeight)) {
-						clearInterval(runAnimation);
-					}
-				};
-			}
-			// Loop the animation function
-			var runAnimation = setInterval(animateScroll, 16);
-		};
-	}
-
 	// Search Modal
 	if (document.body.contains(document.getElementById('eviewpSearchModal'))) {
 		// Get the modal
@@ -143,14 +105,16 @@ document.addEventListener('DOMContentLoaded', function () {
 		// When the user clicks on the Search button, open the modal
 		if ( btn !== null ) {
 			btn.onclick = function () {
-				openSearchModal();
+				// openSearchModal();
+				openModal( 'search', [ searchInput, submitInput, closeModal ] );
 			}
 		}
 
-		// Mobile Searchbar
+		// Mobile Search bar
 		if ( btnMob !== null ) {
 			btnMob.onclick = function () {
-				openSearchModal();
+				// openSearchModal();
+				openModal( 'search', [ searchInput, submitInput, closeModal ] );
 			}
 		}
 
@@ -163,46 +127,6 @@ document.addEventListener('DOMContentLoaded', function () {
 			if (event.keyCode == 13) {
 				closeSearchModal();
 			}
-		}
-
-		function openSearchModal() {
-			// Adding tabindex on input and close button for accessibility
-			searchInput.setAttribute( 'tabindex', 1 );
-			submitInput.setAttribute('tabindex', 2);
-			closeModal.setAttribute( 'tabindex', 3 );
-
-			// Opening Modal
-			searchModal.classList.add("modal-active");
-			searchInput.focus();
-
-			// Tabbing support
-			const focusableElements = 'input, .close';
-
-			const firstFocusableElement = searchModal.querySelectorAll(focusableElements)[0];
-			const focusableContent = searchModal.querySelectorAll(focusableElements);
-			const lastFocusableElement = focusableContent[focusableContent.length - 1];
-
-			document.addEventListener('keydown', function (e) {
-				let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
-
-				if (!isTabPressed) {
-					return;
-				}
-
-				if (e.shiftKey) { // if shift key pressed for shift + tab combination
-					if (document.activeElement === firstFocusableElement) {
-						lastFocusableElement.focus(); // add focus for the last focusable element
-						e.preventDefault();
-					}
-				} else { // if tab key is pressed
-					if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
-						firstFocusableElement.focus(); // add focus for the first focusable element
-						e.preventDefault();
-					}
-				}
-			});
-
-			firstFocusableElement.focus();
 		}
 
 		function closeSearchModal() {
@@ -244,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 
 	// Responsive mobile menu
-	// Create the menu 
+	// Create the menu
 	if (document.getElementsByClassName("nav__mobile") && document.getElementsByClassName('nav__mobile').length > 0) {
 		var navElements = document.getElementsByClassName('navbar__menu')[0].innerHTML;
 
@@ -255,9 +179,21 @@ document.addEventListener('DOMContentLoaded', function () {
 			transition: 284, // Integer: Speed of the transition, in milliseconds
 			label: "Menu", // String: Label for the navigation toggle
 			insert: "before", // String: Insert the toggle before or after the navigation
-			customToggle: "toggle", // Selector: Specify the ID of a custom toggle
+			customToggle: "nav-toggle", // Selector: Specify the ID of a custom toggle
 			openPos: "relative", // String: Position of the opened nav, relative or static
 			navClass: "nav__mobile", // String: Default CSS class. If changed, you need to edit the CSS too!
+			open: function() {
+				let navElements = document.querySelectorAll('.nav__mobile li a, #nav-toggle');
+				openModal( 'nav', navElements );
+			},
+			close: function() {
+				// Disabling tabindex in links for accessiblity when menu closes
+				document.querySelectorAll('.nav__mobile li a').forEach(link => {
+					link.setAttribute( 'tabindex', '-1' );
+				});
+
+				document.querySelector('#nav-toggle').removeAttribute( 'tabindex' );
+			}
 		});
 
 		// Disabling tabindex when menu is close
@@ -268,6 +204,49 @@ document.addEventListener('DOMContentLoaded', function () {
 		addNewClass(document.querySelector('.navbar__menu'), 'navbar__menu--noMob');
 		addNewClass(document.querySelector('.navbar__menu-mob'), 'navbar__menu-mob--noMob');
 	};
+
+	function openModal( type, elements ) {
+
+		elements.forEach(element => {
+			element.setAttribute( 'tabindex', 1 );
+		});
+
+		if( type == 'search' ) {
+			// Opening Modal
+			searchModal.classList.add( "modal-active" );
+			searchInput.focus();
+		}
+
+		const firstFocusableElement = elements[0];
+		const focusableContent = elements;
+		const lastFocusableElement = focusableContent[focusableContent.length - 1];
+
+		document.addEventListener( 'keydown', function (e) {
+			// Run only if search modal or nav is opened
+			if ( document.querySelector(".nav__mobile.opened") || document.querySelector("#eviewpSearchModal.modal-active") ) {
+				let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+
+				if (!isTabPressed) {
+					return;
+				}
+
+				if ( e.shiftKey ) { // if shift key pressed for shift + tab combination
+					if (document.activeElement === firstFocusableElement) {
+						lastFocusableElement.focus(); // add focus for the last focusable element
+						e.preventDefault();
+					}
+				} else { // if tab key is pressed
+					if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
+						firstFocusableElement.focus(); // add focus for the first focusable element
+						e.preventDefault();
+					}
+				}
+			}
+
+		});
+
+		firstFocusableElement.focus();
+	}
 });
 
 /*! Flexibility.js
@@ -1312,10 +1291,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 					setAttributes(nav, {
 						"aria-hidden": "false"
 					});
-					// Enabling tabindex in links for accessiblity when menu opens
-					document.querySelectorAll('.nav__mobile li a').forEach(link => {
-						link.setAttribute('tabindex', '');
-					});
 					navOpen = true;
 					opts.open();
 				}
@@ -1332,11 +1307,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 					removeClass(navToggle, "active");
 					setAttributes(nav, {
 						"aria-hidden": "true"
-					});
-
-					// Disabling tabindex in links for accessiblity when menu closes
-					document.querySelectorAll('.nav__mobile li a').forEach(link => {
-						link.setAttribute('tabindex', '-1');
 					});
 
 					// If animations are enabled, wait until they finish
