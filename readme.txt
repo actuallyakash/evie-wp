@@ -4,17 +4,12 @@ Tags: custom-colors, custom-logo, custom-menu, editor-style, featured-images, th
 Requires at least: 4.5
 Tested up to: 5.7
 Requires PHP: 7.0
-Stable tag: 1.0.11
+Stable tag: 1.0.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A simple blog theme for your WordPress Projects
-
-== Description ==
-
 A production-ready and minimal theme for your projects and websites. It is extremely lightweight, customizable and works perfectly on modern browsers. Install the theme from WordPress and begin your awesome website quickly.
 
-== Description ==
 Only one level menu is supported.
 
 == Credits ==
@@ -65,6 +60,9 @@ Only one level menu is supported.
 * Source: https://pxhere.com/en/photo/1347732
 
 == Changelog ==
+
+= 1.0.12
+> Updated readme
 
 = 1.0.11
 > Fixed tabbing issue on menu navigation

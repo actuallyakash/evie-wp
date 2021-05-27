@@ -2,14 +2,20 @@
 **Theme URI:** https://github.com/actuallyakash/evie-wp  
 **Contributors:** actuallyakash  
 **Requires at least:** WordPress 5.5  
-**Version:** 1.0.11  
+**Version:** 1.0.12  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 **Tags:** custom-colors, custom-logo, custom-menu, editor-style, featured-images, theme-options, threaded-comments, right-sidebar, left-sidebar, blog, two-columns  
 
 ## Description
 
-A production-ready and minimal theme for your projects and websites. It is extremely lightweight, customizable and works perfectly on modern browsers. Install the theme from WordPress and begin your awesome website quickly.
+A production-ready and minimal theme for your projects and websites. It is extremely lightweight, customizable, and works perfectly on modern browsers. Install the theme from WordPress and start customizing your site quickly.
+
+<br>
+
+> ### Check out [Evie - Gatsby](https://github.com/actuallyakash/evie-gatsby), if you're looking for a **React based Gatsby Theme**.
+
+<br>
 
 ## Note
 Note: Only one level menu is supported.
@@ -56,6 +62,9 @@ Licence: [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 Source: https://underscores.me/, (C) 2012-2019 Automattic, Inc.,
 
 ## Changelog  
+
+### v1.0.12
+> Updated readme
 
 ### v1.0.11
 > Fixed tabbing issue on menu navigation
