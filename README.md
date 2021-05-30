@@ -1,115 +1,106 @@
-**Theme Name:** EvieWP  
-**Theme URI:** https://github.com/actuallyakash/evie-wp  
-**Contributors:** actuallyakash  
-**Requires at least:** WordPress 5.5  
-**Version:** 1.0.13  
-**License:** GPLv2 or later  
-**License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-**Tags:** custom-colors, custom-logo, custom-menu, editor-style, featured-images, theme-options, threaded-comments, right-sidebar, left-sidebar, blog, two-columns  
-
-## Description
+<h1 align="center">
+  Evie - WordPress
+</h1>
 
 A production-ready and minimal theme for your projects and websites. It is extremely lightweight, customizable, and works perfectly on modern browsers. Install the theme from WordPress and start customizing your site quickly.
 
-<br>
+<blockquote>
+	<h4>Check out <a target="_blank" href="https://github.com/actuallyakash/evie-gatsby/">Evie - Gatsby</a>, if you're looking for a React Based Gatsby Theme.</h4>
+</blockquote>
 
-> ### Check out [Evie - Gatsby](https://github.com/actuallyakash/evie-gatsby), if you're looking for a **React based Gatsby Theme**.
 
-<br>
+## 🖼 Demo & Packages
 
-## Note
-Note: Only one level menu is supported.
+- [Check here](https://eviewp.wpdevcloud.com/)
+- [Official Theme at WordPress](https://wordpress.org/themes/eviewp/)
 
-## Installation
 
-1. Upload the theme
+## ⭕ Note
+Only one level menu is supported at the moment.
+
+
+## ⏬ Installation
+
+1. Download the theme from [WordPress](https://wordpress.org/themes/eviewp/) or download from here and upload it in your **WP Panel** > **Appearance** > **Themes** > **Add New**
 2. Activate the theme
 
-## Licenses
+## 💳 Licenses & Credits
 
-Evie by unDraw  
+- Evie by unDraw  
 Licence: https://opensource.org/licenses/MIT  
 Source: https://evie.undraw.co/  
 
-Flexibility 2.0.0  
+- Flexibility 2.0.0  
 Licence: https://opensource.org/licenses/MIT  
 Source: https://github.com/jonathantneal/flexibility  
 
-responsive-nav.js  
+- responsive-nav.js  
 Licence: https://opensource.org/licenses/MIT  
 Source: https://github.com/viljamis/responsive-nav.js  
 
-FontAwesome  
+- FontAwesome  
 FontAwesome Free is free, open source, and GPL friendly.  
 License: CC BY 4.0, Fonts: SIL OFL 1.1,  
 Code Licence: MIT License - (https://fontawesome.com/license/free)  
 Source: https://fontawesome.com  
 
-normalize.css  
+- normalize.css  
 Licence: https://opensource.org/licenses/MIT  
 Source: https://github.com/necolas/normalize.css  
 
-Code from Twenty Twenty  
-Copyright (c) 2020 WordPress.org  
-License: GPLv2  
-Source: https://wordpress.org/themes/twentytwenty/  
-Included as part of the following classes and functions:  
-- EvieWP_Walker_Comment
-- eviewp_is_comment_by_post_author()
-
-Underscores  
+- Underscores  
 Licence: [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)  
 Source: https://underscores.me/, (C) 2012-2019 Automattic, Inc.,
 
-## Changelog  
+## 📃 Changelog  
 
 ### v1.0.13
-> Fixed customizer settings bug
+- Fixed customizer settings bug
 
 ### v1.0.12
-> Updated readme
+- Updated readme
 
 ### v1.0.11
-> Fixed tabbing issue on menu navigation
+- Fixed tabbing issue on menu navigation
 
 ### v1.0.10
-> Fixed focus issue on Esc key press on search bar
+- Fixed focus issue on Esc key press on search bar
 
 ### v1.0.9
-> Fixed search modal focus and tabbing issues
+- Fixed search modal focus and tabbing issues
 
 ### v1.0.8
-> Fixed search modal focus issues
+- Fixed search modal focus issues
 
 ### v1.0.7
-> Added trac suggestion fixes
+- Added trac suggestion fixes
 
 ### v1.0.6
-> Added trac suggestion fixes
-> Escaped eviewpGetOption() output
+- Added trac suggestion fixes
+- Escaped eviewpGetOption() output
 
 ### v1.0.5
-> Added trac suggestion fixes
-> Fixed navbar top spacing issue
+- Added trac suggestion fixes
+- Fixed navbar top spacing issue
 
 ### v1.0.4
-> Added trac suggestion fixes
-> Fixed JS console errors
-> Added Licence info for code snippets
-> Fixed issue with navbar hamburger control
+- Added trac suggestion fixes
+- Fixed JS console errors
+- Added Licence info for code snippets
+- Fixed issue with navbar hamburger control
 
 ### v1.0.3
-> Added trac suggestion fixes
-> Fixed navbar styling for accessibility  
+- Added trac suggestion fixes
+- Fixed navbar styling for accessibility  
 
 ### v1.0.2
-> Added trac suggestion fixes
-> Updated screenshot
+- Added trac suggestion fixes
+- Updated screenshot
 
 ### v1.0.1
-> Added trac suggestion fixes
-> Updated screenshot
-> Fixed styling issues with sidebar and tab navigation 
+- Added trac suggestion fixes
+- Updated screenshot
+- Fixed styling issues with sidebar and tab navigation 
 
 ### v1.0.0
-> Initial release  
+- Initial release  
