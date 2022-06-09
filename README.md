@@ -54,6 +54,12 @@ Source: https://underscores.me/, (C) 2012-2019 Automattic, Inc.,
 
 ## 📃 Changelog  
 
+### v1.0.15
+- Fixed code conflicts
+
+### v1.0.14
+- Fixed styling overlapping issue
+
 ### v1.0.13
 - Fixed customizer settings bug
 

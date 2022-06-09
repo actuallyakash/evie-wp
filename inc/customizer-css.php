@@ -94,7 +94,7 @@ function eviewp_customizer_css() {
         .hero__overlay,
         .button__primary,
         .widget_search form .search-submit {
-            background-color: var( --evie_primary_color );
+            background-color: var( --evie_primary_color ) !important;
         }
 
         .hero__overlay--evie_gradient {
