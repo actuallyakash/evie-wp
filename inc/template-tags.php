@@ -199,7 +199,7 @@ if ( ! function_exists( 'eviewp_site_footer' ) ) {
 		$footerText = sprintf( '&copy; %1$s %2$s &bull; %4$s <a href="%3$s" itemprop="url">%5$s</a>',
 			date( 'Y' ),
 			get_bloginfo( 'name' ),
-			esc_url( 'http://akashgupta.xyz' ),
+			esc_url( 'http://actuallyakash.github.io' ),
 			_x( 'Powered by', 'EvieWP', 'eviewp' ),
 			__( 'EvieWP', 'eviewp' )
         );
