@@ -11,7 +11,7 @@ A production-ready and minimal theme for your projects and websites. It is extre
 
 ## 🖼 Demo & Packages
 
-- [Check here](https://evie.wpdevcloud.com/)
+- [Check here](https://eviewp.wpdevcloud.com/)
 - [Official Theme at WordPress](https://wordpress.org/themes/eviewp/)
 
 
