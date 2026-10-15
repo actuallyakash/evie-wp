@@ -390,7 +390,7 @@ svg {
 }
 
 html {
-  font-family: "Lato", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 15px;
   color: #666;
   line-height: 1.7;
@@ -544,7 +544,7 @@ input[type="password"] {
   width: 100%;
   transition: 0.7s;
   color: #111;
-  font-family: "Lato", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 400;
   padding: 10pt;
   border-radius: 30px;
@@ -570,7 +570,7 @@ textarea {
   width: 100%;
   transition: 0.7s;
   color: #111;
-  font-family: "Lato", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 400;
   padding: 12pt 24pt;
   border-radius: 30px;
@@ -593,7 +593,7 @@ select {
   width: 100%;
   transition: 0.7s;
   color: #111;
-  font-family: "Lato", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 400;
   padding: 10pt 20pt;
   margin-bottom: 1.4em;
@@ -2025,4 +2025,29 @@ input:focus-visible {
   #nav-toggle {
     display: none;
   }
+}
+
+
+/* Wide and full-width block alignment */
+.single__page:not(.sidebar) .page__main > .alignwide,
+.single__post:not(.sidebar) .app__main > .alignwide {
+  width: min(1200px, calc(100vw - 40px));
+  max-width: none;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.single__page:not(.sidebar) .page__main > .alignfull,
+.single__post:not(.sidebar) .app__main > .alignfull {
+  width: 100vw;
+  max-width: none;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.wp-block-embed iframe,
+.wp-block-video video {
+  max-width: 100%;
 }

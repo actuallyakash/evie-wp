@@ -46,6 +46,8 @@ if ( ! function_exists( 'eviewp_setup' ) ) {
 		// Improve the block editor and front-end layout experience.
 		add_theme_support( 'align-wide' );
 		add_theme_support( 'responsive-embeds' );
+		add_theme_support( 'editor-styles' );
+		add_editor_style( 'assets/css/editor-style.css' );
 
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
@@ -152,8 +154,13 @@ add_action( 'widgets_init', 'eviewp_widgets_init' );
 function eviewp_scripts() {
 	wp_enqueue_style( 'eviewp-fontawesome', get_template_directory_uri() . '/assets/css/all.min.css', array(), EVIEWP_VERSION );
 	wp_enqueue_style( 'eviewp-bs-grid', get_template_directory_uri() . '/assets/css/bs-grid.css', array(), EVIEWP_VERSION );
-	wp_enqueue_style( 'eviewp-lato-font', 'https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap', array(), null );
-	wp_enqueue_style( 'eviewp-style', get_stylesheet_uri(), array( 'eviewp-bs-grid', 'eviewp-lato-font' ), EVIEWP_VERSION );
+	wp_enqueue_style( 'eviewp-style', get_stylesheet_uri(), array( 'eviewp-bs-grid' ), EVIEWP_VERSION );
+
+	if ( is_rtl() ) {
+		wp_enqueue_style( 'eviewp-rtl', get_template_directory_uri() . '/rtl.css', array( 'eviewp-style' ), EVIEWP_VERSION );
+	}
+
+	wp_enqueue_style( 'eviewp-print', get_template_directory_uri() . '/print.css', array(), EVIEWP_VERSION, 'print' );
 
 	wp_enqueue_script( 'eviewp-theme', get_template_directory_uri() . '/assets/js/theme.js', array(), EVIEWP_VERSION, array( 'strategy' => 'defer', 'in_footer' => false ) );
 

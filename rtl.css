@@ -1,0 +1,125 @@
+body {
+  direction: rtl;
+  unicode-bidi: embed;
+}
+
+.comment-respond label {
+  padding-left: 0;
+  padding-right: 10pt;
+  text-align: right;
+}
+
+.site__description {
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+.navbar__menu li {
+  margin-left: 0;
+  margin-right: 4pt;
+}
+
+@media (min-width: 992px) {
+  .navbar__menu li:not(:first-child) {
+    margin-left: 0;
+    margin-right: 16pt;
+  }
+}
+
+.navbar__menu-mob .search-btn {
+  margin-left: 15pt;
+  margin-right: 0;
+}
+
+.footer__textLogo {
+  padding-left: 16pt;
+  padding-right: 0;
+}
+
+.sidebar-left .sidebar {
+  padding-left: 50px;
+  padding-right: 0;
+}
+
+.sidebar-right .sidebar {
+  padding-left: 0;
+  padding-right: 50px;
+}
+
+.user__info .user__img__container {
+  margin-left: 10px;
+  margin-right: 0;
+}
+
+.article-navigation .nav-right {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.article-navigation .nav-right .nav-label,
+.article-navigation .nav-right .nav-inner {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.article-navigation .nav-left .nav-inner img {
+  margin-left: 10px;
+  margin-right: 0;
+}
+
+.article-navigation .nav-right .nav-inner img {
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+.comment .children {
+  margin-left: 0;
+  margin-right: 80px;
+}
+
+.author-tag {
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+.comment-body .author-img {
+  float: right;
+  margin-left: 18px;
+  margin-right: 0;
+}
+
+.comment-text {
+  margin-left: 0;
+  margin-right: 78px;
+}
+
+.comment-body span.reply i,
+.reply .dashicons {
+  margin-left: 4px;
+  margin-right: 0;
+}
+
+.comment-reply {
+  margin-left: 15px;
+  margin-right: 0;
+}
+
+.search-btn {
+  margin-left: 0;
+  margin-right: 16pt;
+}
+
+.search-submit {
+  margin-left: 0;
+  margin-right: 5px;
+}
+
+.alignleft {
+  float: right;
+  text-align: right;
+}
+
+.alignright {
+  float: left;
+  text-align: left;
+}
