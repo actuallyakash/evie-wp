@@ -32,7 +32,7 @@ if ( ! function_exists( 'eviewp_posted_on' ) ) :
 			$time_string
 		);
 
-		echo '<span class="date">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo wp_kses_post( '<span class="date">' . $posted_on . '</span>' );
 
 	}
 endif;
@@ -47,12 +47,17 @@ if ( ! function_exists( 'eviewp_first_category' ) ) :
 			return;
 		}
 		
-		$category_name = get_the_category()[0]->cat_name;
-		$category_link = get_category_link( get_cat_ID( $category_name ) );
+		$category      = get_the_category()[0];
+		$category_name = $category->cat_name;
+		$category_link = get_category_link( $category->term_id );
 
 		if ( ! empty( $category_name ) ) {
 
-			echo '<span class="evie__category"><a href="'. esc_url( $category_link ) .'" title="'. $category_name .'">'. $category_name .'</a></span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			printf(
+				'<span class="evie__category"><a href="%1$s">%2$s</a></span>',
+				esc_url( $category_link ),
+				esc_html( $category_name )
+			);
 
 		}
 	}
@@ -64,21 +69,25 @@ if ( ! function_exists( 'eviewp_get_breadcrumbs' ) ) :
 	 */
 	function eviewp_get_breadcrumbs() {
 		
-		echo '<a href="' . esc_url( home_url() ) . '" rel="nofollow">Home</a>';
+		printf(
+			'<a href="%1$s" rel="home">%2$s</a>',
+			esc_url( home_url( '/' ) ),
+			esc_html__( 'Home', 'eviewp' )
+		);
 		if ( is_category() || is_single() ) {
 			esc_html_e( ' > ', 'eviewp' );
-			the_category(' &bull; ');
+			echo wp_kses_post( get_the_category_list( ' &bull; ' ) );
 				if ( is_single() ) {
 					esc_html_e( ' > ', 'eviewp' );
-					the_title();
+					echo esc_html( get_the_title() );
 				}
 		} elseif ( is_page() ) {
 			esc_html_e( ' > ', 'eviewp' );
-			echo the_title(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo esc_html( get_the_title() );
 		} elseif ( is_search() ) {
 			esc_html_e( ' > Search Results for... ', 'eviewp' );
 			echo '"<em>';
-			echo the_search_query(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo esc_html( get_search_query( false ) );
 			echo '</em>"';
 		}
 	
@@ -96,7 +105,7 @@ if ( ! function_exists( 'eviewp_posted_by' ) ) :
 			'<span class="author stress"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
-		echo '<span class="user__name"> ' . $byline . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo wp_kses_post( '<span class="user__name"> ' . $byline . '</span>' );
 
 	}
 endif;
@@ -196,15 +205,14 @@ if ( ! function_exists( 'eviewp_site_footer' ) ) {
 	 */
 	function eviewp_site_footer() {
 		/* translators: 1: current year 2: site title 3: theme's dev URL 4: Powered by string 5: Theme name */
-		$footerText = sprintf( '&copy; %1$s %2$s &bull; %4$s <a href="%3$s" itemprop="url">%5$s</a>',
-			date( 'Y' ),
-			get_bloginfo( 'name' ),
-			esc_url( 'http://actuallyakash.github.io' ),
-			_x( 'Powered by', 'EvieWP', 'eviewp' ),
-			__( 'EvieWP', 'eviewp' )
-        );
-        
-        echo $footerText; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		printf(
+			'&copy; %1$s %2$s &bull; %4$s <a href="%3$s" itemprop="url">%5$s</a>',
+			esc_html( wp_date( 'Y' ) ),
+			esc_html( get_bloginfo( 'name' ) ),
+			esc_url( 'https://actuallyakash.github.io' ),
+			esc_html_x( 'Powered by', 'EvieWP', 'eviewp' ),
+			esc_html__( 'EvieWP', 'eviewp' )
+		);
 	}
 }
 
@@ -238,7 +246,11 @@ if ( ! function_exists( 'eviewp_get_tags' ) ) :
 		
 		if ( $tags && ! is_wp_error( $tags ) ) {
 			foreach ($tags as $tag ) {
-				echo '<span class="evie__category"><a href="'. esc_url( get_tag_link( $tag->term_id ) ) .'" title="'. $tag->name .'">'. ucfirst( $tag->name ) .'</a></span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				printf(
+					'<span class="evie__category"><a href="%1$s">%2$s</a></span>',
+					esc_url( get_tag_link( $tag->term_id ) ),
+					esc_html( ucfirst( $tag->name ) )
+				);
 			}
 		}
 
@@ -272,7 +284,7 @@ if ( ! function_exists( 'eviewp_singular_pagination' ) ) :
 								<img src="<?php echo esc_url( get_the_post_thumbnail_url( $prev_post->ID ) ) ?>" alt="<?php echo esc_attr( $prev_post->post_title ); ?>">	
 								<?php } ?>
 								
-								<span class="nav-title"><?php echo wordwrap( $prev_post->post_title, 40, "<br>" ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+								<span class="nav-title"><?php echo esc_html( get_the_title( $prev_post ) ); ?></span>
 							</span>
 						</a>
 					</div>
@@ -291,7 +303,7 @@ if ( ! function_exists( 'eviewp_singular_pagination' ) ) :
 								<img src="<?php echo esc_url( get_the_post_thumbnail_url( $next_post->ID ) ) ?>" class="" alt="<?php echo esc_attr( $next_post->post_title ); ?>">	
 								<?php } ?>
 								
-								<span class="nav-title"><?php echo wordwrap( $next_post->post_title, 40, "<br>" ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span> 
+								<span class="nav-title"><?php echo esc_html( get_the_title( $next_post ) ); ?></span>
 							</span>
 						</a>
 					</div>

@@ -53,7 +53,7 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 			$wp_customize->add_setting( 'logo_size' , array(
 				'default'   => $defaults['logo_size'],
 				'transport' => 'postMessage',
-				'sanitize_callback' => 'absint'
+				'sanitize_callback' => array( __CLASS__, 'sanitize_number_range' )
 			) );
 
 			$wp_customize->add_control( 'logo_size', array(
@@ -374,7 +374,7 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 				array(
 					'default' => $defaults['container_width'],
 					'transport' => 'postMessage',
-					'sanitize_callback' => 'absint'
+					'sanitize_callback' => array( __CLASS__, 'sanitize_number_range' )
 				)
 			);
 			
@@ -384,6 +384,11 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 					'type' => 'number',
 					'section' => 'options',
 					'label' => __( 'Container Width (px)', 'eviewp' ),
+					'input_attrs' => array(
+						'min'  => 720,
+						'max'  => 1920,
+						'step' => 1,
+					),
 				)
 			);
 
@@ -412,7 +417,7 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 				array(
 					'default' => $defaults['excerpt_lines'],
 					'transport' => 'postMessage',
-					'sanitize_callback' => 'absint'
+					'sanitize_callback' => array( __CLASS__, 'sanitize_number_range' )
 				)
 			);
 			
@@ -422,6 +427,11 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 					'type' => 'number',
 					'section' => 'options',
 					'label' => __( 'Excerpt Lines', 'eviewp' ),
+					'input_attrs' => array(
+						'min'  => 1,
+						'max'  => 12,
+						'step' => 1,
+					),
 				)
 			);
 
@@ -513,7 +523,7 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 				array(
 					'default' => $defaults['sidebar_width'],
 					'transport' => 'postMessage',
-					'sanitize_callback' => 'absint'
+					'sanitize_callback' => array( __CLASS__, 'sanitize_number_range' )
 				)
 			);
 			
@@ -523,6 +533,11 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 					'type' => 'number',
 					'section' => 'sidebar_options',
 					'label' => __( 'Sidebar Width (px)', 'eviewp' ),
+					'input_attrs' => array(
+						'min'  => 200,
+						'max'  => 600,
+						'step' => 1,
+					),
 				)
 			);
 		}
@@ -531,7 +546,26 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 		 * Sanitize boolean for checkbox.
 		 */
 		public static function sanitize_checkbox( $checked ) {
-			return ( ( isset( $checked ) && true === $checked ) ? true : false );
+			return (bool) $checked;
+		}
+
+		/**
+		 * Sanitize a numeric setting against its control constraints.
+		 */
+		public static function sanitize_number_range( $number, $setting ) {
+			$number  = absint( $number );
+			$control = $setting->manager->get_control( $setting->id );
+			$attrs   = $control ? $control->input_attrs : array();
+
+			if ( isset( $attrs['min'] ) && $number < $attrs['min'] ) {
+				$number = $attrs['min'];
+			}
+
+			if ( isset( $attrs['max'] ) && $number > $attrs['max'] ) {
+				$number = $attrs['max'];
+			}
+
+			return $number;
 		}
 
 		/**
@@ -539,7 +573,13 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 		 */
 		public static function sanitize_select( $input, $setting ) {
 			$input = sanitize_text_field( $input );
-			return $input;
+			$control = $setting->manager->get_control( $setting->id );
+
+			if ( $control && array_key_exists( $input, $control->choices ) ) {
+				return $input;
+			}
+
+			return $setting->default;
 		}
 		
 	}

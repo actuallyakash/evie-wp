@@ -50,7 +50,7 @@ if ( ! function_exists( 'eviewp_get_color_defaults' ) ) {
 	}
 }
 
-if ( ! function_exists( 'getOption' ) ) {
+if ( ! function_exists( 'eviewp_get_option' ) ) {
     /**
 	 * Returns customizer value
      * 
@@ -58,17 +58,18 @@ if ( ! function_exists( 'getOption' ) ) {
      * $property - value requested
 	 */
 
-    function eviewpGetOption( $type, $property ) { // phpcs:ignore WPThemeReview.CoreFunctionality.PrefixAllGlobals.NonPrefixedFunctionFound
+    function eviewp_get_option( $type, $property ) {
 
         $defaults = eviewp_get_defaults();
         $defaultColors = eviewp_get_color_defaults();
 
         switch( $type ) {
-            case 'defaults': return esc_html( get_theme_mod( $property, $defaults[$property] ) );
-            break;
-            case 'colors': return esc_attr( get_theme_mod( $property, $defaultColors[$property] ) );
-            break;
-            default: echo "<b>" . esc_html__( 'Notice:', 'eviewp' ) . "<big>" . esc_html( $type ) . "</big></b>" . esc_html__( 'Property not found.', 'eviewp' );
+            case 'defaults':
+                return array_key_exists( $property, $defaults ) ? get_theme_mod( $property, $defaults[ $property ] ) : null;
+            case 'colors':
+                return array_key_exists( $property, $defaultColors ) ? get_theme_mod( $property, $defaultColors[ $property ] ) : null;
+            default:
+                return null;
         }
 
     }

@@ -11,20 +11,20 @@ function eviewp_customizer_css() {
     <style type="text/css">
 
         :root {
-            --evie_primary_color: <?php echo eviewpGetOption( 'colors', 'primary_color' ); ?>;
-            --evie_secondary_color: <?php echo eviewpGetOption( 'colors', 'secondary_color' ); ?>;
-            --evie_link_color: <?php echo eviewpGetOption( 'colors', 'link_color' ); ?>;
-            --evie_bg_color: <?php echo eviewpGetOption( 'colors', 'bg_color' ); ?>;
-            --evie_header_background_color: <?php echo eviewpGetOption( 'colors', 'header_background_color' ); ?>;
-            --evie_header_logo_color: <?php echo eviewpGetOption( 'colors', 'header_logo_color' ); ?>;
-            --evie_tagline_color: <?php echo eviewpGetOption( 'colors', 'tagline_color' ); ?>;
-            --evie_header_links_color: <?php echo eviewpGetOption( 'colors', 'header_links_color' ); ?>;
-            --evie_footer_background_color: <?php echo eviewpGetOption( 'colors', 'footer_background_color' ); ?>;
-            --evie_footer_text_color: <?php echo eviewpGetOption( 'colors', 'footer_text_color' ); ?>;
-            --evie_heading_color: <?php echo eviewpGetOption( 'colors', 'heading_color' ); ?>;
-            --evie_container_width: <?php echo eviewpGetOption( 'defaults', 'container_width' ) . 'px'; ?>;
-            --evie_sidebar_width: <?php echo eviewpGetOption( 'defaults', 'sidebar_width' ) . 'px'; ?>;
-            --evie_logo_size: <?php echo eviewpGetOption( 'defaults', 'logo_size' ) . 'px'; ?>;
+            --evie_primary_color: <?php echo esc_html( sanitize_hex_color( eviewp_get_option( 'colors', 'primary_color' ) ) ); ?>;
+            --evie_secondary_color: <?php echo esc_html( sanitize_hex_color( eviewp_get_option( 'colors', 'secondary_color' ) ) ); ?>;
+            --evie_link_color: <?php echo esc_html( sanitize_hex_color( eviewp_get_option( 'colors', 'link_color' ) ) ); ?>;
+            --evie_bg_color: <?php echo esc_html( sanitize_hex_color( eviewp_get_option( 'colors', 'bg_color' ) ) ); ?>;
+            --evie_header_background_color: <?php echo esc_html( sanitize_hex_color( eviewp_get_option( 'colors', 'header_background_color' ) ) ); ?>;
+            --evie_header_logo_color: <?php echo esc_html( sanitize_hex_color( eviewp_get_option( 'colors', 'header_logo_color' ) ) ); ?>;
+            --evie_tagline_color: <?php echo esc_html( sanitize_hex_color( eviewp_get_option( 'colors', 'tagline_color' ) ) ); ?>;
+            --evie_header_links_color: <?php echo esc_html( sanitize_hex_color( eviewp_get_option( 'colors', 'header_links_color' ) ) ); ?>;
+            --evie_footer_background_color: <?php echo esc_html( sanitize_hex_color( eviewp_get_option( 'colors', 'footer_background_color' ) ) ); ?>;
+            --evie_footer_text_color: <?php echo esc_html( sanitize_hex_color( eviewp_get_option( 'colors', 'footer_text_color' ) ) ); ?>;
+            --evie_heading_color: <?php echo esc_html( sanitize_hex_color( eviewp_get_option( 'colors', 'heading_color' ) ) ); ?>;
+            --evie_container_width: <?php echo absint( eviewp_get_option( 'defaults', 'container_width' ) ) . 'px'; ?>;
+            --evie_sidebar_width: <?php echo absint( eviewp_get_option( 'defaults', 'sidebar_width' ) ) . 'px'; ?>;
+            --evie_logo_size: <?php echo absint( eviewp_get_option( 'defaults', 'logo_size' ) ) . 'px'; ?>;
         }
 
         .navbar__inner .custom__logo {
@@ -98,18 +98,18 @@ function eviewp_customizer_css() {
         }
 
         .hero__overlay--evie_gradient {
-            background: linear-gradient(to right, var( --evie_primary_color ), <?php echo eviewpColorShade( eviewpGetOption( 'colors', 'primary_color' ), -15 ) ?>);
+            background: linear-gradient(to right, var( --evie_primary_color ), <?php echo esc_html( eviewp_color_shade( eviewp_get_option( 'colors', 'primary_color' ), -15 ) ); ?>);
         }
 
         @media (min-width: 992px) {
             button:hover,
             .button:hover {
-                border-color: <?php echo eviewpColorShade( eviewpGetOption( 'colors', 'primary_color' ), -15 ) ?>;
+                border-color: <?php echo esc_html( eviewp_color_shade( eviewp_get_option( 'colors', 'primary_color' ), -15 ) ); ?>;
             }
         }
 
         .comment-body span.reply i {
-            color: <?php echo eviewpColorShade( eviewpGetOption( 'colors', 'primary_color' ), -15 ) ?>;
+            color: <?php echo esc_html( eviewp_color_shade( eviewp_get_option( 'colors', 'primary_color' ), -15 ) ); ?>;
         }
 
         h1, h2, h3, h4, h5, h6, .stress {
@@ -129,7 +129,7 @@ function eviewp_customizer_css() {
         }
 
         .post__content .excerpt {
-            -webkit-line-clamp: <?php echo eviewpGetOption( 'defaults', 'excerpt_lines' ); ?>;
+            -webkit-line-clamp: <?php echo absint( eviewp_get_option( 'defaults', 'excerpt_lines' ) ); ?>;
         }
 
     </style>

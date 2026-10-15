@@ -37,7 +37,7 @@
 			}
 			?>
 			
-			<?php if ( eviewpGetOption('defaults', 'enable_excerpt' ) ) { ?>
+			<?php if ( eviewp_get_option('defaults', 'enable_excerpt' ) ) { ?>
 				<a href="<?php echo esc_url( get_permalink() ); ?>">
 					<p class="excerpt"> <?php echo esc_html( substr( get_the_excerpt(), 0, 260 ) ); ?> </p>
 				</a>
@@ -46,7 +46,7 @@
 
 		<div class="user__info">
 			<div class="user__img__container">
-				<img src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 450 ) ) ); ?>" alt="<?php get_the_title(); ?>">
+					<img src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 450 ) ) ); ?>" alt="">
 			</div>
 			<?php if ( 'post' === get_post_type() ) :
 				eviewp_posted_by();
