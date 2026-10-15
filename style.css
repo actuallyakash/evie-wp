@@ -1960,3 +1960,69 @@ form.search-form {
   height: auto;
   margin: 20px 0;
 }
+
+
+/* Accessible interactive controls */
+.search-btn,
+#nav-toggle,
+.modal .close {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+
+.search-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-close:not([hidden]),
+.nav-open:not([hidden]) {
+  display: inline;
+}
+
+body.eviewp-modal-open {
+  overflow: hidden;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+
+#eviewpSearchModal .search-submit,
+#eviewpSearchModal .search-submit:focus {
+  position: static;
+  right: auto;
+}
+
+@media (min-width: 992px) {
+  #nav-toggle {
+    display: none;
+  }
+}

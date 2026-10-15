@@ -16,15 +16,11 @@ Only one level menu is supported.
 
 * EvieWP WordPress Theme is derived from Evie HTML Theme by unDraw https://evie.undraw.co, Copyright 2012 Aggelos Gesoulis under [MIT](https://opensource.org/licenses/MIT) Licence
 * normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2018 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)
-* Flexibility 2.0.0 (app.js), https://github.com/jonathantneal/flexibility, [MIT](https://opensource.org/licenses/MIT)
-* Responsive Nav (app.js), http://viljamis.com/, https://github.com/viljamis/responsive-nav.js, [MIT](https://opensource.org/licenses/MIT)
 * FontAwesome https://fontawesome.com, [MIT](https://opensource.org/licenses/MIT)
 * Grid by Bootstrap (bs-grid.css) https://getbootstrap.com/, [MIT](https://opensource.org/licenses/MIT)
 * Code snippets for
     * Adding class to element => https://www.sitepoint.com/add-remove-css-class-vanilla-js, [MIT](https://opensource.org/licenses/MIT)
     * Removing class from element => https://www.sitepoint.com/add-remove-css-class-vanilla-js, [MIT](https://opensource.org/licenses/MIT)
-    * Smooth scrolling => https://codepen.io/andylobban/pen/qOLKVW, [MIT](https://opensource.org/licenses/MIT)
-    * Serch Modal Focus looping => https://codepen.io/myogeshchavan97/pen/zYGVbxN, [MIT](https://opensource.org/licenses/MIT)
 * Based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 
 == Media Licenses ==

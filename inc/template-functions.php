@@ -86,7 +86,7 @@ function eviewp_color_shade( $color, $percent ) {
 function eviewp_search_modal() {
 	?>
     <!-- Search Modal -->
-	<div role="dialog" aria-modal="true" aria-labelledby="eviewp-search-title" id="eviewpSearchModal" class="modal">
+	<div role="dialog" aria-modal="true" aria-labelledby="eviewp-search-title" aria-hidden="true" id="eviewpSearchModal" class="modal">
 		<div class="modal-content">
 			<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 				<label id="eviewp-search-title" class="screen-reader-text" for="eviewp-search-input"><?php esc_html_e( 'Search for:', 'eviewp' ); ?></label>

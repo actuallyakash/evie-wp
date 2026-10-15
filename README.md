@@ -30,14 +30,6 @@ Only one level menu is supported at the moment.
 Licence: https://opensource.org/licenses/MIT  
 Source: https://evie.undraw.co/  
 
-- Flexibility 2.0.0  
-Licence: https://opensource.org/licenses/MIT  
-Source: https://github.com/jonathantneal/flexibility  
-
-- responsive-nav.js  
-Licence: https://opensource.org/licenses/MIT  
-Source: https://github.com/viljamis/responsive-nav.js  
-
 - FontAwesome  
 FontAwesome Free is free, open source, and GPL friendly.  
 License: CC BY 4.0, Fonts: SIL OFL 1.1,  
