@@ -1,10 +1,10 @@
 === EvieWP ===
 Contributors: actuallyakash
 Tags: custom-colors, custom-logo, custom-menu, editor-style, featured-images, theme-options, threaded-comments, right-sidebar, left-sidebar, blog
-Requires at least: 4.5
-Tested up to: 5.7
-Requires PHP: 7.0
-Stable tag: 1.0.15
+Requires at least: 6.6
+Tested up to: 7.1
+Requires PHP: 7.4
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,6 +60,10 @@ Only one level menu is supported.
 * Source: https://pxhere.com/en/photo/1347732
 
 == Changelog ==
+
+= 1.1.0 =
+* Modernized for WordPress 7.1 and PHP 7.4+.
+* Improved security, accessibility, block editor support, and developer tooling.
 
 = 1.0.15
 > Fixed code conflicts

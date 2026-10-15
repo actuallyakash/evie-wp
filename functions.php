@@ -8,10 +8,8 @@
  */
 
 if ( ! defined( 'EVIEWP_VERSION' ) ) {
-	// Replace the version number of the theme on each release.
-	define( 'EVIEWP_VERSION', '1.0.13' );
-	define( 'EVIEWP_DIR_PATH', plugin_dir_path( __FILE__ ) );
-	define( 'EVIEWP_PLG_URL', plugin_dir_url( __FILE__ ) );
+	$eviewp_theme = wp_get_theme( get_template() );
+	define( 'EVIEWP_VERSION', $eviewp_theme->get( 'Version' ) );
 }
 
 if ( ! function_exists( 'eviewp_setup' ) ) {
@@ -45,11 +43,9 @@ if ( ! function_exists( 'eviewp_setup' ) ) {
 		// Add support for Block Styles.
 		add_theme_support( 'wp-block-styles' );
 
-		// Add support for editor styles.
-		add_theme_support( 'editor-styles' );
-
-		// Enqueue editor styles.
-		add_editor_style( 'style-editor.css' );
+		// Improve the block editor and front-end layout experience.
+		add_theme_support( 'align-wide' );
+		add_theme_support( 'responsive-embeds' );
 
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
@@ -154,11 +150,10 @@ add_action( 'widgets_init', 'eviewp_widgets_init' );
  * Enqueue scripts and styles.
  */
 function eviewp_scripts() {
-	wp_enqueue_style( 'eviewp-fontawesome', get_template_directory_uri() . '/assets/css/all.min.css', [], EVIEWP_VERSION );
-	wp_enqueue_style( 'eviewp-bs-grid', get_template_directory_uri() . '/assets/css/bs-grid.css', [], EVIEWP_VERSION );
-	wp_enqueue_style( 'eviewp-lato-font', 'https://fonts.googleapis.com/css?family=Lato:400', [], EVIEWP_VERSION );
-	wp_enqueue_style( 'eviewp-style', get_stylesheet_uri(), [], EVIEWP_VERSION );
-	wp_style_add_data( 'eviewp-style', 'rtl', 'replace' );
+	wp_enqueue_style( 'eviewp-fontawesome', get_template_directory_uri() . '/assets/css/all.min.css', array(), EVIEWP_VERSION );
+	wp_enqueue_style( 'eviewp-bs-grid', get_template_directory_uri() . '/assets/css/bs-grid.css', array(), EVIEWP_VERSION );
+	wp_enqueue_style( 'eviewp-lato-font', 'https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap', array(), null );
+	wp_enqueue_style( 'eviewp-style', get_stylesheet_uri(), array( 'eviewp-bs-grid', 'eviewp-lato-font' ), EVIEWP_VERSION );
 
 	wp_enqueue_script( 'eviewp-navigation', get_template_directory_uri() . '/assets/js/navigation.js', [], EVIEWP_VERSION, true );
 
@@ -167,7 +162,7 @@ function eviewp_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
-	wp_enqueue_style('dashicons');
+	wp_enqueue_style( 'dashicons' );
 }
 add_action( 'wp_enqueue_scripts', 'eviewp_scripts' );
 
