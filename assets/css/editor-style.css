@@ -50,3 +50,10 @@ body {
   margin-inline: 0;
   padding-inline-start: 1.5rem;
 }
+
+.editor-styles-wrapper .wp-block-group.is-style-eviewp-card {
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid #eee;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgb(0 0 0 / 8%);
+}

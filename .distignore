@@ -1,0 +1,14 @@
+.git
+.github
+.distignore
+.gitignore
+.DS_Store
+composer.json
+composer.lock
+eslint.config.js
+node_modules
+package.json
+package-lock.json
+phpcs.xml.dist
+stylelint.config.js
+vendor

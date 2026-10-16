@@ -33,7 +33,6 @@ if ( ! function_exists( 'eviewp_posted_on' ) ) :
 		);
 
 		echo wp_kses_post( '<span class="date">' . $posted_on . '</span>' );
-
 	}
 endif;
 
@@ -43,10 +42,10 @@ if ( ! function_exists( 'eviewp_first_category' ) ) :
 	 */
 	function eviewp_first_category() {
 
-		if( empty( get_the_category() ) ) {
+		if ( empty( get_the_category() ) ) {
 			return;
 		}
-		
+
 		$category      = get_the_category()[0];
 		$category_name = $category->cat_name;
 		$category_link = get_category_link( $category->term_id );
@@ -68,7 +67,7 @@ if ( ! function_exists( 'eviewp_get_breadcrumbs' ) ) :
 	 * Gets breadcrumbs for the page
 	 */
 	function eviewp_get_breadcrumbs() {
-		
+
 		printf(
 			'<a href="%1$s" rel="home">%2$s</a>',
 			esc_url( home_url( '/' ) ),
@@ -77,10 +76,10 @@ if ( ! function_exists( 'eviewp_get_breadcrumbs' ) ) :
 		if ( is_category() || is_single() ) {
 			esc_html_e( ' > ', 'eviewp' );
 			echo wp_kses_post( get_the_category_list( ' &bull; ' ) );
-				if ( is_single() ) {
-					esc_html_e( ' > ', 'eviewp' );
-					echo esc_html( get_the_title() );
-				}
+			if ( is_single() ) {
+				esc_html_e( ' > ', 'eviewp' );
+				echo esc_html( get_the_title() );
+			}
 		} elseif ( is_page() ) {
 			esc_html_e( ' > ', 'eviewp' );
 			echo esc_html( get_the_title() );
@@ -90,7 +89,6 @@ if ( ! function_exists( 'eviewp_get_breadcrumbs' ) ) :
 			echo esc_html( get_search_query( false ) );
 			echo '</em>"';
 		}
-	
 	}
 endif;
 
@@ -106,7 +104,6 @@ if ( ! function_exists( 'eviewp_posted_by' ) ) :
 		);
 
 		echo wp_kses_post( '<span class="user__name"> ' . $byline . '</span>' );
-
 	}
 endif;
 
@@ -130,12 +127,12 @@ if ( ! function_exists( 'eviewp_post_thumbnail' ) ) :
 					the_post_thumbnail(
 						'post-thumbnail',
 						array(
-							'alt' => the_title_attribute(
+							'alt'   => the_title_attribute(
 								array(
 									'echo' => false,
 								)
 							),
-							'class' => 'featured-image'
+							'class' => 'featured-image',
 						)
 					);
 				?>
@@ -149,19 +146,19 @@ if ( ! function_exists( 'eviewp_post_thumbnail' ) ) :
 						the_post_thumbnail(
 							'post-thumbnail',
 							array(
-								'alt' => the_title_attribute(
+								'alt'   => the_title_attribute(
 									array(
 										'echo' => false,
 									)
 								),
-								'class' => 'featured-image'
+								'class' => 'featured-image',
 							)
 						);
 					?>
 				</a>
 			</div>
 
-		<?php
+			<?php
 		endif; // End is_singular().
 	}
 endif;
@@ -179,7 +176,10 @@ endif;
 
 if ( ! function_exists( 'eviewp_is_comment_by_post_author' ) ) :
 	/**
-	 * Check if the specified comment is written by the author of the post commented on
+	 * Check if the specified comment is written by the author of the post commented on.
+	 *
+	 * @param WP_Comment|null $comment Comment to inspect.
+	 * @return bool Whether the comment author wrote the post.
 	 */
 	function eviewp_is_comment_by_post_author( $comment = null ) {
 
@@ -187,15 +187,14 @@ if ( ! function_exists( 'eviewp_is_comment_by_post_author' ) ) :
 
 			$user = get_userdata( $comment->user_id );
 			$post = get_post( $comment->comment_post_ID );
-	
+
 			if ( ! empty( $user ) && ! empty( $post ) ) {
-	
+
 				return $comment->user_id === $post->post_author;
-	
+
 			}
 		}
 		return false;
-		
 	}
 endif;
 
@@ -217,21 +216,26 @@ if ( ! function_exists( 'eviewp_site_footer' ) ) {
 }
 
 if ( ! function_exists( 'eviewp_pagination' ) ) :
-    /**
-     * Display pagination for archives.
-     */
-    function eviewp_pagination() { ?>
+	/**
+	 * Display pagination for archives.
+	 */
+	function eviewp_pagination() {
 
-		<?php
-			the_posts_pagination( array(
-				'mid_size'  => 1,
-				'prev_text' => '< ' . esc_html__( 'Previous', 'eviewp' ),
-				'next_text' => esc_html__( 'Next', 'eviewp' ).' >',
-			) );
 		?>
 
-        <?php wp_reset_postdata();
-    }
+		<?php
+			the_posts_pagination(
+				array(
+					'mid_size'  => 1,
+					'prev_text' => '< ' . esc_html__( 'Previous', 'eviewp' ),
+					'next_text' => esc_html__( 'Next', 'eviewp' ) . ' >',
+				)
+			);
+		?>
+
+		<?php
+		wp_reset_postdata();
+	}
 endif;
 
 if ( ! function_exists( 'eviewp_get_tags' ) ) :
@@ -243,9 +247,9 @@ if ( ! function_exists( 'eviewp_get_tags' ) ) :
 		$tags = get_the_tags();
 
 		echo '<div class="evie__tags">';
-		
+
 		if ( $tags && ! is_wp_error( $tags ) ) {
-			foreach ($tags as $tag ) {
+			foreach ( $tags as $tag ) {
 				printf(
 					'<span class="evie__category"><a href="%1$s">%2$s</a></span>',
 					esc_url( get_tag_link( $tag->term_id ) ),
@@ -255,7 +259,6 @@ if ( ! function_exists( 'eviewp_get_tags' ) ) :
 		}
 
 		echo '</div>';
-
 	}
 endif;
 
@@ -265,25 +268,26 @@ if ( ! function_exists( 'eviewp_singular_pagination' ) ) :
 	 */
 	function eviewp_singular_pagination() {
 
-		// Article Navigation
+		// Article navigation.
 		$next_post = get_next_post();
 		$prev_post = get_previous_post();
-		
-		if ( $next_post || $prev_post ) { ?>
+
+		if ( $next_post || $prev_post ) {
+			?>
 
 			<nav class="article-navigation">
-				<?php 
-				if ( $prev_post ) { 
+				<?php
+				if ( $prev_post ) {
 					?>
 
 					<div class="nav-el nav-left">
-						<a href="<?php echo esc_url(  get_permalink(  $prev_post->ID  )  ); ?>" rel="prev">
+						<a href="<?php echo esc_url( get_permalink( $prev_post->ID ) ); ?>" rel="prev">
 							<small class="nav-label"><?php esc_html_e( '< Previous Article', 'eviewp' ); ?></small>
 							<span class="nav-inner">
 								<?php if ( ! empty( get_the_post_thumbnail_url( $prev_post->ID ) ) ) { ?>
-								<img src="<?php echo esc_url( get_the_post_thumbnail_url( $prev_post->ID ) ) ?>" alt="<?php echo esc_attr( $prev_post->post_title ); ?>">	
+								<img src="<?php echo esc_url( get_the_post_thumbnail_url( $prev_post->ID ) ); ?>" alt="<?php echo esc_attr( $prev_post->post_title ); ?>">
 								<?php } ?>
-								
+
 								<span class="nav-title"><?php echo esc_html( get_the_title( $prev_post ) ); ?></span>
 							</span>
 						</a>
@@ -291,18 +295,18 @@ if ( ! function_exists( 'eviewp_singular_pagination' ) ) :
 
 					<?php
 				}
-				
-				if( $next_post ) {
+
+				if ( $next_post ) {
 					?>
 
 					<div class="nav-el nav-right">
-						<a href="<?php echo esc_url(  get_permalink(  $next_post->ID  )  ); ?>" rel="next">
+						<a href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>" rel="next">
 							<small class="nav-label"><?php esc_html_e( 'Next Article >', 'eviewp' ); ?> </small>
 							<span class="nav-inner">
 								<?php if ( ! empty( get_the_post_thumbnail_url( $next_post->ID ) ) ) { ?>
-								<img src="<?php echo esc_url( get_the_post_thumbnail_url( $next_post->ID ) ) ?>" class="" alt="<?php echo esc_attr( $next_post->post_title ); ?>">	
+								<img src="<?php echo esc_url( get_the_post_thumbnail_url( $next_post->ID ) ); ?>" class="" alt="<?php echo esc_attr( $next_post->post_title ); ?>">
 								<?php } ?>
-								
+
 								<span class="nav-title"><?php echo esc_html( get_the_title( $next_post ) ); ?></span>
 							</span>
 						</a>
@@ -314,7 +318,7 @@ if ( ! function_exists( 'eviewp_singular_pagination' ) ) :
 
 			</nav>
 
-		<?php }
-
+			<?php
+		}
 	}
 endif;

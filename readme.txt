@@ -14,7 +14,7 @@ Only one level menu is supported.
 
 == Credits ==
 
-* EvieWP WordPress Theme is derived from Evie HTML Theme by unDraw https://evie.undraw.co, Copyright 2012 Aggelos Gesoulis under [MIT](https://opensource.org/licenses/MIT) Licence
+* EvieWP WordPress Theme is derived from [Evie](https://github.com/anges244/evie), Copyright 2012 Aggelos Gesoulis under the [MIT License](https://opensource.org/licenses/MIT)
 * normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2018 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)
 * FontAwesome https://fontawesome.com, [MIT](https://opensource.org/licenses/MIT)
 * Grid by Bootstrap (bs-grid.css) https://getbootstrap.com/, [MIT](https://opensource.org/licenses/MIT)
@@ -36,12 +36,12 @@ Only one level menu is supported.
 * Source: https://pxhere.com/en/photo/140240
 
 == Third Image (Water droplets on Leaf) ==
-* Creator: Photo by Pixabay
+* Creator: Pexels contributor
 * Licence: https://creativecommons.org/publicdomain/zero/1.0/
 * Source: https://www.pexels.com/photo/purple-leaf-459301/
 
 == Fourth Image (Yellow Leaf) ==
-* Creator: Photo by Pixabay
+* Creator: Pexels contributor
 * Licence: https://creativecommons.org/publicdomain/zero/1.0/
 * Source: https://www.pexels.com/photo/yellow-leaf-illustration-65898/
 

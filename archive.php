@@ -21,9 +21,9 @@ get_header();
 				<div class="app__inner <?php echo esc_attr( eviewp_get_option( 'defaults', 'archive_sidebar' ) ); ?>">
 
 					<?php
-						if ( eviewp_get_option( 'defaults', 'archive_sidebar' ) !== 'sidebar-none' ) {
-							get_sidebar();
-						}
+					if ( eviewp_get_option( 'defaults', 'archive_sidebar' ) !== 'sidebar-none' ) {
+						get_sidebar();
+					}
 					?>
 
 					<div class="main-section">
@@ -53,8 +53,8 @@ get_header();
 
 			</div>
 
-		<?php
-		
+			<?php
+
 		else :
 
 			get_template_part( 'template-parts/content', 'none' );

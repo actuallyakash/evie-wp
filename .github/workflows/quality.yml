@@ -1,0 +1,32 @@
+name: Quality
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  php:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: [ '7.4', '8.1', '8.3', '8.4', '8.5' ]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          tools: composer:v2
+      - run: composer install --no-interaction --prefer-dist
+      - run: composer phpcs
+      - run: find . -path ./vendor -prune -o -name '*.php' -print0 | xargs -0 -n1 php -l
+
+  assets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run lint

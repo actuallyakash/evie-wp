@@ -45,54 +45,66 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 			$wp_customize->selective_refresh->add_partial(
 				'custom_logo',
 				array(
-					'selector'        => '.navbar__inner .custom__logo',
+					'selector' => '.navbar__inner .custom__logo',
 				)
 			);
 
-			// Logo Size Control
-			$wp_customize->add_setting( 'logo_size' , array(
-				'default'   => $defaults['logo_size'],
-				'transport' => 'postMessage',
-				'sanitize_callback' => array( __CLASS__, 'sanitize_number_range' )
-			) );
+			// Logo size control.
+			$wp_customize->add_setting(
+				'logo_size',
+				array(
+					'default'           => $defaults['logo_size'],
+					'transport'         => 'postMessage',
+					'sanitize_callback' => array( __CLASS__, 'sanitize_number_range' ),
+				)
+			);
 
-			$wp_customize->add_control( 'logo_size', array(
-				'type' => 'range',
-				'section' => 'title_tagline',
-				'label' => __( 'Logo Size (px)', 'eviewp' ),
-				'input_attrs' => array(
-					'min' => 0,
-					'max' => 200,
-					'step' => 1,
-				),
-				'priority' => 9
-			) );
+			$wp_customize->add_control(
+				'logo_size',
+				array(
+					'type'        => 'range',
+					'section'     => 'title_tagline',
+					'label'       => __( 'Logo Size (px)', 'eviewp' ),
+					'input_attrs' => array(
+						'min'  => 0,
+						'max'  => 200,
+						'step' => 1,
+					),
+					'priority'    => 9,
+				)
+			);
 
-			// Hide Tagline
-			$wp_customize->add_setting( 'hide_tagline', array(
-				'transport' => 'refresh',
-				'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
-				'default' => $defaults['hide_tagline'],
-			));
+			// Hide tagline.
+			$wp_customize->add_setting(
+				'hide_tagline',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
+					'default'           => $defaults['hide_tagline'],
+				)
+			);
 
-			$wp_customize->add_control( 'hide_tagline', array(
-				'type' 		=> 'checkbox',
-				'section' 	=> 'title_tagline',
-				'label' 	=> __( 'Hide Tagline' , 'eviewp' ),
-				'priority' 	=> 12,
-			) );
+			$wp_customize->add_control(
+				'hide_tagline',
+				array(
+					'type'     => 'checkbox',
+					'section'  => 'title_tagline',
+					'label'    => __( 'Hide Tagline', 'eviewp' ),
+					'priority' => 12,
+				)
+			);
 
 			/**
 			 * Color Controls
 			 */
-			$colorDefaults = eviewp_get_color_defaults();
+			$color_defaults = eviewp_get_color_defaults();
 
 			// Primary Color.
 			$wp_customize->add_setting(
 				'primary_color',
 				array(
-					'default'           => $colorDefaults['primary_color'],
-					'sanitize_callback' => 'sanitize_hex_color'
+					'default'           => $color_defaults['primary_color'],
+					'sanitize_callback' => 'sanitize_hex_color',
 				)
 			);
 
@@ -111,7 +123,7 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 			$wp_customize->add_setting(
 				'secondary_color',
 				array(
-					'default'           => $colorDefaults['secondary_color'],
+					'default'           => $color_defaults['secondary_color'],
 					'sanitize_callback' => 'sanitize_hex_color',
 					'transport'         => 'postMessage',
 				)
@@ -128,11 +140,11 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 				)
 			);
 
-			// Link Color
+			// Link color.
 			$wp_customize->add_setting(
 				'link_color',
 				array(
-					'default'           => $colorDefaults['link_color'],
+					'default'           => $color_defaults['link_color'],
 					'sanitize_callback' => 'sanitize_hex_color',
 					'transport'         => 'postMessage',
 				)
@@ -153,7 +165,7 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 			$wp_customize->add_setting(
 				'bg_color',
 				array(
-					'default'           => $colorDefaults['bg_color'],
+					'default'           => $color_defaults['bg_color'],
 					'sanitize_callback' => 'sanitize_hex_color',
 					'transport'         => 'postMessage',
 				)
@@ -169,12 +181,12 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 					)
 				)
 			);
-			
+
 			// Header Background Color.
 			$wp_customize->add_setting(
 				'header_background_color',
 				array(
-					'default'           => $colorDefaults['header_background_color'],
+					'default'           => $color_defaults['header_background_color'],
 					'sanitize_callback' => 'sanitize_hex_color',
 					'transport'         => 'postMessage',
 				)
@@ -191,11 +203,11 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 				)
 			);
 
-			// Header Logo Color
+			// Header logo color.
 			$wp_customize->add_setting(
 				'header_logo_color',
 				array(
-					'default'           => $colorDefaults['header_logo_color'],
+					'default'           => $color_defaults['header_logo_color'],
 					'sanitize_callback' => 'sanitize_hex_color',
 					'transport'         => 'postMessage',
 				)
@@ -212,11 +224,11 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 				)
 			);
 
-			// Tagline Color
+			// Tagline color.
 			$wp_customize->add_setting(
 				'tagline_color',
 				array(
-					'default'           => $colorDefaults['tagline_color'],
+					'default'           => $color_defaults['tagline_color'],
 					'sanitize_callback' => 'sanitize_hex_color',
 					'transport'         => 'postMessage',
 				)
@@ -233,11 +245,11 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 				)
 			);
 
-			// Header Links Color
+			// Header links color.
 			$wp_customize->add_setting(
 				'header_links_color',
 				array(
-					'default'           => $colorDefaults['header_links_color'],
+					'default'           => $color_defaults['header_links_color'],
 					'sanitize_callback' => 'sanitize_hex_color',
 					'transport'         => 'postMessage',
 				)
@@ -258,7 +270,7 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 			$wp_customize->add_setting(
 				'footer_background_color',
 				array(
-					'default'           => $colorDefaults['footer_background_color'],
+					'default'           => $color_defaults['footer_background_color'],
 					'sanitize_callback' => 'sanitize_hex_color',
 					'transport'         => 'postMessage',
 				)
@@ -279,7 +291,7 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 			$wp_customize->add_setting(
 				'footer_text_color',
 				array(
-					'default'           => $colorDefaults['footer_text_color'],
+					'default'           => $color_defaults['footer_text_color'],
 					'sanitize_callback' => 'sanitize_hex_color',
 					'transport'         => 'postMessage',
 				)
@@ -300,7 +312,7 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 			$wp_customize->add_setting(
 				'heading_color',
 				array(
-					'default'           => $colorDefaults['heading_color'],
+					'default'           => $color_defaults['heading_color'],
 					'sanitize_callback' => 'sanitize_hex_color',
 					'transport'         => 'postMessage',
 				)
@@ -330,7 +342,7 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 				)
 			);
 
-			// Enable Header Search
+			// Enable header search.
 			$wp_customize->add_setting(
 				'enable_header_search',
 				array(
@@ -343,13 +355,13 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 			$wp_customize->add_control(
 				'enable_header_search',
 				array(
-					'type'     => 'checkbox',
-					'section'  => 'options',
-					'label'    => __( 'Show search in header', 'eviewp' ),
+					'type'    => 'checkbox',
+					'section' => 'options',
+					'label'   => __( 'Show search in header', 'eviewp' ),
 				)
 			);
 
-			// Mobile search
+			// Mobile search.
 			$wp_customize->add_setting(
 				'enable_header_search_mobile',
 				array(
@@ -362,28 +374,28 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 			$wp_customize->add_control(
 				'enable_header_search_mobile',
 				array(
-					'type'     => 'checkbox',
-					'section'  => 'options',
-					'label'    => __( 'Show search in header (mobile)', 'eviewp' ),
+					'type'    => 'checkbox',
+					'section' => 'options',
+					'label'   => __( 'Show search in header (mobile)', 'eviewp' ),
 				)
 			);
 
-			// Container Width
+			// Container width.
 			$wp_customize->add_setting(
 				'container_width',
 				array(
-					'default' => $defaults['container_width'],
-					'transport' => 'postMessage',
-					'sanitize_callback' => array( __CLASS__, 'sanitize_number_range' )
+					'default'           => $defaults['container_width'],
+					'transport'         => 'postMessage',
+					'sanitize_callback' => array( __CLASS__, 'sanitize_number_range' ),
 				)
 			);
-			
+
 			$wp_customize->add_control(
 				'container_width',
 				array(
-					'type' => 'number',
-					'section' => 'options',
-					'label' => __( 'Container Width (px)', 'eviewp' ),
+					'type'        => 'number',
+					'section'     => 'options',
+					'label'       => __( 'Container Width (px)', 'eviewp' ),
 					'input_attrs' => array(
 						'min'  => 720,
 						'max'  => 1920,
@@ -392,7 +404,7 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 				)
 			);
 
-			// Enable excerpt
+			// Enable excerpt.
 			$wp_customize->add_setting(
 				'enable_excerpt',
 				array(
@@ -405,28 +417,28 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 			$wp_customize->add_control(
 				'enable_excerpt',
 				array(
-					'type'     => 'checkbox',
-					'section'  => 'options',
-					'label'    => __( 'Enable Excerpt', 'eviewp' ),
+					'type'    => 'checkbox',
+					'section' => 'options',
+					'label'   => __( 'Enable Excerpt', 'eviewp' ),
 				)
 			);
 
-			// Excerpt Length
+			// Excerpt length.
 			$wp_customize->add_setting(
 				'excerpt_lines',
 				array(
-					'default' => $defaults['excerpt_lines'],
-					'transport' => 'postMessage',
-					'sanitize_callback' => array( __CLASS__, 'sanitize_number_range' )
+					'default'           => $defaults['excerpt_lines'],
+					'transport'         => 'postMessage',
+					'sanitize_callback' => array( __CLASS__, 'sanitize_number_range' ),
 				)
 			);
-			
+
 			$wp_customize->add_control(
 				'excerpt_lines',
 				array(
-					'type' => 'number',
-					'section' => 'options',
-					'label' => __( 'Excerpt Lines', 'eviewp' ),
+					'type'        => 'number',
+					'section'     => 'options',
+					'label'       => __( 'Excerpt Lines', 'eviewp' ),
 					'input_attrs' => array(
 						'min'  => 1,
 						'max'  => 12,
@@ -451,8 +463,8 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 			$wp_customize->add_setting(
 				'post_sidebar',
 				array(
-					'default' => $defaults['post_sidebar'],
-					'transport' => 'refresh',
+					'default'           => $defaults['post_sidebar'],
+					'transport'         => 'refresh',
 					'sanitize_callback' => array( __CLASS__, 'sanitize_select' ),
 				)
 			);
@@ -460,22 +472,22 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 			$wp_customize->add_control(
 				'post_sidebar',
 				array(
-					'label' => __( 'Post Sidebar', 'eviewp' ),
+					'label'   => __( 'Post Sidebar', 'eviewp' ),
 					'section' => 'sidebar_options',
-					'type' => 'select',
+					'type'    => 'select',
 					'choices' => array(
-						'sidebar-none' => 'None',
-						'sidebar-left' => 'Left',
+						'sidebar-none'  => 'None',
+						'sidebar-left'  => 'Left',
 						'sidebar-right' => 'Right',
-					)
+					),
 				)
 			);
 
 			$wp_customize->add_setting(
 				'page_sidebar',
 				array(
-					'default' => $defaults['page_sidebar'],
-					'transport' => 'refresh',
+					'default'           => $defaults['page_sidebar'],
+					'transport'         => 'refresh',
 					'sanitize_callback' => array( __CLASS__, 'sanitize_select' ),
 				)
 			);
@@ -483,22 +495,22 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 			$wp_customize->add_control(
 				'page_sidebar',
 				array(
-					'label' => __( 'Page Sidebar', 'eviewp' ),
+					'label'   => __( 'Page Sidebar', 'eviewp' ),
 					'section' => 'sidebar_options',
-					'type' => 'select',
+					'type'    => 'select',
 					'choices' => array(
-						'sidebar-none' => 'None',
-						'sidebar-left' => 'Left',
+						'sidebar-none'  => 'None',
+						'sidebar-left'  => 'Left',
 						'sidebar-right' => 'Right',
-					)
+					),
 				)
 			);
 
 			$wp_customize->add_setting(
 				'archive_sidebar',
 				array(
-					'default' => $defaults['archive_sidebar'],
-					'transport' => 'refresh',
+					'default'           => $defaults['archive_sidebar'],
+					'transport'         => 'refresh',
 					'sanitize_callback' => array( __CLASS__, 'sanitize_select' ),
 				)
 			);
@@ -506,33 +518,33 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 			$wp_customize->add_control(
 				'archive_sidebar',
 				array(
-					'label' => __( 'Archive Sidebar', 'eviewp' ),
+					'label'   => __( 'Archive Sidebar', 'eviewp' ),
 					'section' => 'sidebar_options',
-					'type' => 'select',
+					'type'    => 'select',
 					'choices' => array(
-						'sidebar-none' => 'None',
-						'sidebar-left' => 'Left',
+						'sidebar-none'  => 'None',
+						'sidebar-left'  => 'Left',
 						'sidebar-right' => 'Right',
-					)
+					),
 				)
 			);
 
-			// Sidebar Width
+			// Sidebar width.
 			$wp_customize->add_setting(
 				'sidebar_width',
 				array(
-					'default' => $defaults['sidebar_width'],
-					'transport' => 'postMessage',
-					'sanitize_callback' => array( __CLASS__, 'sanitize_number_range' )
+					'default'           => $defaults['sidebar_width'],
+					'transport'         => 'postMessage',
+					'sanitize_callback' => array( __CLASS__, 'sanitize_number_range' ),
 				)
 			);
-			
+
 			$wp_customize->add_control(
 				'sidebar_width',
 				array(
-					'type' => 'number',
-					'section' => 'sidebar_options',
-					'label' => __( 'Sidebar Width (px)', 'eviewp' ),
+					'type'        => 'number',
+					'section'     => 'sidebar_options',
+					'label'       => __( 'Sidebar Width (px)', 'eviewp' ),
 					'input_attrs' => array(
 						'min'  => 200,
 						'max'  => 600,
@@ -544,6 +556,9 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 
 		/**
 		 * Sanitize boolean for checkbox.
+		 *
+		 * @param mixed $checked Submitted checkbox value.
+		 * @return bool Sanitized checkbox value.
 		 */
 		public static function sanitize_checkbox( $checked ) {
 			return (bool) $checked;
@@ -551,6 +566,10 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 
 		/**
 		 * Sanitize a numeric setting against its control constraints.
+		 *
+		 * @param mixed                $number  Submitted numeric value.
+		 * @param WP_Customize_Setting $setting Customizer setting instance.
+		 * @return int Sanitized value constrained to the control range.
 		 */
 		public static function sanitize_number_range( $number, $setting ) {
 			$number  = absint( $number );
@@ -570,9 +589,13 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 
 		/**
 		 * Sanitize select field.
+		 *
+		 * @param mixed                $input   Submitted option value.
+		 * @param WP_Customize_Setting $setting Customizer setting instance.
+		 * @return string Sanitized allowed value or the setting default.
 		 */
 		public static function sanitize_select( $input, $setting ) {
-			$input = sanitize_text_field( $input );
+			$input   = sanitize_text_field( $input );
 			$control = $setting->manager->get_control( $setting->id );
 
 			if ( $control && array_key_exists( $input, $control->choices ) ) {
@@ -581,7 +604,6 @@ if ( ! class_exists( 'EvieWP_Customize' ) ) {
 
 			return $setting->default;
 		}
-		
 	}
 
 	// Setup the Theme Customizer settings and controls.

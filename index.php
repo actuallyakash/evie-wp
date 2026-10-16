@@ -17,7 +17,8 @@ get_header();
 
 	<main id="primary" class="site-main container">
 
-		<?php if ( have_posts() ) :
+		<?php
+		if ( have_posts() ) :
 
 			if ( is_home() && ! is_front_page() ) :
 				?>
@@ -26,14 +27,14 @@ get_header();
 				</header>
 				<?php
 			endif;
-		?>
+			?>
 
 		<div class="app__inner app <?php echo esc_attr( eviewp_get_option( 'defaults', 'archive_sidebar' ) ); ?>">
 
 			<?php
-				if ( eviewp_get_option( 'defaults', 'archive_sidebar' ) !== 'sidebar-none' ) {
-					get_sidebar();
-				}
+			if ( eviewp_get_option( 'defaults', 'archive_sidebar' ) !== 'sidebar-none' ) {
+				get_sidebar();
+			}
 			?>
 
 			<div class="main-section">
@@ -62,7 +63,7 @@ get_header();
 			</div>
 		</div>
 
-		<?php
+			<?php
 
 		else :
 

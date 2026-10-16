@@ -15,9 +15,9 @@ get_header();
 		<?php
 		while ( have_posts() ) :
 			the_post();
-			
+
 			get_template_part( 'template-parts/content', 'header' );
-			
+
 			?>
 			
 			<div class="container text-container text-container--center">
@@ -26,9 +26,9 @@ get_header();
 				<div class="app__inner <?php echo esc_attr( eviewp_get_option( 'defaults', 'post_sidebar' ) ); ?>">
 					
 					<?php
-						if ( eviewp_get_option( 'defaults', 'post_sidebar' ) !== 'sidebar-none' ) {
-							get_sidebar();
-						}
+					if ( eviewp_get_option( 'defaults', 'post_sidebar' ) !== 'sidebar-none' ) {
+						get_sidebar();
+					}
 					?>
 
 					<div class="app__main">
@@ -45,9 +45,9 @@ get_header();
 					
 					<span class="about-heading"><?php esc_html_e( 'About Author', 'eviewp' ); ?></span>
 
-					<h4><a href="<?php echo esc_url(  get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" title="Posts by <?php echo esc_html( get_the_author() ); ?>" rel="author"> <?php echo esc_html( get_the_author() ); ?> </a></h4>
+					<h4><a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" title="Posts by <?php echo esc_html( get_the_author() ); ?>" rel="author"> <?php echo esc_html( get_the_author() ); ?> </a></h4>
 
-					<?php if( get_the_author_meta( 'description' ) ) : ?>
+					<?php if ( get_the_author_meta( 'description' ) ) : ?>
 						<p><?php echo wp_kses_post( nl2br( esc_html( get_the_author_meta( 'description' ) ) ) ); ?></p>
 					<?php endif; ?>
 					
@@ -55,7 +55,7 @@ get_header();
 
 				<?php
 				eviewp_singular_pagination();
-				
+
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( comments_open() || get_comments_number() ) :
 					comments_template();
@@ -65,7 +65,7 @@ get_header();
 			</div>
 
 			<?php
-			
+
 		endwhile; // End of the loop.
 		?>
 

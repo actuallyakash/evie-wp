@@ -1,104 +1,63 @@
-<h1 align="center">
-  Evie - WordPress
-</h1>
+# EvieWP
 
-A production-ready and minimal theme for your projects and websites. It is extremely lightweight, customizable, and works perfectly on modern browsers. Install the theme from WordPress and start customizing your site quickly.
+EvieWP is a lightweight classic WordPress theme for blogs and content-focused sites. Version 1.1 modernizes the original theme for WordPress 7.1 while preserving its visual character and Customizer workflow.
 
-<blockquote>
-	<h4>Check out <a target="_blank" href="https://github.com/actuallyakash/evie-gatsby/">Evie - Gatsby</a>, if you're looking for a React Based Gatsby Theme.</h4>
-</blockquote>
+## Requirements
 
+- WordPress 6.6 or newer
+- PHP 7.4 or newer
+- WordPress 7.1 and PHP 8.3+ are recommended for production
 
-## 🖼 Demo & Packages
+## Features
 
-- [Check here](https://eviewp.wpdevcloud.com/)
-- [Official Theme at WordPress](https://wordpress.org/themes/eviewp/)
+- Responsive single-level primary navigation
+- Accessible search dialog and keyboard navigation
+- Left, right, or disabled sidebars for posts, pages, and archives
+- Customizer controls for colors, sizing, excerpts, and layout
+- Block editor styles, wide/full alignment, and responsive embeds
+- A reusable callout block pattern and card-style Group variation
+- RTL and print styles
+- Featured images, author cards, pagination, threaded comments, and widgets
+- No front-end JavaScript or PHP runtime dependencies
 
+## Installation
 
-## ⭕ Note
-Only one level menu is supported at the moment.
+1. Copy the `evie-wp` directory to `wp-content/themes/`.
+2. Activate **EvieWP** from **Appearance → Themes**.
+3. Configure the primary menu, widgets, logo, colors, and layout in the Customizer.
 
+Only one level of navigation is supported.
 
-## ⏬ Installation
+## Development
 
-1. Download the theme from [WordPress](https://wordpress.org/themes/eviewp/) or download from here and upload it in your **WP Panel** > **Appearance** > **Themes** > **Add New**
-2. Activate the theme
+Install the development dependencies:
 
-## 💳 Licenses & Credits
+```bash
+composer install
+npm install
+```
 
-- Evie by unDraw  
-Licence: https://opensource.org/licenses/MIT  
-Source: https://evie.undraw.co/  
+Run all static checks:
 
-- FontAwesome  
-FontAwesome Free is free, open source, and GPL friendly.  
-License: CC BY 4.0, Fonts: SIL OFL 1.1,  
-Code Licence: MIT License - (https://fontawesome.com/license/free)  
-Source: https://fontawesome.com  
+```bash
+composer phpcs
+npm run lint
+```
 
-- normalize.css  
-Licence: https://opensource.org/licenses/MIT  
-Source: https://github.com/necolas/normalize.css  
+The production theme package should exclude the files listed in `.distignore`.
 
-- Underscores  
-Licence: [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)  
-Source: https://underscores.me/, (C) 2012-2019 Automattic, Inc.,
+## Compatibility
 
-## 📃 Changelog  
+EvieWP 1.1 is tested against WordPress 7.1 and PHP 7.4 through PHP 8.4. See [CHANGELOG.md](CHANGELOG.md) for the modernization details.
 
-### v1.0.15
-- Fixed code conflicts
+## Credits
 
-### v1.0.14
-- Fixed styling overlapping issue
+- [Evie](https://github.com/anges244/evie) — MIT
+- [Font Awesome Free](https://fontawesome.com/) — Icons: CC BY 4.0; fonts: SIL OFL 1.1; code: MIT
+- [Bootstrap grid](https://getbootstrap.com/) — MIT
+- [normalize.css](https://github.com/necolas/normalize.css) — MIT
+- [Underscores](https://underscores.me/) — GPL-2.0-or-later
 
-### v1.0.13
-- Fixed customizer settings bug
+## License
 
-### v1.0.12
-- Updated readme
-
-### v1.0.11
-- Fixed tabbing issue on menu navigation
-
-### v1.0.10
-- Fixed focus issue on Esc key press on search bar
-
-### v1.0.9
-- Fixed search modal focus and tabbing issues
-
-### v1.0.8
-- Fixed search modal focus issues
-
-### v1.0.7
-- Added trac suggestion fixes
-
-### v1.0.6
-- Added trac suggestion fixes
-- Escaped eviewpGetOption() output
-
-### v1.0.5
-- Added trac suggestion fixes
-- Fixed navbar top spacing issue
-
-### v1.0.4
-- Added trac suggestion fixes
-- Fixed JS console errors
-- Added Licence info for code snippets
-- Fixed issue with navbar hamburger control
-
-### v1.0.3
-- Added trac suggestion fixes
-- Fixed navbar styling for accessibility  
-
-### v1.0.2
-- Added trac suggestion fixes
-- Updated screenshot
-
-### v1.0.1
-- Added trac suggestion fixes
-- Updated screenshot
-- Fixed styling issues with sidebar and tab navigation 
-
-### v1.0.0
-- Initial release  
+EvieWP is licensed under the [GNU GPL v2 or later](LICENSE).

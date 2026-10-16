@@ -37,10 +37,10 @@ if ( ! class_exists( 'EvieWP_Walker_Comment' ) ) {
 
 					<div class="comment-header">
 						<?php
-						$comment_author     = get_comment_author( $comment );
-						$avatar             = get_avatar( $comment, $args['avatar_size'] );
+						$comment_author = get_comment_author( $comment );
+						$avatar         = get_avatar( $comment, $args['avatar_size'] );
 						/* translators: 1: comment date 2: comment time */
-						$comment_timestamp 	= sprintf( __( '%1$s at %2$s', 'eviewp' ), get_comment_date( '', $comment ), get_comment_time() );
+						$comment_timestamp = sprintf( __( '%1$s at %2$s', 'eviewp' ), get_comment_date( '', $comment ), get_comment_time() );
 						?>
 						
 						<div class="author-img">
@@ -50,7 +50,7 @@ if ( ! class_exists( 'EvieWP_Walker_Comment' ) ) {
 							<h6 class="author">
 								<?php
 								echo esc_html( $comment_author );
-								
+
 								if ( eviewp_is_comment_by_post_author( $comment ) ) {
 									echo '<span class="author-tag">' . esc_html__( 'Author', 'eviewp' ) . '</span>';
 								}
@@ -81,7 +81,7 @@ if ( ! class_exists( 'EvieWP_Walker_Comment' ) ) {
 									)
 								)
 							);
-		
+
 							if ( $comment_reply_link || $by_post_author ) {
 
 								if ( $comment_reply_link ) {
@@ -92,7 +92,6 @@ if ( ! class_exists( 'EvieWP_Walker_Comment' ) ) {
 								if ( get_edit_comment_link() ) {
 									echo '<span class="dashicons dashicons-edit"></span> <a class="comment-edit-link" href="' . esc_url( get_edit_comment_link() ) . '">' . esc_html__( 'Edit', 'eviewp' ) . '</a>';
 								}
-
 							}
 							?>
 						</span>

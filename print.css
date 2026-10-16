@@ -136,10 +136,6 @@ Andreas Hecht in https://www.jotform.com/blog/css-perfect-print-stylesheet-98272
         content: "";
     }
 
-    a:not(:local-link):after {
-        content: " < "attr(href) "> ";
-    }
-
     /* Visibility */
 
     #site-header,

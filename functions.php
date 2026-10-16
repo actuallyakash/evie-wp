@@ -162,7 +162,16 @@ function eviewp_scripts() {
 
 	wp_enqueue_style( 'eviewp-print', get_template_directory_uri() . '/print.css', array(), EVIEWP_VERSION, 'print' );
 
-	wp_enqueue_script( 'eviewp-theme', get_template_directory_uri() . '/assets/js/theme.js', array(), EVIEWP_VERSION, array( 'strategy' => 'defer', 'in_footer' => false ) );
+	wp_enqueue_script(
+		'eviewp-theme',
+		get_template_directory_uri() . '/assets/js/theme.js',
+		array(),
+		EVIEWP_VERSION,
+		array(
+			'strategy'  => 'defer',
+			'in_footer' => false,
+		)
+	);
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -186,6 +195,11 @@ require get_template_directory() . '/inc/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
+
+/**
+ * Block patterns and styles.
+ */
+require get_template_directory() . '/inc/block-patterns.php';
 
 /**
  * Custom comment walker.

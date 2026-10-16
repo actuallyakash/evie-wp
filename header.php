@@ -31,31 +31,35 @@
 
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 				<?php
-					if ( has_custom_logo() ) {
-						$custom_logo_id = get_theme_mod( 'custom_logo' );
-						$custom_logo_url = wp_get_attachment_image_url( $custom_logo_id , 'full' );
-						echo '<img class="custom__logo" src="' . esc_url( $custom_logo_url ) . '" alt="' . esc_attr( get_bloginfo( 'name' ) ) . '">';
-					} else {
-						echo "<span class='navbar__logo'>" . esc_html( get_bloginfo( 'name' ) ) . "</span>";
-					}
+				if ( has_custom_logo() ) {
+					$custom_logo_id  = get_theme_mod( 'custom_logo' );
+					$custom_logo_url = wp_get_attachment_image_url( $custom_logo_id, 'full' );
+					echo '<img class="custom__logo" src="' . esc_url( $custom_logo_url ) . '" alt="' . esc_attr( get_bloginfo( 'name' ) ) . '">';
+				} else {
+					echo "<span class='navbar__logo'>" . esc_html( get_bloginfo( 'name' ) ) . '</span>';
+				}
 
-					if ( ! get_theme_mod( 'hide_tagline', false ) ) {
-						$eviewp_description = get_bloginfo( 'description', 'display' );
-						if ( $eviewp_description || is_customize_preview() ) : ?>
+				if ( ! get_theme_mod( 'hide_tagline', false ) ) {
+					$eviewp_description = get_bloginfo( 'description', 'display' );
+					if ( $eviewp_description || is_customize_preview() ) :
+						?>
 							<small class="site__description"><?php echo esc_html( $eviewp_description ); ?></small>
-						<?php endif;
-					}
-					
+						<?php
+						endif;
+				}
+
 				?>
 				</a>
 				
 				<div class="navbar-container">
 					<?php
-					wp_nav_menu( array(
-						'menu_class'        => "navbar__menu", // (string) CSS class to use for the ul element which forms the menu. Default 'menu'.
-						'menu_id'           => "primary-menu", // (string) The ID that is applied to the ul element which forms the menu. Default is the menu slug, incremented.
-						'theme_location'    => "menu-1", // (string) Theme location to be used. Must be registered with register_nav_menu() in order to be selectable by the user.
-					) );
+					wp_nav_menu(
+						array(
+							'menu_class'     => 'navbar__menu', // (string) CSS class to use for the ul element which forms the menu. Default 'menu'.
+							'menu_id'        => 'primary-menu', // (string) The ID that is applied to the ul element which forms the menu. Default is the menu slug, incremented.
+							'theme_location' => 'menu-1', // (string) Theme location to be used. Must be registered with register_nav_menu() in order to be selectable by the user.
+						)
+					);
 					?>
 
 					<?php if ( eviewp_get_option( 'defaults', 'enable_header_search' ) ) : ?>

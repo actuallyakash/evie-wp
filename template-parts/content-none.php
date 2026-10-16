@@ -36,18 +36,22 @@
 				<section class="not-found center ">
 
 					<h3>
-					<?php if ( is_search() ) {
+					<?php
+					if ( is_search() ) {
 						esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'eviewp' );
 					} else {
 						esc_html_e( 'The page you were looking for doesn\'t exist.', 'eviewp' );
-					} ?>
+					}
+					?>
 					</h3>
 
 					<p><?php esc_html_e( 'Go Back to ', 'eviewp' ); ?><a class="stress link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 
-					<?php if ( is_search() ) {
-						get_search_form(); 
-					} ?>
+					<?php
+					if ( is_search() ) {
+						get_search_form();
+					}
+					?>
 				</section>
 				
 			</main>
@@ -64,5 +68,3 @@
 		?>
 	</div><!-- .page-content -->
 </section><!-- .no-results -->
-
-<?php wp_footer(); ?>

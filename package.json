@@ -1,0 +1,15 @@
+{
+  "name": "eviewp",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Development tooling for the EvieWP WordPress theme.",
+  "scripts": {
+    "lint:js": "eslint assets/js/theme.js",
+    "lint:css": "stylelint \"style.css\" \"rtl.css\" \"print.css\" \"assets/css/editor-style.css\"",
+    "lint": "npm run lint:js && npm run lint:css"
+  },
+  "devDependencies": {
+    "eslint": "^10.10.0",
+    "stylelint": "^17.16.0"
+  }
+}

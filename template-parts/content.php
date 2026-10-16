@@ -22,7 +22,7 @@
 
 			if ( 'post' === get_post_type() ) :
 				eviewp_posted_on();
-			endif; 
+			endif;
 			?>
 		</div>
 		
@@ -30,14 +30,14 @@
 		<div class="post__content">
 			
 			<?php
-			if( get_the_title() ) {
+			if ( get_the_title() ) {
 				the_title( '<h3 class="post__heading"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
 			} else {
 				echo '<h3 class="post__heading"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">...</a></h3>';
 			}
 			?>
 			
-			<?php if ( eviewp_get_option('defaults', 'enable_excerpt' ) ) { ?>
+			<?php if ( eviewp_get_option( 'defaults', 'enable_excerpt' ) ) { ?>
 				<a href="<?php echo esc_url( get_permalink() ); ?>">
 					<p class="excerpt"> <?php echo esc_html( substr( get_the_excerpt(), 0, 260 ) ); ?> </p>
 				</a>
@@ -48,9 +48,11 @@
 			<div class="user__img__container">
 					<img src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 450 ) ) ); ?>" alt="">
 			</div>
-			<?php if ( 'post' === get_post_type() ) :
+			<?php
+			if ( 'post' === get_post_type() ) :
 				eviewp_posted_by();
-			endif; ?>
+			endif;
+			?>
 		</div>
 
 	</div>
@@ -60,6 +62,6 @@
 </article>
 
 <?php
-// Clearfix Fix
-echo ( ( $wp_query->current_post + 1 ) % 3 == 0 ) ? '<div class="clearfix"></div>' : '';
+// Add a clearfix after every third post.
+echo ( ( $wp_query->current_post + 1 ) % 3 === 0 ) ? '<div class="clearfix"></div>' : '';
 ?>

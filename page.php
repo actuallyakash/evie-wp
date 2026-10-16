@@ -20,9 +20,9 @@ get_header();
 		<?php
 		while ( have_posts() ) :
 			the_post();
-			
-			get_template_part( 'template-parts/content', 'header' ); 
-			
+
+			get_template_part( 'template-parts/content', 'header' );
+
 			?>
 
 			<div id="post-<?php the_ID(); ?>" <?php post_class( 'page container text-container text-container--center' ); ?>>
@@ -30,14 +30,14 @@ get_header();
 				<div class="page__inner <?php echo esc_attr( eviewp_get_option( 'defaults', 'page_sidebar' ) ); ?>">
 
 					<?php
-						if ( eviewp_get_option( 'defaults', 'page_sidebar' ) !== 'sidebar-none' ) {
-							get_sidebar();
-						}
+					if ( eviewp_get_option( 'defaults', 'page_sidebar' ) !== 'sidebar-none' ) {
+						get_sidebar();
+					}
 					?>
 
 					<div class="page__main">
 						
-						<?php 
+						<?php
 							the_content();
 
 							wp_link_pages(
@@ -46,8 +46,9 @@ get_header();
 									'after'  => '</div>',
 								)
 							);
-						
-						if ( get_edit_post_link() ) : ?>
+
+						if ( get_edit_post_link() ) :
+							?>
 							<footer class="entry-footer">
 								<?php
 								edit_post_link(

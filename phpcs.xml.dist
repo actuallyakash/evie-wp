@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ruleset name="EvieWP">
+	<description>WordPress coding standards for the EvieWP theme.</description>
+
+	<file>.</file>
+	<exclude-pattern>/node_modules/*</exclude-pattern>
+	<exclude-pattern>/vendor/*</exclude-pattern>
+	<exclude-pattern>/assets/webfonts/*</exclude-pattern>
+
+	<arg name="basepath" value="."/>
+	<arg name="colors"/>
+	<arg name="extensions" value="php"/>
+	<arg value="ps"/>
+
+	<config name="minimum_supported_wp_version" value="6.6"/>
+
+	<rule ref="WordPress">
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+		<exclude name="WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid"/>
+		<!-- The Customizer class and its WordPress callback functions intentionally share one file. -->
+		<exclude name="Universal.Files.SeparateFunctionsFromOO.Mixed"/>
+	</rule>
+</ruleset>
