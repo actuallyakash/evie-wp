@@ -9,6 +9,12 @@
  * Print Customizer values as CSS custom properties and rules.
  */
 function eviewp_customizer_css() {
+	$container_width = absint( eviewp_get_option( 'defaults', 'container_width' ) );
+
+	if ( $container_width < 720 ) {
+		$container_width = 1335;
+	}
+
 	?>
 
 	<style type="text/css">
@@ -25,7 +31,7 @@ function eviewp_customizer_css() {
 			--evie_footer_background_color: <?php echo esc_html( sanitize_hex_color( eviewp_get_option( 'colors', 'footer_background_color' ) ) ); ?>;
 			--evie_footer_text_color: <?php echo esc_html( sanitize_hex_color( eviewp_get_option( 'colors', 'footer_text_color' ) ) ); ?>;
 			--evie_heading_color: <?php echo esc_html( sanitize_hex_color( eviewp_get_option( 'colors', 'heading_color' ) ) ); ?>;
-			--evie_container_width: <?php echo absint( eviewp_get_option( 'defaults', 'container_width' ) ) . 'px'; ?>;
+			--evie_container_width: <?php echo esc_html( $container_width . 'px' ); ?>;
 			--evie_sidebar_width: <?php echo absint( eviewp_get_option( 'defaults', 'sidebar_width' ) ) . 'px'; ?>;
 			--evie_logo_size: <?php echo absint( eviewp_get_option( 'defaults', 'logo_size' ) ) . 'px'; ?>;
 		}

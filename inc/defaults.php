@@ -22,7 +22,7 @@ if ( ! function_exists( 'eviewp_get_defaults' ) ) {
 
 				'enable_header_search'        => true,
 				'enable_header_search_mobile' => true,
-				'container_width'             => '',
+				'container_width'             => '1335',
 				'enable_excerpt'              => true,
 				'excerpt_lines'               => 3,
 

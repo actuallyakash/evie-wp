@@ -26,6 +26,7 @@ All notable changes to EvieWP are documented here.
 - Corrected decorative avatar alternative text and search form labeling.
 - Corrected duplicate footer hooks on 404 and empty-search templates.
 - Preserved modal styling for WordPress-generated search form fields.
+- Prevented an unset legacy container-width option from collapsing desktop layouts.
 
 ### Developer experience
 
