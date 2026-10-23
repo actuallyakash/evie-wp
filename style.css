@@ -2028,9 +2028,18 @@ form.search-form {
 }
 
 .modal .close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex: 0 0 44px;
   width: 44px;
   height: 44px;
+}
+
+.modal .close svg {
+  display: block;
+  width: 24px;
+  height: 24px;
 }
 
 @media (max-width: 600px) {

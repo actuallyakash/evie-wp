@@ -96,7 +96,9 @@ function eviewp_search_modal() {
 		<div class="modal-content">
 			<h2 id="eviewp-search-title" class="screen-reader-text"><?php esc_html_e( 'Search this site', 'eviewp' ); ?></h2>
 			<?php get_search_form( array( 'aria_label' => esc_attr__( 'Search this site', 'eviewp' ) ) ); ?>
-			<button type="button" class="close" aria-label="<?php echo esc_attr__( 'Close search', 'eviewp' ); ?>">&times;</button>
+			<button type="button" class="close" aria-label="<?php echo esc_attr__( 'Close search', 'eviewp' ); ?>">
+				<svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18" /></svg>
+			</button>
 		</div>
 	</div>
 	<?php

@@ -30,6 +30,7 @@ All notable changes to EvieWP are documented here.
 - Allowed desktop post grids to fill the available width with or without a sidebar.
 - Prevented desktop page content from collapsing around container-responsive plugin interfaces.
 - Aligned header controls, corrected search dialog spacing and focus, and repaired mobile navigation visibility and toggle icons.
+- Centered the search dialog close icon independently of font metrics.
 
 ### Developer experience
 
