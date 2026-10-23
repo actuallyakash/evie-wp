@@ -820,6 +820,11 @@ select::-ms-expand {
   display: flex;
 }
 
+.main-section {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
 .navbar {
   position: fixed;
   top: 0;
