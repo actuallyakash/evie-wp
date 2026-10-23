@@ -31,11 +31,11 @@
 		elseif ( is_search() || is_404() ) :
 			?>
 
-			<main id="primary" class="site-main container error-404">
+			<div class="container empty-state">
 
 				<section class="not-found center ">
 
-					<h3>
+					<h1>
 					<?php
 					if ( is_search() ) {
 						esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'eviewp' );
@@ -43,7 +43,7 @@
 						esc_html_e( 'The page you were looking for doesn\'t exist.', 'eviewp' );
 					}
 					?>
-					</h3>
+					</h1>
 
 					<p><?php esc_html_e( 'Go Back to ', 'eviewp' ); ?><a class="stress link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 
@@ -54,7 +54,7 @@
 					?>
 				</section>
 				
-			</main>
+			</div>
 
 			<?php
 		else :

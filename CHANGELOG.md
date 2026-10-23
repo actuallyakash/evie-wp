@@ -31,6 +31,8 @@ All notable changes to EvieWP are documented here.
 - Prevented desktop page content from collapsing around container-responsive plugin interfaces.
 - Aligned header controls, corrected search dialog spacing and focus, and repaired mobile navigation visibility and toggle icons.
 - Centered the search dialog close icon independently of font metrics.
+- Restored search-page footers and kept empty-search and 404 messages above the footer with a single main landmark.
+- Restored a keyboard-accessible native comment consent checkbox.
 
 ### Developer experience
 

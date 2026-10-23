@@ -1647,12 +1647,56 @@ aside.comment-box-wrap form {
   outline: 0;
 }
 
-/* 404 Page */
-.error-404 .not-found {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+/* Empty search and missing-page messages stay in the document flow. */
+.empty-state {
+  min-height: 60vh;
+  padding-top: 120px;
+  padding-bottom: 60px;
+}
+
+.empty-state .not-found {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.empty-state h1 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.empty-state .search-form {
+  gap: 12px;
+  align-items: stretch;
+}
+
+.empty-state .search-form > label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.empty-state .search-submit {
+  margin: 0;
+  padding: 0 16px;
+}
+
+.comment-form-cookies-consent input[type="checkbox"] {
+  position: static;
+  visibility: visible;
+  width: 16px;
+  height: 16px;
+  margin: 0 8px 0 0;
+  vertical-align: middle;
+  accent-color: var(--evie_primary_color, #6c63ff);
+}
+
+.comment-form-cookies-consent input[type="checkbox"] + label {
+  display: inline;
+  padding: 0;
+  height: auto;
+  line-height: 1.7;
+}
+
+.comment-form-cookies-consent input[type="checkbox"] + label::before {
+  content: none;
 }
 
 /* Search */
@@ -1660,10 +1704,6 @@ aside.comment-box-wrap form {
   width: 15px;
   margin-left: 16pt;
   margin-top: 3px;
-}
-
-.search footer {
-  display: none;
 }
 
 .navbar-container .search-btn {

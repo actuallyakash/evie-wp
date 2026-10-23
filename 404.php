@@ -9,6 +9,10 @@
 
 get_header();
 
-get_template_part( 'template-parts/content', 'none' );
+?>
+<main id="primary" class="site-main">
+	<?php get_template_part( 'template-parts/content', 'none' ); ?>
+</main>
+<?php
 
 get_footer();
