@@ -1753,7 +1753,8 @@ aside.comment-box-wrap form {
   }
 }
 
-.modal form .search-input {
+.modal form .search-input,
+.modal form .search-field {
   outline-offset: -4px;
   border: none;
   color: inherit;
@@ -1764,7 +1765,8 @@ aside.comment-box-wrap form {
   background: transparent;
 }
 
-.modal form .search-input:focus {
+.modal form .search-input:focus,
+.modal form .search-field:focus {
   outline: thin dotted;
 }
 
