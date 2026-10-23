@@ -24,7 +24,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
 
 	if ( searchModal && searchButtons.length ) {
 		const closeButton = searchModal.querySelector( '.close' );
-		const searchInput = searchModal.querySelector( '.search-input' );
+		const searchInput = searchModal.querySelector( '.search-field, .search-input' );
 		let searchTrigger = null;
 
 		function getModalControls() {
@@ -39,7 +39,9 @@ document.addEventListener( 'DOMContentLoaded', function () {
 				button.setAttribute( 'aria-expanded', 'true' );
 			} );
 			document.body.classList.add( 'eviewp-modal-open' );
-			searchInput.focus();
+			if ( searchInput ) {
+				searchInput.focus();
+			}
 		}
 
 		function closeSearch() {
@@ -111,8 +113,9 @@ document.addEventListener( 'DOMContentLoaded', function () {
 			mobileMenu.classList.toggle( 'closed', ! isOpen );
 			mobileMenu.setAttribute( 'aria-hidden', String( ! isOpen ) );
 			navToggle.setAttribute( 'aria-expanded', String( isOpen ) );
-			openIcon.hidden = isOpen;
-			closeIcon.hidden = ! isOpen;
+			openIcon.setAttribute( 'hidden', '' );
+			closeIcon.setAttribute( 'hidden', '' );
+			( isOpen ? closeIcon : openIcon ).removeAttribute( 'hidden' );
 			mobileLinks.forEach( function ( link ) {
 				if ( isOpen ) {
 					link.removeAttribute( 'tabindex' );
