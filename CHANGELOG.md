@@ -28,6 +28,7 @@ All notable changes to EvieWP are documented here.
 - Preserved modal styling for WordPress-generated search form fields.
 - Prevented an unset legacy container-width option from collapsing desktop layouts.
 - Allowed desktop post grids to fill the available width with or without a sidebar.
+- Prevented desktop page content from collapsing around container-responsive plugin interfaces.
 
 ### Developer experience
 
